@@ -1,0 +1,89 @@
+# Module Outline and General Info {#outline}
+
+## Teaching Staff and Communication Rules:
+
+**Module Coordinator:** Dr. Thiago Silva (thiago.sf.silva@stir.ac.uk) - Lecturer in Ecosystem Change and Environmental Informatics 
+
+**Tutor/demonstrator:** Ms. Jazz Rhoades- PhD Candidate
+
+Please follow the guidelines below for module-related communication: 
+
+- Any questions or comments regarding module content and assessments should be posted on the **Discussion** tab on CANVAS, so that answers are visible to everyone. **Questions of this nature sent via e-mail will not be replied to**.
+
+- Requests for extension on assignments should be submitted directly through CANVAS without the need to send a prior e-mail to the module coordinator.
+
+- Only questions regarding personal and/or sensitive issues related to the module should be sent directly by e-mail to the module coordinator. 
+
+## Intended Learning Outcomes (ILO's):
+
+By the end of this module, you should be able to:
+
+1. Select and apply appropriate GIS/EO functions based on spatial theory;
+2. Describe the physical principles underlying remote sensing in the optical and microwave domains and the respective uses of the data provided by these sensors;
+3. Critically differentiate sources and structures of geospatial datasets; 
+4. Analyse and visualise geospatial data using open source software and programming languages.
+
+## Attendance and Points of Contact
+
+Student attendance and engagement will be recorded by monitoring attendance or participation at designated *Points of Contact*.
+
+**_For this module, your Points of Contact are as follows:
+1. Lab practicals on Week 1 (Thu), Week 4 (Mon), Week 8 (Thu) 2. Lectures on
+Week 2, Week 9 _**
+
+## Class Schedule and Structure
+We will meet twice a week for practical sessions at the following times and locations:
+
+**Monday**  10:00h - 13:00h - Cottrell 3A146
+
+**Tuesday** 10:00h - 13:00h - Cottrell 3A146
+
+Most practical sessions will be structured as follows:
+
+- **10:00-11:00:** Discussion of recorded material with follow-along hands-on demonstrations of the tools and concepts by main instructor; 
+- **11:00-12:00:** Hands-on exercises following guidance provided by the module workbook, with instructor/tutor support available;
+- **12:00-13:00:** Independent work on an invidiual problem assignment (formative or summative), with tutor support available.
+
+## Assessment and Grading
+ 
+This module is assessed by coursework only. Coursework should be submitted in electronic format through CANVAS as responses to Quizzes or as a PDF. Assessment feedback will be given online via CANVAS, and standard penalties for late submission will apply. If you require an extension for any assessed work, please submit an extension request through CANVAS before the due date for the assignment.
+**_For the Extenuating Circumstances Form and the current BES Handbook can also
+be found here._**
+
+The final grade for this module will be based on a set of weekly summative hands-on problems, and on a final open-themed individual project:
+
+### 1) Hands-on problems (50% of final grade)
+
+At the end of every practical session, you will be assigned either a *formative* or *summative* hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. **Each summative assignment must be completed before the release date of the next summative
+assignment**. Formative assignments can be completed at any time.
+
+These assignments will assess ILOs 1, 3, and 4.
+
+### 2) Final individual project (50% of the final grade)
+
+You will be required to complete an individual piece of project work, following the guidelines provided here. The deliverable for this project will be a document to be formatted as a if it were a journal article to be submitted to a geomatics journal (no actual journal submission in necessary). Starting at week 11, all of your class time will be reserved for you to work on your project, with support from the instructor and tutor. The project is due at the last day of teaching for the semester.
+
+**This assessment is compulsory** (i.e. failure to submit these compulsory pieces of work will
+result in an X grade), and will assess ILO's 1-4.
+
+## Module Timetable and Important Dates 
+
+```{r timetable, echo = FALSE}
+library(knitr) 
+tt <- readRDS("ENMPG11_tt_2020.rds") 
+kable(tt, caption = "ENMPG Timetable - Spring2020")
+```
+
+## Recommended readings and support material
+
+## Other relevant information
+
+### Student attendance
+
+Please note that attendance at all practical classes is prescribed and support outside of timetabled hours cannot be guaranteed for students who fail to attend classes.
+Student attendance and engagement will be recorded by monitoring attendance or other participation at designated Academic Points of Contact detailed in the Module Outline. If a student fails to engage with one or more Academic Points of Contact, the module coordinator will contact the student to ascertain the reason for this and to encourage greater academic engagement. A list of acceptable and unacceptable reasons for absence can be found in the MSc Handbook. 
+
+You should familiarise yourself with the Handbook for other guidance and requirements including an outline of the Common Grading Scheme. The minimum grade to obtain a pass for a module is 50%. The overall mark for the module is calculated from the sum of weighted component marks rounded to the nearest whole number; a pass is not required in each component. This module mark represents a summary of performance on that module.
+
+All assignments are to be submitted electronically via CANVAS Quizzes or as PDFs. Work that is submitted late will be returned with no feedback and graded with an appropriate penalty (3% per day late). Work that is handed in more than 7 days late will achieve a zero grade. Under some circumstances as outlined in the Student Handbook, extensions to the deadline for submission may be granted. Requests for such extensions must be completed on the appropriate form in advance of the submission deadline and emailed to the Module Coordinator. Retrospective applications for
+extensions will not be granted. 
