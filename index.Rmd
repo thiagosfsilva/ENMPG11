@@ -18,11 +18,19 @@ description: "Workbook for the ENMPG11 Geomatics Graduate Module at University o
 
 Welcome to the ENMPG11 Geomatics module. This module provides an introduction to the basic concepts and principles of Geomatics, i.e. how to use Geographic Information Systems (GIS) and Earth Observation (EO) to perform spatial data analysis and visualisation. As Geomatics is best taught through hands-on practice, this module is based on the flipped classroom method, where you will be assigned videos and/or readings on a weekly basis, and then we will meet twice a week for computer-based practicals. In each practical class you will be taken through a number of exercises that will teach you fundamental skills in GIS and EO.
 
-## Teaching Staff:
+## Teaching Staff and Communication Rules:
 
-**Module Coordinator:** Dr. Thiago Silva - Lecturer in Ecosystem Change and Environmental Informatics
+**Module Coordinator:** Dr. Thiago Silva (thiago.sf.silva@stir.ac.uk) - Lecturer in Ecosystem Change and Environmental Informatics 
 
 **Tutor/demonstrator:** Ms. Jazz Rhoades- PhD Candidate
+
+Please follow the guidelines below for module-related communication: 
+
+- Any questions or comments regarding module content and assessments should be posted on the **Discussion** tab on CANVAS, so that answers are visible to everyone. **Questions of this nature sent via e-mail will not be replied to**.
+
+- Requests for extension on assignments should be submitted directly through CANVAS without the need to send a prior e-mail to the module coordinator.
+
+- Only questions regarding personal and/or sensitive issues related to the module should be sent directly by e-mail to the module coordinator. 
 
 ## Intended Learning Outcomes (ILO's):
 
@@ -83,3 +91,17 @@ library(knitr)
 tt <- readRDS("ENMPG11_tt_2020.rds") 
 kable(tt, caption = "ENMPG Timetable - Spring2020")
 ```
+
+## Recommended readings and support material
+
+## Other relevant information
+
+### Student attendance
+
+Please note that attendance at all practical classes is prescribed and support outside of timetabled hours cannot be guaranteed for students who fail to attend classes.
+Student attendance and engagement will be recorded by monitoring attendance or other participation at designated Academic Points of Contact detailed in the Module Outline. If a student fails to engage with one or more Academic Points of Contact, the module coordinator will contact the student to ascertain the reason for this and to encourage greater academic engagement. A list of acceptable and unacceptable reasons for absence can be found in the MSc Handbook. 
+
+You should familiarise yourself with the Handbook for other guidance and requirements including an outline of the Common Grading Scheme. The minimum grade to obtain a pass for a module is 50%. The overall mark for the module is calculated from the sum of weighted component marks rounded to the nearest whole number; a pass is not required in each component. This module mark represents a summary of performance on that module.
+
+All assignments are to be submitted electronically via CANVAS Quizzes or as PDFs. Work that is submitted late will be returned with no feedback and graded with an appropriate penalty (3% per day late). Work that is handed in more than 7 days late will achieve a zero grade. Under some circumstances as outlined in the Student Handbook, extensions to the deadline for submission may be granted. Requests for such extensions must be completed on the appropriate form in advance of the submission deadline and emailed to the Module Coordinator. Retrospective applications for
+extensions will not be granted. 
