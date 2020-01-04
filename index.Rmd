@@ -1,0 +1,85 @@
+--- 
+title: "ENMPG11 Geomatics - Module Workbook" 
+author: "Thiago Silva" 
+date: "`r Sys.Date()`" 
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: thiagosfsilva/ENMPG11
+description: "Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling."
+---
+
+# Module Outline - Spring 2020
+
+## Overview
+
+Welcome to the ENMPG11 Geomatics module. This module provides an introduction to the basic concepts and principles of Geomatics, i.e. how to use Geographic Information Systems (GIS) and Earth Observation (EO) to perform spatial data analysis and visualisation. As Geomatics is best taught through hands-on practice, this module is based on the flipped classroom method, where you will be assigned videos and/or readings on a weekly basis, and then we will meet twice a week for computer-based practicals. In each practical class you will be taken through a number of exercises that will teach you fundamental skills in GIS and EO.
+
+## Teaching Staff:
+
+**Module Coordinator:** Dr. Thiago Silva - Lecturer in Ecosystem Change and Environmental Informatics
+
+**Tutor/demonstrator:** Ms. Jazz Rhoades- PhD Candidate
+
+## Intended Learning Outcomes (ILO's):
+
+By the end of this module, you should be able to:
+
+1. Select and apply appropriate GIS/EO functions based on spatial theory;
+2. Describe the physical principles underlying remote sensing in the optical and microwave domains and the respective uses of the data provided by these sensors;
+3. Critically differentiate sources and structures of geospatial datasets; 
+4. Analyse and visualise geospatial data using open source software and programming languages.
+
+## Attendance and Points of Contact
+
+Student attendance and engagement will be recorded by monitoring attendance or participation at designated *Points of Contact*.
+
+**_For this module, your Points of Contact are as follows:
+1. Lab practicals on Week 1 (Thu), Week 4 (Mon), Week 8 (Thu) 2. Lectures on
+Week 2, Week 9 _**
+
+## Class Schedule and Structure
+We will meet twice a week for practical sessions at the following times and locations:
+
+**Monday**  10:00h - 13:00h - Cottrell 3A146
+
+**Tuesday** 10:00h - 13:00h - Cottrell 3A146
+
+Most practical sessions will be structured as follows:
+
+- **10:00-11:00:** Discussion of recorded material with follow-along hands-on demonstrations of the tools and concepts by main instructor; 
+- **11:00-12:00:** Hands-on exercises following guidance provided by the module workbook, with instructor/tutor support available;
+- **12:00-13:00:** Independent work on an invidiual problem assignment (formative or summative), with tutor support available.
+
+## Assessment and Grading
+ 
+This module is assessed by coursework only. Coursework should be submitted in electronic format through CANVAS as responses to Quizzes or as a PDF. Assessment feedback will be given online via CANVAS, and standard penalties for late submission will apply. If you require an extension for any assessed work, please submit an extension request through CANVAS before the due date for the assignment.
+**_For the Extenuating Circumstances Form and the current BES Handbook can also
+be found here._**
+
+The final grade for this module will be based on a set of weekly summative hands-on problems, and on a final open-themed individual project:
+
+### 1) Hands-on problems (50% of final grade)
+
+At the end of every practical session, you will be assigned either a *formative* or *summative* hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. **Each summative assignment must be completed before the release date of the next summative
+assignment**. Formative assignments can be completed at any time.
+
+These assignments will assess ILOs 1, 3, and 4.
+
+### 2) Final individual project (50% of the final grade)
+
+You will be required to complete an individual piece of project work, following the guidelines provided here. The deliverable for this project will be a document to be formatted as a if it were a journal article to be submitted to a geomatics journal (no actual journal submission in necessary). Starting at week 11, all of your class time will be reserved for you to work on your project, with support from the instructor and tutor. The project is due at the last day of teaching for the semester.
+
+**This assessment is compulsory** (i.e. failure to submit these compulsory pieces of work will
+result in an X grade), and will assess ILO's 1-4.
+
+## Module Timetable and Important Dates 
+
+```{r timetable, echo = FALSE}
+library(knitr) 
+tt <- readRDS("ENMPG11_tt_2020.rds") 
+kable(tt, caption = "ENMPG Timetable - Spring2020")
+```
