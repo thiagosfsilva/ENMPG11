@@ -3,7 +3,7 @@ title: "ENMPG11 Geomatics - Module Workbook"
 author: "Thiago Silva" 
 date: "`r Sys.Date()`" 
 site: bookdown::bookdown_site
-output:
+output: 
   bookdown::tufte_book2:
     toc: yes
     css: toc.css
