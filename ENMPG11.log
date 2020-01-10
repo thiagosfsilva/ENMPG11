@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2019.12.17)  10 JAN 2020 15:31
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019/W32TeX) (preloaded format=xelatex 2020.1.10)  10 JAN 2020 15:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -329,11 +329,11 @@ Package: l3keys2e 2019-10-11 LaTeX2e option processing using LaTeX3 keys
 )
 (c:/Users/thi_s/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.
 sty
-Package: fontspec 2019/10/19 v2.7d Font selection for XeLaTeX and LuaLaTeX
+Package: fontspec 2020/01/09 v2.7e Font selection for XeLaTeX and LuaLaTeX
 
 (c:/Users/thi_s/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec-
 xetex.sty
-Package: fontspec-xetex 2019/10/19 v2.7d Font selection for XeLaTeX and LuaLaTe
+Package: fontspec-xetex 2020/01/09 v2.7e Font selection for XeLaTeX and LuaLaTe
 X
 \l__fontspec_script_int=\count191
 \l__fontspec_language_int=\count192
@@ -357,12 +357,12 @@ LaTeX Font Info:    Redeclaring font encoding TU on input line 82.
 ))
 (c:/Users/thi_s/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/fontspec/fontspec.
 cfg)
-LaTeX Info: Redefining \itshape on input line 4047.
-LaTeX Info: Redefining \slshape on input line 4052.
-LaTeX Info: Redefining \scshape on input line 4057.
-LaTeX Info: Redefining \upshape on input line 4062.
-LaTeX Info: Redefining \em on input line 4092.
-LaTeX Info: Redefining \emph on input line 4117.
+LaTeX Info: Redefining \itshape on input line 4120.
+LaTeX Info: Redefining \slshape on input line 4120.
+LaTeX Info: Redefining \scshape on input line 4120.
+LaTeX Info: Redefining \upshape on input line 4120.
+LaTeX Info: Redefining \em on input line 4120.
+LaTeX Info: Redefining \emph on input line 4120.
 )) (c:/Users/thi_s/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/fix-cm.sty
 Package: fix-cm 2015/01/14 v1.1t fixes to LaTeX
 (c:/Users/thi_s/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/ts1enc.def
@@ -1136,10 +1136,10 @@ Type  H <return>  for immediate help.
 l.130 \BeginKnitrBlock{rmdimportant}
                                      
 Here is how much of TeX's memory you used:
- 26603 strings out of 494458
- 486999 string characters out of 6172051
- 696436 words of memory out of 5000000
- 30721 multiletter control sequences out of 15000+600000
+ 26597 strings out of 494458
+ 487016 string characters out of 6172052
+ 696295 words of memory out of 5000000
+ 30715 multiletter control sequences out of 15000+600000
  538716 words of font info for 75 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  55i,6n,115p,901b,551s stack positions out of 5000i,500n,10000p,200000b,80000s

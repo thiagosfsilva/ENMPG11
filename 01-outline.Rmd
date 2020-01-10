@@ -93,11 +93,16 @@ knitr::include_graphics(rep("images/linkedin_image.png"))
 
 There are also apps available for Android and iOS. To log in, select "Login through your institution" after installing.
 
-In particular, we will make use of some of the recorded lectures of the "Learning QGIS" course by Gordon Luckett:
+In particular, we will make use of some of the recorded lectures of the "Learning QGIS" course by Gordon Luckett
+
 [Link to QGIS course on Linkeding Learning](https://www.linkedin.com/learning/learning-qgis-2/)
 
 Be aware that there is an older version of this course on the LL platform called "Learning QGIS 2015", which is based on QGIS version 2. We will use QGIS 3 on this course.
 
+
+Another very good video resource are the QGIS videos by Klas Karlsson on YouTube. They are usually very long and in-depth, but even after using QGIS for almost 10 years I still learn a thing or two every time I watch them:
+
+[Klas Karlsson QGIS Videos on YouTube](https://www.youtube.com/channel/UCxs7cfMwzgGZhtUuwhny4-Q)
 
 ## Attendance and Points of Contact
 
