@@ -1,6 +1,5 @@
 ---
 output:
-  pdf_document: default
   html_document: default
 ---
 # Module Outline and General Info {#outline}
@@ -28,7 +27,7 @@ These technologies have become vitally important tools in ecological and environ
 
 You will be introduced to modern methods for manipulating and analysing geospatial data of various sources and formats. Hands-onpractical sessions will examine various real-world applications of GIS and EO in environmental management.
 
-```{block2, note-text, type='rmdimportant'}
+```{block2, geomatics, type='rmdimportant'}
 As the name implies, Geo-*matics* can be tought as "informatics for geographic data". This is a computer intensive module that will require you to be comfortable using complex computer software and knowlegeable in managing files and folders. Also, as with any complex piece software, **stuff will not work at some point**. This is regardless of software source, version, vendor of platform. **Learning how to independently troubleshoot when things don't work as expected is a MAJOR part of being proficient in Geomatics, so be prepared for it!**
 ```
 
@@ -87,7 +86,7 @@ There are no prescribed textbooks, but some readings are suggested below. Studen
 
 In addition, we will make use of the *Linkedin Learning* online instructional platform, which University of Stirling subscribes to. To access it, go to the University Portal and click on this link, at the left of the page:
 
-```{R linkedinn_fig,  out.width = "25%", fig.align = 'center', echo=F}
+```{R linkedin_fig,  out.width = "25%", fig.align = 'center', echo=F}
 knitr::include_graphics(rep("images/linkedin_image.png"))
 ```
 
