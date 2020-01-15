@@ -13,6 +13,8 @@ output:
 
 Please follow the guidelines below for module-related communication: 
 
+- When trying to answer a question, follow this order: **Software help files > Internet Search > Ask your colleagues > Ask me**. One of the best things you can get out of this module is to learn how to become an independent Geomatics user.
+
 - Any questions or comments regarding module content and assessments should be posted on the **Discussion** tab on CANVAS, so that answers are visible to everyone. **Questions of this nature sent via e-mail will not be replied to**.
 
 - Requests for extension on assignments should be submitted directly through CANVAS without the need to send a prior e-mail to the module coordinator.
