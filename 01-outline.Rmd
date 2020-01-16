@@ -107,11 +107,11 @@ Another very good video resource are the QGIS videos by Klas Karlsson on YouTube
 
 ## Attendance and Points of Contact
 
-Student attendance and engagement will be recorded by monitoring attendance or participation at designated *Points of Contact*.
+Student attendance and engagement will be recorded by monitoring attendance or participation at designated *Points of Contact*. Our *PoCs* for this module are:
 
-**_For this module, your Points of Contact are as follows:
-1. Lab practicals on Week 1 (Thu), Week 4 (Mon), Week 8 (Thu) 2. Lectures on
-Week 2, Week 9 _**
+- **2019-02-20:** our first face to face meeting
+- **2020-03-05:** main practical for the remote sensing component of the module
+- **2020-03-30:** the third help session for the final project; by then you *must* have made some headway into your project if you have any expectations of completing it in time.
 
 ## Class Schedule and Structure
 We will meet twice a week for practical sessions at the following times and locations:
