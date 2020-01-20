@@ -44,6 +44,13 @@ By the end of this module, you should be able to:
 
 ## Readings and Resources
 
+```{block2 type='rmdimportant'}
+If you have any questions about how QGIS works, your first stop should be the QGIS documentation:
+
+(https://docs.qgis.org/3.4/en/docs/index.html)
+```
+
+
 There are no prescribed textbooks, but some readings are suggested below. Students are expected to read widely from the peer-reviewed literature to consolidate their understanding of course materials.
 
 **Textbooks**:
@@ -99,7 +106,6 @@ In particular, we will make use of some of the recorded lectures of the "Learnin
 [Link to QGIS course on Linkeding Learning](https://www.linkedin.com/learning/learning-qgis-2/)
 
 Be aware that there is an older version of this course on the LL platform called "Learning QGIS 2015", which is based on QGIS version 2. We will use QGIS 3 on this course.
-
 
 Another very good video resource are the QGIS videos by Klas Karlsson on YouTube. They are usually very long and in-depth, but even after using QGIS for almost 10 years I still learn a thing or two every time I watch them:
 

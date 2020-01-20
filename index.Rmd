@@ -5,8 +5,8 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: 
   bookdown::gitbook:
-    css: toc.css
-    highlight: breezedark
+    css: [toc.css,style.css]
+    highlight: espresso
     config:
       toc:
         before: |
