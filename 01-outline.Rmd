@@ -29,7 +29,7 @@ These technologies have become vitally important tools in ecological and environ
 
 You will be introduced to modern methods for manipulating and analysing geospatial data of various sources and formats. Hands-onpractical sessions will examine various real-world applications of GIS and EO in environmental management.
 
-```{block2, geomatics, type='rmdimportant'}
+```{block, type='rmdimportant'}
 As the name implies, Geo-*matics* can be tought as "informatics for geographic data". This is a computer intensive module that will require you to be comfortable using complex computer software and knowlegeable in managing files and folders. Also, as with any complex piece software, **stuff will not work at some point**. This is regardless of software source, version, vendor of platform. **Learning how to independently troubleshoot when things don't work as expected is a MAJOR part of being proficient in Geomatics, so be prepared for it!**
 ```
 
@@ -44,7 +44,7 @@ By the end of this module, you should be able to:
 
 ## Readings and Resources
 
-```{block2 type='rmdimportant'}
+```{block type='rmdimportant'}
 If you have any questions about how QGIS works, your first stop should be the QGIS documentation:
 
 (https://docs.qgis.org/3.4/en/docs/index.html)

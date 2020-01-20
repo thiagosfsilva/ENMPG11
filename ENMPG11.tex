@@ -1,0 +1,659 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={ENMPG11 Geomatics - Module Workbook},
+  pdfauthor={Thiago Silva},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs}
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[bf,singlelinecheck=off]{caption}
+
+%\setmainfont[UprightFeatures={SmallCapsFont=AlegreyaSC-Regular}]{Alegreya}
+
+\usepackage{framed,color}
+\definecolor{shadecolor}{RGB}{248,248,248}
+
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\topfraction}{0.8}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\floatpagefraction}{0.75}
+
+\renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\let\oldhref\href
+\renewcommand{\href}[2]{#2\footnote{\url{#1}}}
+
+\ifxetex
+  \usepackage{letltxmacro}
+  \setlength{\XeTeXLinkMargin}{1pt}
+  \LetLtxMacro\SavedIncludeGraphics\includegraphics
+  \def\includegraphics#1#{% #1 catches optional stuff (star/opt. arg.)
+    \IncludeGraphicsAux{#1}%
+  }%
+  \newcommand*{\IncludeGraphicsAux}[2]{%
+    \XeTeXLinkBox{%
+      \SavedIncludeGraphics#1{#2}%
+    }%
+  }%
+\fi
+
+\makeatletter
+\newenvironment{kframe}{%
+\medskip{}
+\setlength{\fboxsep}{.8em}
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\makeatletter
+\@ifundefined{Shaded}{
+}{\renewenvironment{Shaded}{\begin{kframe}}{\end{kframe}}}
+\makeatother
+
+\newenvironment{rmdblock}[1]
+  {
+  \begin{itemize}
+  \renewcommand{\labelitemi}{
+    \raisebox{-.7\height}[0pt][0pt]{
+      {\setkeys{Gin}{width=3em,keepaspectratio}\includegraphics{images/#1}}
+    }
+  }
+  \setlength{\fboxsep}{1em}
+  \begin{kframe}
+  \item
+  }
+  {
+  \end{kframe}
+  \end{itemize}
+  }
+\newenvironment{rmdnote}
+  {\begin{rmdblock}{note}}
+  {\end{rmdblock}}
+\newenvironment{rmdcaution}
+  {\begin{rmdblock}{caution}}
+  {\end{rmdblock}}
+\newenvironment{rmdimportant}
+  {\begin{rmdblock}{important}}
+  {\end{rmdblock}}
+\newenvironment{rmdtip}
+  {\begin{rmdblock}{tip}}
+  {\end{rmdblock}}
+\newenvironment{rmdwarning}
+  {\begin{rmdblock}{warning}}
+  {\end{rmdblock}}
+
+\usepackage{makeidx}
+\makeindex
+
+\urlstyle{tt}
+
+\usepackage{amsthm}
+\makeatletter
+\def\thm@space@setup{%
+  \thm@preskip=8pt plus 2pt minus 4pt
+  \thm@postskip=\thm@preskip
+}
+\makeatother
+
+\documentclass[a4paper]{article}
+
+\frontmatter
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{ENMPG11 Geomatics - Module Workbook}
+\author{Thiago Silva}
+\date{2020-01-20}
+
+\let\BeginKnitrBlock\begin \let\EndKnitrBlock\end
+\begin{document}
+\maketitle
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{welcome}{%
+\chapter*{Welcome!}\label{welcome}}
+\addcontentsline{toc}{chapter}{Welcome!}
+
+Welcome to the ENMPG11 Geomatics module workbook! This module provides an introduction to the basic concepts and principles of Geomatics, i.e.~how to use Geographic Information Systems (GIS) and Earth Observation (EO) to perform spatial data analysis and visualisation. As Geomatics is best taught through hands-on practice, this module is based on the flipped classroom method, where you will be assigned videos and/or readings on a weekly basis, and then we will meet twice a week for computer-based practicals. In each practical class you will be taken through a number of exercises that will teach you fundamental skills in GIS and EO.
+
+Use the items on the left to navigate through the sections of the workbook, and click on the arrows at the left and right edges of the main page are to page forward/backward. If you are viewing the book on a small screen, the navigation buttons will be on the bottom instead.
+
+\hypertarget{outline}{%
+\chapter{Module Outline and General Info}\label{outline}}
+
+\hypertarget{staff-and-communication}{%
+\section{Staff and Communication:}\label{staff-and-communication}}
+
+\begin{longtable}[]{@{}lllll@{}}
+\toprule
+\endhead
+\textbf{Module Coordinator:} & Thiago Silva & C.3B144E & \href{mailto:thiago.sf.silva@stir.ac.uk}{\nolinkurl{thiago.sf.silva@stir.ac.uk}} &\tabularnewline
+\textbf{Tutor/demonstrator:} & Jazz Rhoades & & &\tabularnewline
+\bottomrule
+\end{longtable}
+
+Please follow the guidelines below for module-related communication:
+
+\begin{itemize}
+\item
+  When trying to answer a question, follow this order: \textbf{Software help files \textgreater{} Internet Search \textgreater{} Ask your colleagues \textgreater{} Ask me}. One of the best things you can get out of this module is to learn how to become an independent Geomatics user.
+\item
+  Any questions or comments regarding module content and assessments should be posted on the \textbf{Discussion} tab on CANVAS, so that answers are visible to everyone. \textbf{Questions of this nature sent via e-mail will not be replied to}.
+\item
+  Requests for extension on assignments should be submitted directly through CANVAS without the need to send a prior e-mail to the module coordinator.
+\item
+  Questions regarding personal and/or sensitive issues related to the module should be sent directly by e-mail to the module coordinator. Please add the keyword \emph{ENMPG11} to your e-mail subject.
+\end{itemize}
+
+\hypertarget{about-the-module}{%
+\section{About the Module}\label{about-the-module}}
+
+Geomatics is defined in the \href{https://www.iso.org/obp/ui/\#iso:std:iso:tr:19122:ed-1:v1:en}{ISO/TC 211 standards} as the ``\emph{discipline concerned with the collection, distribution, storage, analysis, processing, presentation of geographic data or geographic information}''.It is an integrative discipline encompassing Geographic Information Systems (GIS), Earth Observation (EO, a.k.a Remote Sensing), and satial surveying methods.
+
+These technologies have become vitally important tools in ecological and environmental management and are being increasingly used by scientists, governmental agencies and NGOs for the assessment, monitoring and management of global resources. This course will provide an introduction to the basic concepts and principles of GIS and EO, and how they are now widely used to support ecological and environmental management objectives.
+
+You will be introduced to modern methods for manipulating and analysing geospatial data of various sources and formats. Hands-onpractical sessions will examine various real-world applications of GIS and EO in environmental management.
+
+\BeginKnitrBlock{rmdimportant}
+As the name implies, Geo-\emph{matics} can be tought as ``informatics for geographic data''. This is a computer intensive module that will require you to be comfortable using complex computer software and knowlegeable in managing files and folders. Also, as with any complex piece software, \textbf{stuff will not work at some point}. This is regardless of software source, version, vendor of platform. \textbf{Learning how to independently troubleshoot when things don't work as expected is a MAJOR part of being proficient in Geomatics, so be prepared for it!}
+\EndKnitrBlock{rmdimportant}
+
+\hypertarget{intended-learning-outcomes-ilos}{%
+\section{Intended Learning Outcomes (ILO's):}\label{intended-learning-outcomes-ilos}}
+
+By the end of this module, you should be able to:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Select and apply appropriate GIS/EO functions based on spatial theory;
+\item
+  Describe the physical principles underlying remote sensing in the optical and microwave domains and the respective uses of the data provided by these sensors;
+\item
+  Critically differentiate sources and structures of geospatial datasets;
+\item
+  Analyse and visualise geospatial data using open source software and programming languages.
+\end{enumerate}
+
+\hypertarget{readings-and-resources}{%
+\section{Readings and Resources}\label{readings-and-resources}}
+
+\BeginKnitrBlock{rmdimportant}
+If you have any questions about how QGIS works, your first stop should be the QGIS documentation:
+
+(\url{https://docs.qgis.org/3.4/en/docs/index.html})
+\EndKnitrBlock{rmdimportant}
+
+There are no prescribed textbooks, but some readings are suggested below. Students are expected to read widely from the peer-reviewed literature to consolidate their understanding of course materials.
+
+\textbf{Textbooks}:
+
+\begin{itemize}
+\item
+  Heywood D.I., Cornelius S., \& Carver S. 2006. An Introduction to Geographical Information Systems. 2nd Edition. Harlow: Prentice Hall.
+\item
+  Longley, P.A., Goodchild, M.F., Maguire D.J., \& Rhind DW. 2005. Geographical Information Systems and Science. 2nd Edition. Hoboken: Wiley.
+\item
+  Lillesand, T. M., Kiefer, R. W., \& Chipman, J. W. 2015. Remote sensing and image interpretation. 7th Edition. Hoboken: John Wiley \& Sons.
+\item
+  Campbell, J.B., \& Wynne R.H. 2011. Introduction to Remote Sensing. 5th Edition. New Yorlk: Gilford Press.
+\item
+  Wegmann, M., Leutner, B., \& Dech, S. 2016. Remote sensing and GIS for ecologists : using open source software. Exeter: Pelagic Publishing.
+\end{itemize}
+
+\textbf{Key journals}:
+
+\begin{itemize}
+\item
+  \href{https://www.tandfonline.com/toc/tgis20/current}{International Journal of Geographical Information Science (IJGIS)}
+\item
+  \href{https://www.springer.com/journal/10707}{GeoInformatica}
+\item
+  \href{https://www.tandfonline.com/loi/tcag20}{Cartography and Geographic Information Science}
+\item
+  \href{https://link.springer.com/article/10.1007/s10109-019-00318-x}{Journal of Geographical Systems}
+\item
+  \href{https://www.josis.org/index.php/josis}{Journal of Spatial Information Science (JOSIS)}
+\item
+  \href{https://www.journals.elsevier.com/international-journal-of-applied-earth-observation-and-geoinformation}{International Journal of Applied Earth Observation and Geoinformation}
+\item
+  \href{https://www.tandfonline.com/loi/tgrs20}{GIScience and Remote Sensing}
+\item
+  \href{https://www.journals.elsevier.com/computers-and-geosciences}{Computers and Geosciences}
+\item
+  \href{https://www.journals.elsevier.com/remote-sensing-of-environment}{Remote Sensing of Environment}
+\item
+  \href{https://www.mdpi.com/journal/remotesensing}{Remote Sensing}
+\item
+  \href{https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=36}{IEEE Transactions on Geoscience and Remote Sensing}
+\item
+  \href{https://ieeexplore.ieee.org/xpl/RecentIssue.jsp?punumber=4609443}{IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}
+\item
+  \href{https://zslpublications.onlinelibrary.wiley.com/journal/20563485}{Remote Sensing in Ecology and Conservation}
+\end{itemize}
+
+In addition, we will make use of the \emph{Linkedin Learning} online instructional platform, which University of Stirling subscribes to. To access it, go to the University Portal and click on this link, at the left of the page:
+
+\begin{center}\includegraphics[width=0.25\linewidth]{images/linkedin_image} \end{center}
+
+There are also apps available for Android and iOS. To log in, select ``Login through your institution'' after installing.
+
+In particular, we will make use of some of the recorded lectures of the ``Learning QGIS'' course by Gordon Luckett
+
+\href{https://www.linkedin.com/learning/learning-qgis-2/}{Link to QGIS course on Linkeding Learning}
+
+Be aware that there is an older version of this course on the LL platform called ``Learning QGIS 2015'', which is based on QGIS version 2. We will use QGIS 3 on this course.
+
+Another very good video resource are the QGIS videos by Klas Karlsson on YouTube. They are usually very long and in-depth, but even after using QGIS for almost 10 years I still learn a thing or two every time I watch them:
+
+\href{https://www.youtube.com/channel/UCxs7cfMwzgGZhtUuwhny4-Q}{Klas Karlsson QGIS Videos on YouTube}
+
+\hypertarget{attendance-and-points-of-contact}{%
+\section{Attendance and Points of Contact}\label{attendance-and-points-of-contact}}
+
+Student attendance and engagement will be recorded by monitoring attendance or participation at designated \emph{Points of Contact}. Our \emph{PoCs} for this module are:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{2019-02-20:} our first face to face meeting
+\item
+  \textbf{2020-03-05:} main practical for the remote sensing component of the module
+\item
+  \textbf{2020-03-30:} the third help session for the final project; by then you \emph{must} have made some headway into your project if you have any expectations of completing it in time.
+\end{itemize}
+
+\hypertarget{class-schedule-and-structure}{%
+\section{Class Schedule and Structure}\label{class-schedule-and-structure}}
+
+We will meet twice a week for practical sessions at the following times and locations:
+
+\textbf{Monday} 10:00h - 13:00h - Cottrell 3A146
+
+\textbf{Tuesday} 10:00h - 13:00h - Cottrell 3A146
+
+Most practical sessions will be structured as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{10:00-11:00:} Discussion of recorded material with follow-along hands-on demonstrations of the tools and concepts by main instructor;
+\item
+  \textbf{11:00-12:00:} Hands-on exercises following guidance provided by the module workbook, with instructor/tutor support available;
+\item
+  \textbf{12:00-13:00:} Independent work on an invidiual problem assignment (formative or summative), with tutor support available.
+\end{itemize}
+
+\hypertarget{assessment-and-grading}{%
+\section{Assessment and Grading}\label{assessment-and-grading}}
+
+This module is assessed by coursework only. Coursework should be submitted in electronic format through CANVAS as responses to Quizzes or as a PDF. Assessment feedback will be given online via CANVAS, and standard penalties for late submission will apply. If you require an extension for any assessed work, please submit an extension request through CANVAS before the due date for the assignment.
+\textbf{\emph{For the Extenuating Circumstances Form and the current BES Handbook can also
+be found here.}}
+
+The final grade for this module will be based on a set of weekly summative hands-on problems, and on a final open-themed individual project:
+
+\hypertarget{hands-on-problems-50-of-final-grade}{%
+\subsection*{1) Hands-on problems (50\% of final grade)}\label{hands-on-problems-50-of-final-grade}}
+\addcontentsline{toc}{subsection}{1) Hands-on problems (50\% of final grade)}
+
+At the end of every practical session, you will be assigned either a \emph{formative} or \emph{summative} hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. These assignments will assess ILOs 1, 3, and 4.
+
+\BeginKnitrBlock{rmdimportant}
+\textbf{Each summative assignment must be completed before the release date of the next summative
+assignment}. Formative assignments can be completed at any time.
+\EndKnitrBlock{rmdimportant}
+
+\hypertarget{final-individual-project-50-of-the-final-grade}{%
+\subsection*{2) Final individual project (50\% of the final grade)}\label{final-individual-project-50-of-the-final-grade}}
+\addcontentsline{toc}{subsection}{2) Final individual project (50\% of the final grade)}
+
+You will be required to complete an individual piece of project work, following the guidelines provided here. The deliverable for this project will be a document to be formatted as a if it were a journal article to be submitted to a geomatics journal (no actual journal submission in necessary). Starting at week 11, all of your class time will be reserved for you to work on your project, with support from the instructor and tutor. The project is due at the last day of teaching for the semester. The project assesses ILO's 1-4.
+
+\BeginKnitrBlock{rmdimportant}
+\textbf{This assessment is compulsory} (i.e.~failure to submit these compulsory pieces of work will
+result in an X grade).
+\EndKnitrBlock{rmdimportant}
+
+\hypertarget{module-timetable-and-dates}{%
+\section{Module Timetable and Dates}\label{module-timetable-and-dates}}
+
+\begin{table}
+
+\caption{\label{tab:timetable}ENMPG Timetable - Spring2020}
+\centering
+\begin{tabular}[t]{r|l|l|l|l}
+\hline
+Week & Unit & Activity type & Topic & Date\\
+\hline
+1 & Introduction to Geomatics & Recorded Lectures & Introduction to Geomatics & \\
+\hline
+ &  & Monday Lab & No class & 2020-01-13\\
+\hline
+ &  & Thursday Lab & Self teaching from Linkedin (home assignment) & 2020-01-16\\
+\hline
+2 & Spatial data types & Recorded Lectures & Spatial Data Types: vectors / rasters & \\
+\hline
+ &  & Monday Lab & Project management and data handling in QGIS & 2020-01-20\\
+\hline
+ &  & Thursday Lab & Working with vector data & 2020-01-23\\
+\hline
+3 & Spatial Operations I -  Vector data & Recorded lectures & Vector geometry spatial operations / vector attribute operations & \\
+\hline
+ &  & Monday Lab & Working with raster data & 2020-01-27\\
+\hline
+ &  & Thursday Lab & Spatial operations with vectors - geoprocessing & 2020-01-30\\
+\hline
+4 & Spatial Operations II - Raster data & Recorded Lectures & Raster spatial operations & \\
+\hline
+ &  & Monday Lab & Spatial operations with vectors - attributes & 2020-02-03\\
+\hline
+ &  & Thursday Lab & Raster spatial operations & 2020-02-06\\
+\hline
+5 & Combining vectors and rasters & Recorded lectures & Zonal statistics / interpolation / cost analysis / raster algebra & \\
+\hline
+ &  & Monday Lab & Raster terrain analysis & 2020-02-10\\
+\hline
+ &  & Thursday Lab & Combined spatial analysis & 2020-02-13\\
+\hline
+6 & Reading Week &  & No classes this week & 2020-02-17\\
+\hline
+ &  &  & No classes this week & 2020-02-20\\
+\hline
+7 & Digital Cartography & Recorded lectures & Cartographic principles \textbackslash{} thematic mapping \textbackslash{} data visualization principles & \\
+\hline
+ &  & Monday Lab & Combined exercises, all previous topics (Assignment 1) & 2020-02-24\\
+\hline
+ &  & Thursday Lab & Digital cartography & 2020-02-27\\
+\hline
+8 & Remote Sensing & Recorded Lectures & Elementary physical principles \textbackslash{} Digital remote sensing & \\
+\hline
+ &  & Monday Lab & Remote sensing data sources and download & 2020-03-02\\
+\hline
+ &  & Thursday Lab & Remote sensing image visualization / digitization & 2020-03-05\\
+\hline
+9 & Programmatic Geomatics & Recorded Lectures & Python / R introductory videos linkedin learning & \\
+\hline
+ &  & Monday Lab & Programmatic Geomatics in Python & 2020-03-09\\
+\hline
+ &  & Thursday Lab & Programmatic Geomatics in R & 2020-03-12\\
+\hline
+10 & Data Collection & Recorded Lectures & Field data collection  and classification validation & \\
+\hline
+ &  & Monday Lab & Basic satellite image classification in R and Python & 2020-03-16\\
+\hline
+ &  & Thursday Lab & Data collection and classification validation & 2020-03-19\\
+\hline
+11 & Project Work & Monday Lab & Assisted project work & 2020-03-23\\
+\hline
+ &  & Thursday Lab & Assisted project work & 2020-03-26\\
+\hline
+12 & Project Work & Monday Lab & Assisted project work & 2020-03-30\\
+\hline
+ &  & Thursday Lab & Assisted Project Work & 2020-04-02\\
+\hline
+ & Project Due Date: &  &  & 2020-04-14\\
+\hline
+\end{tabular}
+\end{table}
+
+\hypertarget{other-relevant-information}{%
+\section{Other Relevant Information}\label{other-relevant-information}}
+
+\textbf{Student attendance}
+
+Please note that attendance at all practical classes is prescribed and support outside of timetabled hours cannot be guaranteed for students who fail to attend classes.
+Student attendance and engagement will be recorded by monitoring attendance or other participation at designated Academic Points of Contact detailed in the Module Outline. If a student fails to engage with one or more Academic Points of Contact, the module coordinator will contact the student to ascertain the reason for this and to encourage greater academic engagement. A list of acceptable and unacceptable reasons for absence can be found in the MSc Handbook.
+
+You should familiarise yourself with the Handbook for other guidance and requirements including an outline of the Common Grading Scheme. The minimum grade to obtain a pass for a module is 50\%. The overall mark for the module is calculated from the sum of weighted component marks rounded to the nearest whole number; a pass is not required in each component. This module mark represents a summary of performance on that module.
+
+All assignments are to be submitted electronically via CANVAS Quizzes or as PDFs. Work that is submitted late will be returned with no feedback and graded with an appropriate penalty (3\% per day late). Work that is handed in more than 7 days late will achieve a zero grade. Under some circumstances as outlined in the Student Handbook, extensions to the deadline for submission may be granted. Requests for such extensions must be completed on the appropriate form in advance of the submission deadline and emailed to the Module Coordinator. Retrospective applications for
+extensions will not be granted.
+
+\hypertarget{lab1}{%
+\chapter{Lab 1 - QGIS overview and file management}\label{lab1}}
+
+\hypertarget{GE1}{%
+\section{Guided Exercise 1 - A simple GIS workflow}\label{GE1}}
+
+The purpose of this exercise is to give you a general overview of proper GIS workflow, from start to end. Throughout the module, your exercises and projects wil become more complex, but the general workflow will not change. Getting used to having proper project and file management habits from the start is the \textbf{best} thing you can learn. Speaking as someone whi has been teaching and working with Geomatics for more than a decade, poor file/project managemnt is the underlying cause of at least 50\% of the GIS problems you may encounter.
+
+\hypertarget{creating-a-project-structure}{%
+\subsection{1 - Creating a project structure}\label{creating-a-project-structure}}
+
+GIS projects generate a lot of different files quickly, so project organization is \textbf{essential}. The steps below are my suggestion for organizing GIS projects files and associated data. Once you get comfortable managing your own projects, feel free to change the proposed structure to something that best suits your own workflow.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Create a folder on your computer called \texttt{ENMPG11}, off of the main data drive. For \textbf{Windows}, this will be \texttt{C:} in most cases, unless you have separate disk drives. For \textbf{Linux} and \textbf{Mac}, create it on you \texttt{home} drive.
+\end{enumerate}
+
+\begin{figure}
+\centering
+\includegraphics{images/lab1_fig3_wincfolder.png}
+\caption{\textbf{Windows C:}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{https://nektony.com/wp-content/uploads/2018/02/home-folder-mac.jpg}
+\caption{\textbf{mac OS home}}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics{https://www.howtogeek.com/wp-content/uploads/2014/05/00_lead_image_home_directory.png}
+\caption{\textbf{Ubuntu home}}
+\end{figure}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Inside the ENPG11 folder, create a subfolder called \texttt{lab\_1}
+\item
+  Inside \texttt{lab\_1}, create the following folder structure:
+\end{enumerate}
+
+\includegraphics{images/lab1_fig4_folder_structure.png}
+
+This is the most ``barebones'' project structure you can have. The folders will bee used as follows:
+
+\begin{itemize}
+\item
+  \texttt{00\_qgis}: we will use this folder to save our QGIS project files.
+\item
+  \texttt{01\_raw\_data}: this folder will keep all the original data files you are working with. This way you can always go back to the start if something goes wrong. We use the subfoldrrs \texttt{vector} and \texttt{raster} to easily know which data type we are working with. You should create additional subfolders inside each folder to keep things organized as you go.
+\item
+  \texttt{02\_processing}: here we will keep all th files you generate as part of your work. Make ample use of subfolders to identify each step of the workflow.
+\item
+  \texttt{03\_final\_products}: here we will keep the final products of our intended analysis. This makes it easy for us to find the latest version of our intended outputs, without risking using intremediate files instead
+\item
+  \texttt{04\_docs}: here we will keep all our \emph{non-GIS} files. In the \texttt{notes} folder, you can keep a simple text file documenting the project steps as you work in it. You can also keeo important referece images here. In \texttt{images}, you can save any image that illustrates the steps you made, or maps you have produced. You can add other subfolders such as \texttt{report} if you are writing a report about your project, and keep the report file in there.
+\end{itemize}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Organize the data you've downloaded previosuly during the instructor-led QGIS exploration into your projec folder. The terrain data folder goes into \texttt{raster}, the roads data goes into \texttt{vector}, and the \texttt{.txt} metadata files go into \texttt{docs/notes}. You can keep the data into the originalfolders they came in, for easy identification:
+\end{enumerate}
+
+\includegraphics{images/lab1_fig5_folderorg.png}
+
+\hypertarget{creating-a-qgis-project}{%
+\subsection{2 - Creating a QGIS project}\label{creating-a-qgis-project}}
+
+A QGIS project is an \emph{index} file that will remember all the data layers you have loaded, their stacking order, the styling of each layer, and some other information, such as a default map projection and datum. It will also keep any map layouts that you create.
+
+\begin{itemize}
+\tightlist
+\item
+  Create a new project in QGIS by clicking on \texttt{Project\ \textgreater{}\ New...} or pressing \emph{Ctrl-N}:
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.75\linewidth]{images/lab1_fig1_newproject} \end{center}
+
+\begin{itemize}
+\item
+  Add the layers \texttt{NS\_RoadLink.shp} and \texttt{NS89.asc} from your organized project folder (terrain and roads) to your project.
+\item
+  Save your project. Click on the Save button and give your project a name, nd save it on \texttt{ENMPG11/lab\_1/00\_qgis}.
+\item
+  Open the project settings by clicking on \texttt{Project\ \textgreater{}\ Properties...}. You will see this window:
+\end{itemize}
+
+\begin{center}\includegraphics[width=0.75\linewidth]{images/lab1_fig2_projprops} \end{center}
+
+\begin{itemize}
+\item
+  The main thing to set on your new project are the project home folder, the base map projection info and the measurement units.
+
+  \begin{itemize}
+  \item
+    For the project home on the \texttt{General} tab, select the \texttt{lab\_1} folder. This helps navigating when opening and saving data.
+  \item
+    For measurement units, make sure distance units are set in meters, and area units in squared meters, also on the \texttt{General} tab.
+  \item
+    For base projection, go to the \texttt{CRS} tab and search for \textbf{OSGB 1936 British National Grid}, identified by the \emph{EPSG code} 7405. EPSG stands for ``European Petroleum Survey Group'', and designates a parameter database with standard codes for geodesic information. Over time, you will propbably memorize the EPSG codes for the projections you use more often, making it easy to search for Select it by clicking on it.
+  \end{itemize}
+\item
+  Save your project by clicking on the \emph{Save} button, or going to \texttt{Project\ \textgreater{}\ Save}, or by typing \texttt{Ctrl+S} simultaneously.
+\end{itemize}
+
+\hypertarget{styling-your-layers-and-producing-a-simple-map}{%
+\subsection{3. Styling your layers and producing a simple map}\label{styling-your-layers-and-producing-a-simple-map}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Select the \texttt{NS89} layer on the \emph{Layers} side panel, and drag it to the bottom if not already.
+\item
+  Turn the roads layer off for now.
+\item
+  Right-click on the layer name and choose \texttt{Rename\ layer}. Rename it to \texttt{Digital\ Elevation\ Model\ (50m)}. Open the file exlplorer in your system, and look for the \texttt{NS89.asc} file you have saved before.
+\end{enumerate}
+
+\textbf{Stop and think:} wil changing a layer name in the layer panel also change the name of the source data file for that layer?
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Right clik on the terrain layer and choose \texttt{Zoom\ to\ Layer}. This is always a handy tool to ``find yourself'' if you end up zooming or panning the map too far. Pick a layer that covers most of your intended work area and zoom to it. (Advanced: you can also set a \emph{Spatial Bookmark} by going to \texttt{View\ \textgreater{}\ New\ Spatial\ Bookmark...(Ctrl\ +\ B)}. You bookmarks will show on your \emph{Browser} side panel, below your \emph{Favorites}).
+\item
+  Right click on the terrain layer name and select \texttt{Properties...}, then go to the \texttt{Symbology} tab. Select \texttt{Rendering\ type} to be \texttt{Single\ Band\ Pseudocolor}, and \texttt{Color\ Ramp} as \texttt{spectral}. Click again on the down arrow button to the right of the \texttt{Color\ Ramp} box, and select \texttt{Invert\ Color\ Ramp}, so that the minimum heights are colored blue. Then click \texttt{Ok}. Save your project.
+\item
+  Rename the \texttt{NS\_RoadLink} layer to \texttt{Road\ Network}. Go to its Symbology properties and click on \texttt{Simple\ Line}. Change the line color to a mid-grey, and the line width to 0.3. Click \texttt{Ok}. Reactivate the layer to visualise it.
+\item
+  Go to the \texttt{Vector} menu and select \texttt{Research\ Tools\ \textgreater{}\ Extract\ Layer\ Extent...}. Select the terrain layer as your \texttt{Input\ layer}, and click \texttt{Run} to generate a \emph{temporary layer}. This layer will not be kept once you close QGIS, unless you save it manually later. \textbf{The window will not close automatically} once you run, so remember to click on \texttt{Close} when you are done.
+\item
+  Go to \texttt{Vector\ \textgreater{}\ Geoprocessing\ Tools\ \textgreater{}\ Clip...}. Select the roads layer as the \texttt{Input\ Layer} and the new temporary layer as the \texttt{Overlay\ Layer}. This time, we will save the output. Click on the \texttt{...} button to tle right of the \texttt{Clipped} box, and then choose \texttt{Save\ to\ file}. Save your new layer on \texttt{ENMPG11/lab\_1/procs=essing}, naming it \texttt{clipped\_roads.shp}. Make sure the \texttt{SHP\ file} format is selected below the file name.
+\item
+  Tur off the original roads layer on and off to see the result of your operation. Then right-click on the original roads layer, and select \texttt{Styles\ \textgreater{}\ Copy\ Style\ \textgreater{}\ All\ Style\ Categories}. Then right click on the new (clipped) roads layer and select `Styles \textgreater{} Paste Style \textgreater{} All Style Categories. Remove the original roads layer from your project and save the project. Close QGIS.
+  \textbf{Stop and think:} what does the warning given by QGIS when you try to close it means?
+\item
+  Reopen QGIS, and load back your project. Notice it is exaclty as you last saved, including zoom level. If the ``Extent'' layer still shows on the side panel, remove it.
+\item
+  Click on \texttt{Project\ \textgreater{}\ New\ Map\ Layout} and name it \texttt{Lab\ 1\ Layout}. A new window will open with the QGIS Layout Editor.
+\item
+  Add a new map to the layout by clicking on the \includegraphics{https://docs.qgis.org/testing/en/_images/mActionAddMap.png} icon. Drag it through the page so it covers about 2/3 of it horizontally, and the full page (minus borders) vertically.
+\item
+  Use the \texttt{Interactive\ Extent} tool !´{[}(\url{https://docs.qgis.org/testing/en/_images/mActionMoveItemContent.png}) to pan and zoom until your data uses most of the map area. Make sure you are not hiding the edges of your map area with too much zoom!
+\end{enumerate}
+
+\includegraphics{images/lab1_fig6_mapzoom.png}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{13}
+\item
+  Now fine tune the map scale by changing the \texttt{Scale} value on the right panel. Remember that this value means ``1:value'', meaning 1 unit on the page is equal to that many units (value) in the real world. This means larger numbers will ``zoom out'', and smaller numbers will ``zoom in''. Try to make the map fill as much as possible of the map box.
+\item
+  Go to the menu \texttt{Add\ Item\ \textgreater{}\ Add\ Legend...} (notice the icon for this option, and find it on the side toolbar). Click the area beside the map box and drag to add a legend. Go back to the main QGIS window, right click on the terrain layer name, and on the \texttt{Symblogy} tab, change the \texttt{Mode} under the class color box to \texttt{Equal\ Interval}, and select the number of \texttt{Classes} to 10 (to the right of the \texttt{Equal\ Interval} box.
+\end{enumerate}
+
+  \bibliography{book.bib,packages.bib}
+
+\end{document}
