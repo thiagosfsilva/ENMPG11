@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 Lab 2 - Working with vector data | ENMPG11 Geomatics - Module Workbook</title>
+  <meta name="description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 Lab 2 - Working with vector data | ENMPG11 Geomatics - Module Workbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="github-repo" content="thiagosfsilva/ENMPG11" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 Lab 2 - Working with vector data | ENMPG11 Geomatics - Module Workbook" />
+  
+  <meta name="twitter:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  
+
+<meta name="author" content="Thiago Silva" />
+
+
+<meta name="date" content="2020-01-23" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab1.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<script src="libs/elevate-section-attrs-2.0/elevate-section-attrs.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ENMPG11 Workbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="1" data-path="outline.html"><a href="outline.html"><i class="fa fa-check"></i><b>1</b> Module Outline and General Info</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="outline.html"><a href="outline.html#staff-and-communication"><i class="fa fa-check"></i><b>1.1</b> Staff and Communication:</a></li>
+<li class="chapter" data-level="1.2" data-path="outline.html"><a href="outline.html#about-the-module"><i class="fa fa-check"></i><b>1.2</b> About the Module</a></li>
+<li class="chapter" data-level="1.3" data-path="outline.html"><a href="outline.html#intended-learning-outcomes-ilos"><i class="fa fa-check"></i><b>1.3</b> Intended Learning Outcomes (ILO’s):</a></li>
+<li class="chapter" data-level="1.4" data-path="outline.html"><a href="outline.html#readings-and-resources"><i class="fa fa-check"></i><b>1.4</b> Readings and Resources</a></li>
+<li class="chapter" data-level="1.5" data-path="outline.html"><a href="outline.html#attendance-and-points-of-contact"><i class="fa fa-check"></i><b>1.5</b> Attendance and Points of Contact</a></li>
+<li class="chapter" data-level="1.6" data-path="outline.html"><a href="outline.html#class-schedule-and-structure"><i class="fa fa-check"></i><b>1.6</b> Class Schedule and Structure</a></li>
+<li class="chapter" data-level="1.7" data-path="outline.html"><a href="outline.html#assessment-and-grading"><i class="fa fa-check"></i><b>1.7</b> Assessment and Grading</a>
+<ul>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#hands-on-problems-50-of-final-grade"><i class="fa fa-check"></i>1) Hands-on problems (50% of final grade)</a></li>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#final-individual-project-50-of-the-final-grade"><i class="fa fa-check"></i>2) Final individual project (50% of the final grade)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="outline.html"><a href="outline.html#module-timetable-and-dates"><i class="fa fa-check"></i><b>1.8</b> Module Timetable and Dates</a></li>
+<li class="chapter" data-level="1.9" data-path="outline.html"><a href="outline.html#other-relevant-information"><i class="fa fa-check"></i><b>1.9</b> Other Relevant Information</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>2</b> Lab 1 - QGIS overview and file management</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lab1.html"><a href="lab1.html#GE1"><i class="fa fa-check"></i><b>2.1</b> Guided Exercise 1 - A simple GIS workflow</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lab1.html"><a href="lab1.html#creating-a-project-structure"><i class="fa fa-check"></i><b>2.1.1</b> Creating a project structure</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab1.html"><a href="lab1.html#creating-a-qgis-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a QGIS project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lab1.html"><a href="lab1.html#styling-your-layers-and-producing-a-simple-map"><i class="fa fa-check"></i><b>2.1.3</b> Styling your layers and producing a simple map</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab1.html"><a href="lab1.html#self-guided-exercise"><i class="fa fa-check"></i><b>2.2</b> Self-guided exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>3</b> Lab 2 - Working with vector data</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab2.html"><a href="lab2.html#guided-exercise-1---basic-work-with-vector-data"><i class="fa fa-check"></i><b>3.1</b> Guided Exercise 1 - Basic work with Vector Data</a></li>
+<li class="chapter" data-level="3.2" data-path="lab2.html"><a href="lab2.html#guided-exercise-2-operations-using-layer-attributes"><i class="fa fa-check"></i><b>3.2</b> Guided Exercise 2: Operations using layer attributes</a></li>
+<li class="chapter" data-level="3.3" data-path="lab2.html"><a href="lab2.html#guided-exercise-3---spatial-queries"><i class="fa fa-check"></i><b>3.3</b> Guided Exercise 3 - Spatial Queries</a></li>
+<li class="chapter" data-level="3.4" data-path="lab2.html"><a href="lab2.html#self-guided-summative-assessment."><i class="fa fa-check"></i><b>3.4</b> Self-guided summative assessment.</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ENMPG11 Geomatics - Module Workbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab2" class="section level1">
+<h1><span class="header-section-number">3</span> Lab 2 - Working with vector data</h1>
+<p>The purpose of these exercises is for you to learn and understand the main GIS operation involving vector data. It will cover both geometry operations and attribute operations. Try to apply all the steps you have already learned on previous modules here as well: create a project folder, organize your data, save a named project with proper projection info, etc. The expectation is that you build up upon previous activities on each consecutive lab, so towards the end of the module you feel empowered to carry on with your own project.</p>
+<p>Reference readings and video for this lab are:</p>
+<div id="guided-exercise-1---basic-work-with-vector-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> Guided Exercise 1 - Basic work with Vector Data</h2>
+<ol style="list-style-type: decimal">
+<li>Dowload the data for this exercise from this link: . Extract the zipfile and organize your project folder and QGIS project file before you start.</li>
+</ol>
+<ul>
+<li>Load all datasets in QGIS and inspect them:</li>
+</ul>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong>
+</p>
+<ul>
+<li>
+<p>
+What are the datasets you have?
+</p>
+</li>
+<li>
+<p>
+What are the file <em>types</em> you have to work with?
+</p>
+</li>
+<li>
+<p>
+Which of these files contain <em>metadata</em> about your datasets?
+</p>
+</li>
+<li>
+<p>
+What are the file <em>formats</em> you have to work with?
+</p>
+</li>
+<li>
+<p>
+What is the <em>Map Projection</em> of each data layer you have?
+</p>
+</li>
+</ul>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Once you have the answers to the above questions, exit QGIS without saving. Then create a structured project folder, and distribute the datafiles accordingly. Then reopen QGIS, load the data from the organized project folder, check you <em>Project properties</em> to make sure they are correct and then save your project file within your organized folder structure as well.</p></li>
+<li><p>Now inspect the <strong>attributes</strong> for each layer:</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong>
+</p>
+<ul>
+<li>
+<p>
+How many <em>attributes</em> does each layer have?
+</p>
+</li>
+<li>
+<p>
+How many <em>features</em> does each layer have?
+</p>
+</li>
+<li>
+<p>
+What are the different <em>data types</em> among all attributes?
+</p>
+</li>
+</ul>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Rename your layers on the layer list using human-readable, informative names. Save your project</p></li>
+<li><p>Organize the <em>layer order</em> and play with different layer superpositions to make the best visualization for all datasets involved. Then experiment with the <em>symbology</em> of each layer to improve your visualization.</p></li>
+</ol>
+</div>
+<div id="guided-exercise-2-operations-using-layer-attributes" class="section level2">
+<h2><span class="header-section-number">3.2</span> Guided Exercise 2: Operations using layer attributes</h2>
+<ol style="list-style-type: decimal">
+<li>Turn off the Rivers and Earthquakes layers. Go to <code>Layer Properties &gt; Symbology</code> for the World Countries layer, and change the option from <code>Single Symbol</code> to <code>Categorized</code>. For <code>value</code>, choose <code>REGION_UN</code>. Leave the <code>Symbol</code> option as is, and for <code>Color Ramp</code>, select <code>Random Colors</code>. Then click on <code>Classify</code> on the bottom left of the window. Then click on <code>OK</code>.</li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Why is this symbology option called <code>Categorized</code>?
+</p>
+</div>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Return to the <code>Symbology</code> window and select <code>Graduated</code> instead of <code>Categorized</code>. Change your <code>Value</code> to <code>POP_EST</code>. Choose <code>Magma</code> as your color ramp, change <code>Mode</code> (below empty space) to <code>Equal interval</code>, leave <code>Classes</code> as <code>5</code>, and then click on <code>Classify</code>. Click <code>OK</code>.</p></li>
+<li><p>Return to the <code>Symbology</code>window, change mode from <code>Equal Interval</code> to <code>Natural Breaks (Jenks)</code>, and increase <code>Class</code> to <code>10</code>. Click on OK.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Why is this symbology option called <code>Graduated</code>?
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Turn on the Rivers layer, and open its attribute table. Click on the <code>Select features using expression</code> button: [<a href="https://github.com/qgis/QGIS/blob/master/images/themes/default/mIconExpressionSelect.svg" class="uri">https://github.com/qgis/QGIS/blob/master/images/themes/default/mIconExpressionSelect.svg</a>]</p></li>
+<li><p>On the middle column, go to <code>Fields and Values</code> and then double click on <code>KILOMETERS</code>. It will be added to the left column. Complete the expression so it reads <code>"KILOMETERS" &gt; 5000</code>. Check the results of your selection on both the Attribute Table and the plotted layer geometry.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Does it seem like the selection is missing a few famous longest rivers? Why would that be?
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Change your expression to <code>"SYSTEM" = 'Amazon'</code>. On the bottom left of the Attibute Table, select <code>Show Selected Features</code>. How many rivers are there in the Amazon system, according to this dataset?</p></li>
+<li><p>Back on the main QGIS window, click on the <code>Show Statistical Summary</code> tool. A new pane will open. Select the Rivers layer as input, then click on the bottom on <code>Selected Features Only</code>. Then select <code>Kilometers</code> on the drop-down menu under the layer name. What is the length, in kilometers, of all rivers of the Amazon system combined?</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Does it seem like the selection is missing a few famous longest rivers? Why would that be?
+</p>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li>Go back to the <em>Attibute Table</em> window for the Rivers layer. Click on the <code>Field Calculator</code> tool. On the new window, <strong>uncheck</strong> the <code>Only update selected features</code> if it is checked. The name the new field <code>Miles_Km</code>, change the output type to <code>Decimal Number</code>. On the expression window, write <code>"MILES"  /  "KILOMETERS"</code>. Note the warning at the bottom. Once you click <code>OK</code>, turn off editing mode by clicking on the icon. Save you layer when asked to.</li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Does the Miles to Km conversion factor you calculated seem right?
+</p>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li><p>Click on the <code>Delete Field</code> button, and select <code>Miles_Km</code>. Click <code>OK</code>. Then click on the <code>Deselect All</code> button, to clear your previosu selection of Amazon system rivers.</p></li>
+<li><p>Click on the <code>Add Field</code> button. Create a field named <code>Region</code>, of <code>Text(string)</code> type, and <code>Length</code> of <code>50</code>. Click <code>OK</code>. Return to the <code>Field Calculator</code>, and select <code>Update Existing Field</code> instead. Select <code>Region</code> as the field to be updated, and then simply type <code>'Unknown'</code> on the <code>Expression</code> window. Don’t forget the quotes. Click <code>OK</code>. Exit edit mode choosing yes to save your edits. Save your project!</p></li>
+</ol>
+</div>
+<div id="guided-exercise-3---spatial-queries" class="section level2">
+<h2><span class="header-section-number">3.3</span> Guided Exercise 3 - Spatial Queries</h2>
+<ol style="list-style-type: decimal">
+<li><p>Go to <code>Vector &gt; Research Tools &gt; Select by Location...</code>. Select the Earthquakes layer fort <code>Select features from</code>. Then select only the <code>Are within</code> option. As the comparison layer, choose the Countries Layer. Take a look at the options under <code>Modify current selection by</code>, and then set it at <code>Creating New Selection</code>. Click <code>Run</code>, and after it is finished, <code>Close</code>.</p></li>
+<li><p>Open the Attibute Table for the Earthquakes layer.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> - How many Earthquakes were originated on land in 2011?
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li><p>On the <code>Field Calculator</code>, create a new field called <code>Origin</code>. **Do keep the option <code>Only update selected features</code> checked. The field should be of text type and length 10, and on the Expression window, write <code>'Land'</code>.</p></li>
+<li><p>On the Attribute Table window, click on ‘Invert Selection’. Then return to the <code>Field Calculator</code> and <em>Update</em> the <code>Origin</code> field by designating the newly selected features as <code>'Ocean'</code>.</p></li>
+<li><p>Style your points by ‘Origin’ using the <code>Symbology</code> options.</p></li>
+<li><p>On the World layer, use Attribute selection to select all countries from South America. Then go to <code>Vector &gt; Research Tools &gt; Select by Location...</code> and select all Earthquakes that are contained within the Countries layer, but this time check the option <code>Select features only</code>.</p></li>
+<li><p>Right-click on the Earthquakes layer name on the left panel and choose <code>Export &gt; Save selected features as...</code>. Name you exported file as <code>Land_earthquakes_2011_south_america</code>, choose the appropriate folder to save it within your project structure by clickin on the <code>...</code> button to the left of the file name box, and select your format of choice (Geopackage or Shapefile). Click on <code>OK</code>. Save your project.</p></li>
+</ol>
+</div>
+<div id="self-guided-summative-assessment." class="section level2">
+<h2><span class="header-section-number">3.4</span> Self-guided summative assessment.</h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
