@@ -6,16 +6,13 @@ output:
 
 The purpose of these exercises is for you to learn and understand the main GIS operation involving vector data. It will cover both geometry operations and attribute operations. Try to apply all the steps you have already learned on previous modules here as well: create a project folder, organize your data, save a named project with proper projection info, etc. The expectation is that you build up upon previous activities on each consecutive lab, so towards the end of the module you feel empowered to carry on with your own project.
 
-
-Reference readings and video for this lab are:
-
-
-
 ## Guided Exercise 1 - Basic work with Vector Data
 
-1. Dowload the data for this exercise from this link: . Extract the zipfile and organize your project folder and QGIS project file before you start.
+1. Dowload the data for this exercise from the link below, then extract the zipfiles. 
+ https://stir-my.sharepoint.com/:f:/g/personal/ts35_stir_ac_uk/En54tCrr8_NNl9dCo9Wa2hEBItv9QecNaVWL09p9j3EYnA?e=rXF5x4
 
-  - Load all datasets in QGIS and inspect them:
+
+2. Load all datasets in QGIS and inspect them:
     
     
 ```{block type='rmdnote'}
@@ -32,7 +29,7 @@ Reference readings and video for this lab are:
 - What is the *Map Projection* of each data layer you have?
 ```
 
-2. Once you have the answers to the above questions, exit QGIS without saving. Then create a structured project folder, and distribute the datafiles accordingly. Then reopen QGIS, load the data from the organized project folder, check you *Project properties* to make sure they are correct and then save your project file within your organized folder structure as well.
+3. Once you have the answers to the above questions, exit QGIS without saving. Then create a structured project folder, and distribute the datafiles accordingly. Then reopen QGIS, load the data from the organized project folder, check you *Project properties* to make sure they are correct and then save your project file within your organized folder structure as well.
 
 4. Now inspect the **attributes** for each layer:
 
@@ -46,9 +43,9 @@ Reference readings and video for this lab are:
 - What are the different *data types* among all attributes?
 ```
 
-3. Rename your layers on the layer list using human-readable, informative names. Save your project
+5. Rename your layers on the layer list using human-readable, informative names. Save your project
 
-4. Organize the *layer order* and play with different layer superpositions to make the best visualization for all datasets involved. Then experiment with the *symbology* of each layer to improve your visualization.
+6. Organize the *layer order* and play with different layer superpositions to make the best visualization for all datasets involved. Then experiment with the *symbology* of each layer to improve your visualization.
     
 ## Guided Exercise 2:  Operations using layer attributes
 
@@ -66,7 +63,7 @@ Reference readings and video for this lab are:
 **Stop and think:** Why is this symbology option called `Graduated`?
 ```
 
-4. Turn on the Rivers layer, and open its attribute table. Click on the `Select features using expression` button: ![https://github.com/qgis/QGIS/blob/master/images/themes/default/mIconExpressionSelect.svg]  
+4. Turn on the Rivers layer, and open its attribute table. Click on the `Select features using expression` button: ![](QGISicons/images/themes/default/mIconExpressionSelect.svg)  
 
 5. On the middle column, go to `Fields and Values` and then double click on `KILOMETERS`. It will be added to the left column. Complete the expression so it reads `"KILOMETERS" > 5000`. Check the results of your selection on both the Attribute Table and the plotted layer geometry.
 
@@ -74,7 +71,7 @@ Reference readings and video for this lab are:
 **Stop and think:** Does it seem like the selection is missing a few famous longest rivers? Why would that be?
 ```
 
-6. Change your expression to `"SYSTEM" = 'Amazon'`. On the bottom left of the Attibute Table, select `Show Selected Features`. How many rivers are there in the Amazon system, according to this dataset?
+6. Change your expression to `"SYSTEM" = 'Amazon'` and run a new selection. On the bottom left of the Attibute Table, select `Show Selected Features`. How many rivers are there in the Amazon system, according to this dataset?
 
 7. Back on the main QGIS window, click on the `Show Statistical Summary` tool. A new pane will open. Select the Rivers layer as input, then click on the bottom on `Selected Features Only`. Then select `Kilometers` on the drop-down menu under the layer name. What is the length, in kilometers, of all rivers of the Amazon system combined? 
 
@@ -82,20 +79,20 @@ Reference readings and video for this lab are:
 **Stop and think:** Does it seem like the selection is missing a few famous longest rivers? Why would that be?
 ```
 
-8. Go back to the *Attibute Table* window for the Rivers layer. Click on the `Field Calculator` tool. On the new window, **uncheck** the `Only update selected features` if it is checked. The name the new field `Miles_Km`, change the output type to  `Decimal Number`. On the expression window, write `"MILES"  /  "KILOMETERS"`. Note the warning at the bottom. Once you click `OK`, turn off editing mode by clicking on the icon. Save you layer when asked to.
+8. Go back to the *Attibute Table* window for the Rivers layer. Click on the `Field Calculator` tool (![](QGISicons/images/themes/default/mActionCalculateField.svg)). On the new window, **uncheck** the `Only update selected features` options if it is checked. Then name the new field `Miles_Km`, and change the output type to  `Decimal Number`. On the expression window, write `"MILES"  /  "KILOMETERS"`. Note the warning at the bottom. Once you click `OK`, turn off editing mode by clicking on the icon. Save you layer when asked to.
 
 ```{block type='rmdnote'}
 **Stop and think:** Does the Miles to Km conversion factor you calculated seem right?
 ```
 
-9. Click on the `Delete Field` button, and select `Miles_Km`. Click `OK`. Then click on the `Deselect All` button, to clear your previosu selection of Amazon system rivers.
+9. Click on the `Delete Field` button (![](QGISicons/images/themes/default/mActionRemoveSelectedFeature.svg)), and select `Miles_Km`. Click `OK`. Then click on the `Deselect All` button, to clear your previous selection of Amazon system rivers.
 
-10. Click on the `Add Field` button. Create a field named `Region`, of `Text(string)` type, and `Length` of `50`. Click `OK`. Return to the `Field Calculator`, and select `Update Existing Field` instead. Select `Region` as the field to be updated, and then simply type `'Unknown'` on the `Expression` window. Don't forget the quotes. Click `OK`. Exit edit mode choosing yes to save your edits. Save your project!
+10. Click on the `Add Field` button (![](QGISicons/images/themes/default/mActionNewAttribute.svg)). Create a field named `Region`, of `Text(string)` type, and `Length` of `50`. Click `OK`. Return to the `Field Calculator`, and select `Update Existing Field` instead. Select `Region` as the field to be updated, and then simply type `'Unknown'` on the `Expression` window. Don't forget the quotes. Click `OK`. Exit edit mode choosing yes to save your edits. Save your project!
 
 
 ## Guided Exercise 3 -  Spatial Queries
 
-1. Go to `Vector > Research Tools > Select by Location...`. Select the Earthquakes layer fort `Select features from`. Then select only the `Are within` option. As the comparison layer, choose the Countries Layer. Take a look at the options under `Modify current selection by`, and then set it at `Creating New Selection`. Click `Run`, and after it is finished, `Close`.
+1. Go to `Vector > Research Tools > Select by Location...`. Select the Earthquakes layer as `Select features from`. Then check only the `Are within` query option. As the comparison layer, choose your World Countries layer. Take a look at the options under `Modify current selection by`, and then set it at `Creating New Selection`. Click `Run`, and after it is finished, click `Close`.
 
 2. Open the Attibute Table for the Earthquakes layer.  
 
@@ -104,15 +101,15 @@ Reference readings and video for this lab are:
 - How many Earthquakes were originated on land in 2011?
 ```
 
-3. On the `Field Calculator`, create a new field called `Origin`. **Do keep the option `Only update selected features` checked. The field should be of text type and length 10, and on the Expression window, write `'Land'`.
+3. On the `Field Calculator`, create a new field called `Origin`. **Do keep the option `Only update selected features` checked**. The field should be of text type and length 10, and on the Expression window, write `'Land'`.
 
-4. On the Attribute Table window, click on 'Invert Selection'. Then return to the `Field Calculator` and *Update* the `Origin` field by designating the newly selected features as `'Ocean'`.
+4. On the Attribute Table window, click on 'Invert Selection'(![](QGISicons/images/themes/default/mActionInvertSelection.svg)). Then return to the `Field Calculator` and *Update* the `Origin` field by designating the newly selected features as `'Ocean'`.
 
 5. Style your points by 'Origin' using the `Symbology` options.
 
-6. On the World layer, use Attribute selection to select all countries from South America. Then go to `Vector > Research Tools > Select by Location...` and select all Earthquakes that are contained within the Countries layer, but this time check the option `Select features only`. 
+6. On the World layer, use Attribute selection (as done on Exercise 2) to select all countries from South America. Then go to `Vector > Research Tools > Select by Location...` and select all Earthquakes that are contained within the Countries layer (same process as item 1 above), but this time make sure you turn the option `Selected features only` on. 
 
-7. Right-click on the Earthquakes layer name on the left panel and choose `Export > Save selected features as...`. Name you exported file as `Land_earthquakes_2011_south_america`, choose the appropriate folder to save it within your project structure by clickin on the `...` button to the left of the file name box, and select your format of choice (Geopackage or Shapefile). Click on `OK`. Save your project.
+7. Right-click on the Earthquakes layer name on the left panel and choose `Export > Save selected features as...`. Name you exported file as `Land_earthquakes_2011_south_america`, choose the appropriate folder to save it within your project structure by clicking on the `...` button to the left of the file name box, and select your format of choice (Geopackage or Shapefile). Click on `OK`. Save your project.
 
 
 ## Self-guided summative assessment. 
