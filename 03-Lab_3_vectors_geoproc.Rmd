@@ -40,5 +40,13 @@ For this exercise, we will learn how to do operations on the vector geometries i
 
 7. Go to `Vector > Geoprocessing > Clip...`. Select the roads layer as your input layer, and the Central Scotland region as your overlay layer. Leave everything else as default and `Run`. Once it is finished, `Close` the window. 
 
+```{block type='rmdnote'}
+**Stop and think:** what would happen if you closed you QGIS session while having temporary layers on your project?
+```
+8. Right click on the newly created temporary layer, then go to `Export > Save data as...`. Keep the geopackage format, and select the same central_scotland geopackage you created before. **Specifiy the layer name as `central_scotland_roadlinks`. Save.
 
+9. On your Browser side pane, click on the refresh button (), and then expand the layers inside your `central_scotland.gpkg` file. What are the layers inside?
 
+10. Repeat the clipping process done for the roads on the Scotland rivers layer on the initial Scotland geopackage. This time, instead of saving to a temporary file, click on `...` to the right of the file name box, and select `Save to Geopackage...`. Pick your Central Scotland geopackage and when the layer name window pops up, name it `central_scotland_rivers`. Once done, refresh the Browser and check the contents of your Central Scotland geopackage again.
+
+11. Finally, open the 
