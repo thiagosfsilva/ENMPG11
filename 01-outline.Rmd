@@ -124,7 +124,7 @@ We will meet twice a week for practical sessions at the following times and loca
 
 **Monday**  10:00h - 13:00h - Cottrell 3A146
 
-**Tuesday** 10:00h - 13:00h - Cottrell 3A146
+**Thursday** 10:00h - 13:00h - Cottrell 3A146
 
 Most practical sessions will be structured as follows:
 
@@ -142,7 +142,7 @@ The final grade for this module will be based on a set of weekly summative hands
 
 ### 1) Hands-on problems (50% of final grade) {-}
 
-At the end of every practical session, you will be assigned either a *formative* or *summative* hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. These assignments will assess ILOs 1, 3, and 4.
+At the end of every practical session, you will be assigned either a *formative* or *summative* hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. These assignments will assess ILOs 1, 3, and 4. The average of all problem grades will compose 50% of your final grade.
 
 ```{block2, prob-due, type='rmdimportant'}
 **Each summative assignment must be completed before the release date of the next summative
@@ -151,7 +151,7 @@ assignment**. Formative assignments can be completed at any time.
 
 ### 2) Final individual project (50% of the final grade) {-}
 
-You will be required to complete an individual piece of project work, following the guidelines provided here. The deliverable for this project will be a document to be formatted as a if it were a journal article to be submitted to a geomatics journal (no actual journal submission in necessary). Starting at week 11, all of your class time will be reserved for you to work on your project, with support from the instructor and tutor. The project is due at the last day of teaching for the semester. The project assesses ILO's 1-4.
+You will be required to complete an individual piece of project work, following the guidelines provided here. The deliverable for this project will be a document to be formatted as a if it were a journal article to be submitted to a geomatics journal (no actual journal submission in necessary). Starting at week 11, all of your class time will be reserved for you to work on your project, with support from the instructor and tutor. The project is due at the last day of teaching for the semester. The project assesses ILO's 1-4.  The grade for the project will compose 50% of your final grade.
 
 ```{block2, comp-proj, type='rmdimportant'}
 **This assessment is compulsory** (i.e. failure to submit these compulsory pieces of work will
