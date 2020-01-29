@@ -2,8 +2,11 @@
 output:
   html_document: default
 ---
-# Lab 3 - Working with vector data {#lab3}
+# Lab 3 - Working with vector data - Geoprocessing Tools {#lab3}
 
+```{block type='rmdwarning'}
+(STILL INCOMPLETE, BEAR WITH ME )
+```
 During the previous lab, we looked at how to solve probles using vector attributes, making selections based on both attribute values and on spatial relations.
 
 For this exercise, we will learn how to do operations on the vector geometries instead.

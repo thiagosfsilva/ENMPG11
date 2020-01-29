@@ -2,19 +2,22 @@
 output:
   html_document: default
 ---
-# Lab 4 - Working with raster data {#lab4}
+# Lab 4 - Working with raster data - the basics {#lab4}
 
-During the previous lab, we looked at how to solve probles using vector attributes, making selections based on both attribute values and on spatial relations.
+So far, we have been working within the realm of vector data: beautiful topological combinations of vertices and lines to represent the complexity of the Earth's surface. But there are plenty of situations where vectors are not the best choice; any information that varies *gradually* and *continuously* over the surface can be better represented by *rasters*
 
-For this exercise, we will learn how to do operations on the vector geometries instead.
+For this exercise, we will learn to inspect and style raster data, and also how to do some mathematical operations among raster layers.
 
-## Guided Exercise 1 - Clipping data
+## Guided Exercise 1 - Opening and inspecting raster data
 
-1. Dowload the data for this exercise from the link below, then extract the zipfiles. 
+1. Download the required data from the link below:
 
-
-2. Load all datasets in QGIS and inspect them:
+2. Download additional data from [](https://gadm.org/). You want the offical country divisions for the United Kingdom. Pick Geopackage or Shapefile, your choice.
     
+3. Open the four layers contained in the UK administrative boundary data. Keep the layer that shows only the overall boundaries for the UK, and remove the others from the project.
+
+4. Add the `UK_SRTM.tif`, `UK_Bioclim.tif` and `CLC2018_CLC2018_V2018_20_UKclip.tif` raster files to your project. For each of them, right-click on the layer name and go to `Properties > Information`, then:
+
 ```{block type='rmdnote'}
 **Stop and think:** 
 
@@ -24,29 +27,68 @@ For this exercise, we will learn how to do operations on the vector geometries i
 
 - What are the file *formats* you have to work with?
 
-- What is the *Map Projection* of each data layer you have?
+- What are the *map projections* of each dataset you have (vector and raster)?
+
+- What are the *lenght units* of each raster dataset?
+
+- What are the *data types* of each raster dataset?
+
+- What are the *dimensions (rows, columns)* of each raster dataset?
+
+- How many *bands* does each raster dataset have?
+
+- What are the *pixel sizes* of each raster dataset?
 ```
 
-3. Load the Scotland regions vector layer and the Scotland Roads vector layer.
+## Guided Exercise 2 - Styling raster data
 
-4. Select only the polygon corresponding to Central Scotland. You can do it using either the selection tool (![]()) or by using the Attribute Table, using the skills you've learned on the previous practical.
-
-5. Right click on the Scottish Regions layer name and select `Export > Save file as...`. Select the format as Geopackage, the `file name` as `central_scotland`, and the `layer name` as `central_scotland_limits`. **Check the box that says `selected features only`**.
+1. Select the CORINE land cover data layer and go to `Properties > Symbology`. Not that the default symbology for single band rasters is `Singleband gray`. Change it to `Paletted / Unique Values`. Maintain the `Random Colors` option, and classify. Aplly the result to your raster and visualise it.
 
 ```{block type='rmdnote'}
-**Stop and think:** why did we have to specify both a file name d a layer name in this case?
-```
-6. Now remove the Scotland Regions layer, and open the Scotland Road Links layer from the initial Geopackage file. Visualize and inspect the layer, and how it overlaps with the Central Region polygon you have created.
+**Stop and think:** 
 
-7. Go to `Vector > Geoprocessing > Clip...`. Select the roads layer as your input layer, and the Central Scotland region as your overlay layer. Leave everything else as default and `Run`. Once it is finished, `Close` the window. 
+- How many categories are there on this raster?
+
+- What do the numbers represent?
+```
+
+2. Fortunately for us, the data producers of CORINE include a color map file as part of the *metadata*. Back on the *Symbology* window, click on the `...` to the right of `Delete All` and choose `Load Color Map from File...`. Find and select the metadata file named  `CLC2018_CLC2018_V2018_20_QGIS.txt`. `Apply` and then click `OK`. Thank you CORINE team! 
+
+3. Now go to the *Symbology* window for the Bioclim dataset. Notice that the default symbology choice for multiband rasters is `Multiband color`. That option is appropriate for satellite images and aerial photography, where each band represents a different region of the electromagnetic spectrum, and then bands can be assigned to the Red, Green and Blue color channels of your screen. 
+
+4. Since our data does not comprise images, but layers where pixel values represent *real variables*, we need to use the `Single band - pseudocolor` option. Choose the `bio1` band, and select the `magma` color ramp. `Classify` the existing values and then `Apply` and click `OK`.
 
 ```{block type='rmdnote'}
-**Stop and think:** what would happen if you closed you QGIS session while having temporary layers on your project?
+**Stop and think:** 
+
+- What data is bio01 showing?
+
+- What units are the minimum and maximum values shown on the color scale?
+
+- Why such a strange choice for the units?
 ```
-8. Right click on the newly created temporary layer, then go to `Export > Save data as...`. Keep the geopackage format, and select the same central_scotland geopackage you created before. **Specifiy the layer name as `central_scotland_roadlinks`. Save.
 
-9. On your Browser side pane, click on the refresh button (), and then expand the layers inside your `central_scotland.gpkg` file. What are the layers inside?
+5. Return to the *Symbology* window, and expand the option `Min / Max Value Settings`. What is the default option selected? Experiment with the other options (with different percent clips and standard deviations) and see how the Symbology changes. Remember to `Apply` the changes every time you change any options.
 
-10. Repeat the clipping process done for the roads on the Scotland rivers layer on the initial Scotland geopackage. This time, instead of saving to a temporary file, click on `...` to the right of the file name box, and select `Save to Geopackage...`. Pick your Central Scotland geopackage and when the layer name window pops up, name it `central_scotland_rivers`. Once done, refresh the Browser and check the contents of your Central Scotland geopackage again.
+6. Still on the *Symbology* window, change the `Classification` options (drop down menu to the left, under the classes) from `Continuous` to `Equal Interval`. To the right of it, select the numnber of classes as 3. `Apply` and evaluate.
 
-11. Finally, open the 
+7. Without changing your number of classes, change the `Interpolation` option above the classes from `Linear` to `Discrete`. `Apply` and evaluate. Take some time to play with these visualisation options to analyse the distribution of different Bioclimatic variables in the UK, and think what they mean for plants, (non-human) animals and in terms of social and economic factors.
+
+8. Finally, let's work on the Symbology for the SRTM data. On the *Symbology* window, choose the `Singleband Pseudocolor` option, and then  on the `Color Ramp` option, select `Create New Color Ramp`. On the small options window that comes up, select `Catalog:cpt-city`.
+
+9. Once the catalog window opens, go to the `Topography` list and select the `cd-a` palette. Then classify your elevation values using the `User Defined` Min /Max option, and type 0 as Min and 900 as Maximum. `Apply` and visualise. Then, befor closing the *Properties* window, go to the `Transparency` table and drag the slider at the top to around 60%.
+
+10. Right-click on the SRTM layer name and select `Duplicate layer`. Then on the *Symbology* of the copied layer, change the `render type` to `Hillshade`. `Apply` and close the window. Make sure the copied layer is immediately under the original layer, and alternate each layer between on and off. 
+
+```{block type='rmdnote'}
+**Stop and think:** 
+
+- What does the `hillshade` render style does? How? 
+
+```
+
+## Guided Exercise 3 - Mathematical and boolean operations using the Raster Calculator
+
+## Guided Exercise 3 - Resampling, clipping, masking and reprojecting raster data
+
+## Formative Exercise
