@@ -89,6 +89,37 @@ For this exercise, we will learn to inspect and style raster data, and also how 
 
 ## Guided Exercise 3 - Mathematical and boolean operations using the Raster Calculator
 
-## Guided Exercise 3 - Resampling, clipping, masking and reprojecting raster data
+1. Go to the menu `Raster > Raster Calculator...`. This tool allows you to apply several mathematical funtions to raster layer values and even to do calculations among values.
 
-## Formative Exercise
+2. First, find the Bio1 layer of the Biolcim raster. From the metadata, we know it is the first band, so double-click `UK_bioclim@1` to add it to the expression area. In this context `@1`, `@2`, etc. indicate the respective raster band number.
+
+3. As we saw above, the Bio1 layer corresponds to Annual Average Temperature, with a unit of degrees Celsius multiplied by ten. Let's convert it to regular degree Celsius units. On the expression area, after  `UK_bioclim@1`, write `/ 10`. Then, on the top right corner, select a folder to save your file and name it appropriately. Then click `OK`.
+
+4. Style your new layer in the same style used for the original Bio1 layer, using the full Min / Max range, and marvel at the abysmal maximum average temperature values for the UK. Can you spot the London heat island effect?
+
+5. Let's say we would like to relocate to the hottest (in average) locations of the UK. Go back to raster calculator, and enter the expression `UK_bioclim@1 > 100` (or use your new layer and select areas > 10). Save the result as `UKs_last_hope.tif`. 
+
+6. Go to the *Symbology* layer of your newly created layer and select `Paletted / Unique Values`, then `Classify`. Then, remove the `0` values from the legend using the `-` (minus) button. Click on the color box for the `1` values and select a strong red color. Finally, go to the `Transparency` tab and drag the slider to around 50%. Then `Apply` and close the window. Position your temperature range layer just above the terrain and hillshade layers, and make sure only these three are visible.
+
+## Guided Exercise 3 - Masking and reprojecting raster data.
+
+1. It may have been bothering you that the UK seems "squished" during your work. That is because the data is 'unprojected', using only the WGS-84 datum geograophic coordinates. Although data in geographic coordinates is often referred to as "unprojected", this is not actually true (you are looking at it on flat screen, right?). For these "unprojected" datasets, what most GIS software do is to simply use a linear function to convert latitudes and longitudes in degrees to x and y values on your screen. This projection can be referred as *Plate Carrée* or *Equirectangular* projection, where degree coordinates are simply converted to radians and multiplied by a scale factor to become x and y coordinates. This projection has a heavy amount of distortion towards the poles:
+
+![](https://upload.wikimedia.org/wikipedia/commons/8/83/Equirectangular_projection_SW.jpg)
+
+
+2. To reproject the data, go to `Raster > Projections > Warp (Reproject...)`. Select your SRTM layer as the `Input Layer`, and the `EPSG: 27700 - OSGB 1936 / British National Grid` as the output projection. Set the `output file resolution` to 90 (this will be in meters, as meters are the units of the BNG projection). Then save your file as `UK_SRTM_BNGreproj.tif`. `Run` the algorithm and then `Close` when finished. Repeat the process for the Bioclim layer (use a cell size of 1000m), your "last hope" layer and the CORINE landcover map (cell size of 100m).
+
+3. It seems nothing has really changed, right? That is because QGIS does reprojections "on the fly" to make sure the data in the screen are as best aligned as possible. As the project always takes the Coordinate System of the first layer added to it, it is set to Geographic WGS84, and it is reprojecting your BSG files back to WGS84 to align them with the WGS84 data. CLose your project, and then start a new project, loading only the BSG reprojected layers. Does it look better now?
+
+4. We often want to remove parts (specific cells) of a raster, a process called `masking`. For example, let's say we want to visualize the temprature ranges for out "last hope" regions only. Lets go to the *Raster Calculator*, and use the expression `(UK_Biolcim@1 / 10) * UKs_last_hope@1`. Name the resulting layer and save it, then style the result using a *Pseudocolor*  color ramp. However, this time manually specify the Min value as `10`.
+
+```{block type='rmdnote'}
+**Stop and think:** what happened to the temperature values when we applied the expression above? Use the information tool to probe a few values of the new raster to help you think about it.
+```
+
+5. Return to the *Properties* of the new masked layer, and select the `Transparency` tab. On the table named `Transparent pixel list`, click on the `+` (plus) button to add a new line. Fill the line with the values `from` = `0`, `to` = `0` and `Percent Transparent` = `100`. `Apply` and evaluate the result.
+
+6. Vectors can also be used as masks. Go to `Raster > Extraction > CLip Raster by Mask Layer...`. Select your Celsius converted average temperature raster as input layer, the gadm36_GBR_0 as your mask layer, and check `keep the resolution of the input raster`. `Run` the algorithm (it will take a while) then `Close` the window when finished. Copy the layer style from the original UK_SRTM to the masked layer, zoom to the original UK_SRTM layer extent and compare the results before and after the masking.
+
+### Formative Assessment
