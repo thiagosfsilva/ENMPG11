@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>ENMPG11 Geomatics - Module Workbook</title>
+  <title>4 Lab 3 - Working with vector data | ENMPG11 Geomatics - Module Workbook</title>
   <meta name="description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="ENMPG11 Geomatics - Module Workbook" />
+  <meta property="og:title" content="4 Lab 3 - Working with vector data | ENMPG11 Geomatics - Module Workbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="thiagosfsilva/ENMPG11" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="ENMPG11 Geomatics - Module Workbook" />
+  <meta name="twitter:title" content="4 Lab 3 - Working with vector data | ENMPG11 Geomatics - Module Workbook" />
   
   <meta name="twitter:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="outline.html"/>
+<link rel="prev" href="lab2.html"/>
+<link rel="next" href="lab4.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -125,24 +125,78 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">ENMPG11 Geomatics - Module Workbook</h1>
-<p class="author"><em>Thiago Silva</em></p>
-<p class="date"><em>2020-01-29</em></p>
+<div id="lab3" class="section level1">
+<h1><span class="header-section-number">4</span> Lab 3 - Working with vector data</h1>
+<p>During the previous lab, we looked at how to solve probles using vector attributes, making selections based on both attribute values and on spatial relations.</p>
+<p>For this exercise, we will learn how to do operations on the vector geometries instead.</p>
+<div id="guided-exercise-1---clipping-data" class="section level2">
+<h2><span class="header-section-number">4.1</span> Guided Exercise 1 - Clipping data</h2>
+<ol style="list-style-type: decimal">
+<li><p>Dowload the data for this exercise from the link below, then extract the zipfiles.</p></li>
+<li><p>Load all datasets in QGIS and inspect them:</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong>
+</p>
+<ul>
+<li>
+<p>
+What are the datasets you have?
+</p>
+</li>
+<li>
+<p>
+What are the file <em>types</em> you have to work with?
+</p>
+</li>
+<li>
+<p>
+What are the file <em>formats</em> you have to work with?
+</p>
+</li>
+<li>
+<p>
+What is the <em>Map Projection</em> of each data layer you have?
+</p>
+</li>
+</ul>
 </div>
-<div id="welcome" class="section level1 unnumbered">
-<h1>Welcome!</h1>
-<p>Welcome to the ENMPG11 Geomatics module workbook! This module provides an introduction to the basic concepts and principles of Geomatics, i.e. how to use Geographic Information Systems (GIS) and Earth Observation (EO) to perform spatial data analysis and visualisation. As Geomatics is best taught through hands-on practice, this module is based on the flipped classroom method, where you will be assigned videos and/or readings on a weekly basis, and then we will meet twice a week for computer-based practicals. In each practical class you will be taken through a number of exercises that will teach you fundamental skills in GIS and EO.</p>
-<p>Use the items on the left to navigate through the sections of the workbook, and click on the arrows at the left and right edges of the main page are to page forward/backward. If you are viewing the book on a small screen, the navigation buttons will be on the bottom instead.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><p>Load the Scotland regions vector layer and the Scotland Roads vector layer.</p></li>
+<li><p>Select only the polygon corresponding to Central Scotland. You can do it using either the selection tool (<img src="" />) or by using the Attribute Table, using the skills you’ve learned on the previous practical.</p></li>
+<li><p>Right click on the Scottish Regions layer name and select <code>Export &gt; Save file as...</code>. Select the format as Geopackage, the <code>file name</code> as <code>central_scotland</code>, and the <code>layer name</code> as <code>central_scotland_limits</code>. <strong>Check the box that says <code>selected features only</code></strong>.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> why did we have to specify both a file name d a layer name in this case?
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Now remove the Scotland Regions layer, and open the Scotland Road Links layer from the initial Geopackage file. Visualize and inspect the layer, and how it overlaps with the Central Region polygon you have created.</p></li>
+<li><p>Go to <code>Vector &gt; Geoprocessing &gt; Clip...</code>. Select the roads layer as your input layer, and the Central Scotland region as your overlay layer. Leave everything else as default and <code>Run</code>. Once it is finished, <code>Close</code> the window.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> what would happen if you closed you QGIS session while having temporary layers on your project?
+</p>
+</div>
+<ol start="8" style="list-style-type: decimal">
+<li><p>Right click on the newly created temporary layer, then go to <code>Export &gt; Save data as...</code>. Keep the geopackage format, and select the same central_scotland geopackage you created before. **Specifiy the layer name as <code>central_scotland_roadlinks</code>. Save.</p></li>
+<li><p>On your Browser side pane, click on the refresh button (), and then expand the layers inside your <code>central_scotland.gpkg</code> file. What are the layers inside?</p></li>
+<li><p>Repeat the clipping process done for the roads on the Scotland rivers layer on the initial Scotland geopackage. This time, instead of saving to a temporary file, click on <code>...</code> to the right of the file name box, and select <code>Save to Geopackage...</code>. Pick your Central Scotland geopackage and when the layer name window pops up, name it <code>central_scotland_rivers</code>. Once done, refresh the Browser and check the contents of your Central Scotland geopackage again.</p></li>
+<li><p>Finally, open the</p></li>
+</ol>
 
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-<a href="outline.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lab2.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab4.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

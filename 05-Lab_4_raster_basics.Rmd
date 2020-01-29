@@ -2,7 +2,7 @@
 output:
   html_document: default
 ---
-# Lab 3 - Working with vector data {#lab2}
+# Lab 4 - Working with raster data {#lab4}
 
 During the previous lab, we looked at how to solve probles using vector attributes, making selections based on both attribute values and on spatial relations.
 

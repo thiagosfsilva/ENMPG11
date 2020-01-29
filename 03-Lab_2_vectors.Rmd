@@ -2,9 +2,9 @@
 output:
   html_document: default
 ---
-# Lab 2 - Working with vector data {#lab2}
+# Lab 2 - Working with vector data - Attributes {#lab2}
 
-The purpose of these exercises is for you to learn and understand the main GIS operation involving vector data. It will cover both geometry operations and attribute operations. Try to apply all the steps you have already learned on previous modules here as well: create a project folder, organize your data, save a named project with proper projection info, etc. The expectation is that you build up upon previous activities on each consecutive lab, so towards the end of the module you feel empowered to carry on with your own project.
+The purpose of these exercises is for you to learn and understand the main GIS operation involving vector data attributes. It will cover both some geometry operations and attribute operations. Try to apply all the steps you have already learned on previous modules here as well: create a project folder, organize your data, save a named project with proper projection info, etc. The expectation is that you build up upon previous activities on each consecutive lab, so towards the end of the module you feel empowered to carry on with your own project.
 
 ## Guided Exercise 1 - Basic work with Vector Data
 
@@ -112,7 +112,7 @@ The purpose of these exercises is for you to learn and understand the main GIS o
 7. Right-click on the Earthquakes layer name on the left panel and choose `Export > Save selected features as...`. Name you exported file as `Land_earthquakes_2011_south_america`, choose the appropriate folder to save it within your project structure by clicking on the `...` button to the left of the file name box, and select your format of choice (Geopackage or Shapefile). Click on `OK`. Save your project.
 
 
-## Self-guided summative assessment. 
+## Self-guided summative assessment.
 
-
+See **Assessments** tab on Canvas page.
 
