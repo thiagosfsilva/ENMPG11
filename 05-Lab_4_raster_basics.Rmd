@@ -112,7 +112,7 @@ For this exercise, we will learn to inspect and style raster data, and also how 
 
 3. It seems nothing has really changed, right? That is because QGIS does reprojections "on the fly" to make sure the data in the screen are as best aligned as possible. As the project always takes the Coordinate System of the first layer added to it, it is set to Geographic WGS84, and it is reprojecting your BSG files back to WGS84 to align them with the WGS84 data. CLose your project, and then start a new project, loading only the BSG reprojected layers. Does it look better now?
 
-4. We often want to remove parts (specific cells) of a raster, a process called `masking`. For example, let's say we want to visualize the temprature ranges for out "last hope" regions only. Lets go to the *Raster Calculator*, and use the expression `(UK_Biolcim@1 / 10) * UKs_last_hope@1`. Name the resulting layer and save it, then style the result using a *Pseudocolor*  color ramp. However, this time manually specify the Min value as `10`.
+4. We often want to remove parts (specific cells) of a raster, a process called `masking`. For example, let's say we want to get the mean average annual temperature andvisualize the temprature ranges for out "last hope" regions only. Lets go to the *Raster Calculator*, and use the expression `(UK_Biolcim@1 / 10) * UKs_last_hope@1`. Name the resulting layer and save it, then style the result using a *Pseudocolor*  color ramp. However, this time manually specify the Min value as `10`.
 
 ```{block type='rmdnote'}
 **Stop and think:** what happened to the temperature values when we applied the expression above? Use the information tool to probe a few values of the new raster to help you think about it.
@@ -120,6 +120,18 @@ For this exercise, we will learn to inspect and style raster data, and also how 
 
 5. Return to the *Properties* of the new masked layer, and select the `Transparency` tab. On the table named `Transparent pixel list`, click on the `+` (plus) button to add a new line. Fill the line with the values `from` = `0`, `to` = `0` and `Percent Transparent` = `100`. `Apply` and evaluate the result.
 
-6. Vectors can also be used as masks. Go to `Raster > Extraction > CLip Raster by Mask Layer...`. Select your Celsius converted average temperature raster as input layer, the gadm36_GBR_0 as your mask layer, and check `keep the resolution of the input raster`. `Run` the algorithm (it will take a while) then `Close` the window when finished. Copy the layer style from the original UK_SRTM to the masked layer, zoom to the original UK_SRTM layer extent and compare the results before and after the masking.
+```{block type='rmdnote'}
+**Stop and think:** did you actually change the contents of the raster layer when you set the transparent pixels?
+```
+
+6. Now click on the menu `Processing > Toolbox...`. Welcome to the QGIS toolbox! You will find many addtional functions here to process vectors ans rasters, as well as functions from external software that can be accesses through QGIS. On the search bar at the top, search for `Raster layer zonal statistics`. Double click on the tool with that name that comes up from the search. As `Input layer`, select the degree Celsius temeprature layer you created, and as `Zones layer`, select the "last hope" layer (the one with the 0/1 values, not the masked temoerature layer). `Run` (it will take a while) and then `Close`.
+
+7. Vectors can also be used as masks. Go to `Raster > Extraction > CLip Raster by Mask Layer...`. Select your Celsius converted average temperature raster as input layer, the gadm36_GBR_0 as your mask layer, and check `keep the resolution of the input raster`. `Run` the algorithm (it will take a while) then `Close` the window when finished. Copy the layer style from the original UK_SRTM to the masked layer, zoom to the original UK_SRTM layer extent and compare the results before and after the masking.
 
 ### Formative Assessment
+
+Is there any difference in mean values of average annual temperature between  urban areas and forests in the UK? Make a map (including legend and scale) showing you results visually.
+
+Hint 1: To ensure raster operations work properly, all rasters must be in the same projection.
+
+Hint 2: You can also use `AND` and `OR` to create compound expressions on the raster calculator (just make sure you type them in all caps). 

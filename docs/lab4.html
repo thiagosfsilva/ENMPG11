@@ -24,7 +24,7 @@
 <meta name="author" content="Thiago Silva" />
 
 
-<meta name="date" content="2020-01-29" />
+<meta name="date" content="2020-01-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -283,7 +283,7 @@ What does the <code>hillshade</code> render style does? How?
 <ol start="2" style="list-style-type: decimal">
 <li><p>To reproject the data, go to <code>Raster &gt; Projections &gt; Warp (Reproject...)</code>. Select your SRTM layer as the <code>Input Layer</code>, and the <code>EPSG: 27700 - OSGB 1936 / British National Grid</code> as the output projection. Set the <code>output file resolution</code> to 90 (this will be in meters, as meters are the units of the BNG projection). Then save your file as <code>UK_SRTM_BNGreproj.tif</code>. <code>Run</code> the algorithm and then <code>Close</code> when finished. Repeat the process for the Bioclim layer (use a cell size of 1000m), your “last hope” layer and the CORINE landcover map (cell size of 100m).</p></li>
 <li><p>It seems nothing has really changed, right? That is because QGIS does reprojections “on the fly” to make sure the data in the screen are as best aligned as possible. As the project always takes the Coordinate System of the first layer added to it, it is set to Geographic WGS84, and it is reprojecting your BSG files back to WGS84 to align them with the WGS84 data. CLose your project, and then start a new project, loading only the BSG reprojected layers. Does it look better now?</p></li>
-<li><p>We often want to remove parts (specific cells) of a raster, a process called <code>masking</code>. For example, let’s say we want to visualize the temprature ranges for out “last hope” regions only. Lets go to the <em>Raster Calculator</em>, and use the expression <code>(UK_Biolcim@1 / 10) * UKs_last_hope@1</code>. Name the resulting layer and save it, then style the result using a <em>Pseudocolor</em> color ramp. However, this time manually specify the Min value as <code>10</code>.</p></li>
+<li><p>We often want to remove parts (specific cells) of a raster, a process called <code>masking</code>. For example, let’s say we want to get the mean average annual temperature andvisualize the temprature ranges for out “last hope” regions only. Lets go to the <em>Raster Calculator</em>, and use the expression <code>(UK_Biolcim@1 / 10) * UKs_last_hope@1</code>. Name the resulting layer and save it, then style the result using a <em>Pseudocolor</em> color ramp. However, this time manually specify the Min value as <code>10</code>.</p></li>
 </ol>
 <div class="rmdnote">
 <p>
@@ -291,11 +291,22 @@ What does the <code>hillshade</code> render style does? How?
 </p>
 </div>
 <ol start="5" style="list-style-type: decimal">
-<li><p>Return to the <em>Properties</em> of the new masked layer, and select the <code>Transparency</code> tab. On the table named <code>Transparent pixel list</code>, click on the <code>+</code> (plus) button to add a new line. Fill the line with the values <code>from</code> = <code>0</code>, <code>to</code> = <code>0</code> and <code>Percent Transparent</code> = <code>100</code>. <code>Apply</code> and evaluate the result.</p></li>
+<li>Return to the <em>Properties</em> of the new masked layer, and select the <code>Transparency</code> tab. On the table named <code>Transparent pixel list</code>, click on the <code>+</code> (plus) button to add a new line. Fill the line with the values <code>from</code> = <code>0</code>, <code>to</code> = <code>0</code> and <code>Percent Transparent</code> = <code>100</code>. <code>Apply</code> and evaluate the result.</li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> did you actually change the contents of the raster layer when you set the transparent pixels?
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Now click on the menu <code>Processing &gt; Toolbox...</code>. Welcome to the QGIS toolbox! You will find many addtional functions here to process vectors ans rasters, as well as functions from external software that can be accesses through QGIS. On the search bar at the top, search for <code>Raster layer zonal statistics</code>. Double click on the tool with that name that comes up from the search. As <code>Input layer</code>, select the degree Celsius temeprature layer you created, and as <code>Zones layer</code>, select the “last hope” layer (the one with the 0/1 values, not the masked temoerature layer). <code>Run</code> (it will take a while) and then <code>Close</code>.</p></li>
 <li><p>Vectors can also be used as masks. Go to <code>Raster &gt; Extraction &gt; CLip Raster by Mask Layer...</code>. Select your Celsius converted average temperature raster as input layer, the gadm36_GBR_0 as your mask layer, and check <code>keep the resolution of the input raster</code>. <code>Run</code> the algorithm (it will take a while) then <code>Close</code> the window when finished. Copy the layer style from the original UK_SRTM to the masked layer, zoom to the original UK_SRTM layer extent and compare the results before and after the masking.</p></li>
 </ol>
 <div id="formative-assessment" class="section level3">
 <h3><span class="header-section-number">5.4.1</span> Formative Assessment</h3>
+<p>Is there any difference in mean values of average annual temperature between urban areas and forests in the UK? Make a map (including legend and scale) showing you results visually.</p>
+<p>Hint 1: To ensure raster operations work properly, all rasters must be in the same projection.</p>
+<p>Hint 2: You can also use <code>AND</code> and <code>OR</code> to create compound expressions on the raster calculator (just make sure you type them in all caps).</p>
 
 </div>
 </div>
