@@ -50,7 +50,7 @@ https://github.com/qgis/QGIS/issues/33386#issuecomment-569140502
 
 3. Open the attribute table of the vectorized "last hope" layer. You will find the required statistics calculated for each polygon, as new attributes.
 
-4. Set the symbology of your new vector layer as a `Graduated` color ramp for `TdegC_max`. Where should a person live in the UK if they don't like the cold? 
+4. Set the symbology of your new vector layer as a `Graduated` color ramp for `LH_max`. Where should a person live in the UK if they don't like the cold? 
 
 ## Guided exercise 3 - Terrain Analysis
 

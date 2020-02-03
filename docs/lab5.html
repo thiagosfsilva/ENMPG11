@@ -187,7 +187,7 @@ There is a bug on QGIS 3.10.1 where it can’t find the polygonize script. Follo
 <li><p>If it’s not visible already, enable your <em>Processing Toolbox</em> panel by going to <code>Processing &gt; Toolbox...</code>.</p></li>
 <li><p>Search for the function <code>Zonal statistics</code> (<strong>Not</strong> <code>Raster layer zonal statistics</code>) and double click on it to open the tool window. Select the UK celsius layer as the <code>Raster layer</code> and you vectorized “last hope” layer as the <code>Vector layer containing zones</code>. Then click on the button to the side of <code>Statistics to calculate</code>, and check <code>Stdev</code>, <code>Min</code> and <code>Max</code> in addition to the three already checked. Also, set the prefix as <code>LH_</code>. <code>Run</code> and <code>close</code>.</p></li>
 <li><p>Open the attribute table of the vectorized “last hope” layer. You will find the required statistics calculated for each polygon, as new attributes.</p></li>
-<li><p>Set the symbology of your new vector layer as a <code>Graduated</code> color ramp for <code>TdegC_max</code>. Where should a person live in the UK if they don’t like the cold?</p></li>
+<li><p>Set the symbology of your new vector layer as a <code>Graduated</code> color ramp for <code>LH_max</code>. Where should a person live in the UK if they don’t like the cold?</p></li>
 </ol>
 </div>
 <div id="guided-exercise-3---terrain-analysis" class="section level2">
