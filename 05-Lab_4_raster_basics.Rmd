@@ -10,7 +10,7 @@ For this exercise, we will learn to inspect and style raster data, and also how 
 
 ## Guided Exercise 1 - Opening and inspecting raster data
 
-1. Download the required data for lab 4from the lad data link on Canvas
+1. Download the required data for Lab 4 from the lab data link on Canvas.
 
 2. Download additional data from [](https://gadm.org/). You want the offical country divisions for the United Kingdom. Pick Geopackage or Shapefile, your choice.
     

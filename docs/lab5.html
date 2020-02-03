@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>6 Lab 5 - Working with raster data - continued | ENMPG11 Geomatics - Module Workbook</title>
+  <meta name="description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="6 Lab 5 - Working with raster data - continued | ENMPG11 Geomatics - Module Workbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="github-repo" content="thiagosfsilva/ENMPG11" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="6 Lab 5 - Working with raster data - continued | ENMPG11 Geomatics - Module Workbook" />
+  
+  <meta name="twitter:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  
+
+<meta name="author" content="Thiago Silva" />
+
+
+<meta name="date" content="2020-02-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab4.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ENMPG11 Workbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="1" data-path="outline.html"><a href="outline.html"><i class="fa fa-check"></i><b>1</b> Module Outline and General Info</a><ul>
+<li class="chapter" data-level="1.1" data-path="outline.html"><a href="outline.html#staff-and-communication"><i class="fa fa-check"></i><b>1.1</b> Staff and Communication:</a></li>
+<li class="chapter" data-level="1.2" data-path="outline.html"><a href="outline.html#about-the-module"><i class="fa fa-check"></i><b>1.2</b> About the Module</a></li>
+<li class="chapter" data-level="1.3" data-path="outline.html"><a href="outline.html#intended-learning-outcomes-ilos"><i class="fa fa-check"></i><b>1.3</b> Intended Learning Outcomes (ILO’s):</a></li>
+<li class="chapter" data-level="1.4" data-path="outline.html"><a href="outline.html#readings-and-resources"><i class="fa fa-check"></i><b>1.4</b> Readings and Resources</a></li>
+<li class="chapter" data-level="1.5" data-path="outline.html"><a href="outline.html#attendance-and-points-of-contact"><i class="fa fa-check"></i><b>1.5</b> Attendance and Points of Contact</a></li>
+<li class="chapter" data-level="1.6" data-path="outline.html"><a href="outline.html#class-schedule-and-structure"><i class="fa fa-check"></i><b>1.6</b> Class Schedule and Structure</a></li>
+<li class="chapter" data-level="1.7" data-path="outline.html"><a href="outline.html#assessment-and-grading"><i class="fa fa-check"></i><b>1.7</b> Assessment and Grading</a><ul>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#hands-on-problems-50-of-final-grade"><i class="fa fa-check"></i>1) Hands-on problems (50% of final grade)</a></li>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#final-individual-project-50-of-the-final-grade"><i class="fa fa-check"></i>2) Final individual project (50% of the final grade)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="outline.html"><a href="outline.html#module-timetable-and-dates"><i class="fa fa-check"></i><b>1.8</b> Module Timetable and Dates</a></li>
+<li class="chapter" data-level="1.9" data-path="outline.html"><a href="outline.html#other-relevant-information"><i class="fa fa-check"></i><b>1.9</b> Other Relevant Information</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>2</b> Lab 1 - QGIS overview and file management</a><ul>
+<li class="chapter" data-level="2.1" data-path="lab1.html"><a href="lab1.html#GE1"><i class="fa fa-check"></i><b>2.1</b> Guided Exercise 1 - A simple GIS workflow</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="lab1.html"><a href="lab1.html#creating-a-project-structure"><i class="fa fa-check"></i><b>2.1.1</b> Creating a project structure</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab1.html"><a href="lab1.html#creating-a-qgis-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a QGIS project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lab1.html"><a href="lab1.html#styling-your-layers-and-producing-a-simple-map"><i class="fa fa-check"></i><b>2.1.3</b> Styling your layers and producing a simple map</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab1.html"><a href="lab1.html#self-guided-exercise"><i class="fa fa-check"></i><b>2.2</b> Self-guided exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>3</b> Lab 2 - Working with vector data - Attributes</a><ul>
+<li class="chapter" data-level="3.1" data-path="lab2.html"><a href="lab2.html#guided-exercise-1---basic-work-with-vector-data"><i class="fa fa-check"></i><b>3.1</b> Guided Exercise 1 - Basic work with Vector Data</a></li>
+<li class="chapter" data-level="3.2" data-path="lab2.html"><a href="lab2.html#guided-exercise-2-operations-using-layer-attributes"><i class="fa fa-check"></i><b>3.2</b> Guided Exercise 2: Operations using layer attributes</a></li>
+<li class="chapter" data-level="3.3" data-path="lab2.html"><a href="lab2.html#guided-exercise-3---spatial-queries"><i class="fa fa-check"></i><b>3.3</b> Guided Exercise 3 - Spatial Queries</a></li>
+<li class="chapter" data-level="3.4" data-path="lab2.html"><a href="lab2.html#self-guided-summative-assessment."><i class="fa fa-check"></i><b>3.4</b> Self-guided summative assessment.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab3.html"><a href="lab3.html"><i class="fa fa-check"></i><b>4</b> Lab 3 - Working with vector data - Geoprocessing Tools</a><ul>
+<li class="chapter" data-level="4.1" data-path="lab3.html"><a href="lab3.html#guided-exercise-1---clipping-data"><i class="fa fa-check"></i><b>4.1</b> Guided Exercise 1 - Clipping data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab4.html"><a href="lab4.html"><i class="fa fa-check"></i><b>5</b> Lab 4 - Working with raster data - the basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="lab4.html"><a href="lab4.html#guided-exercise-1---opening-and-inspecting-raster-data"><i class="fa fa-check"></i><b>5.1</b> Guided Exercise 1 - Opening and inspecting raster data</a></li>
+<li class="chapter" data-level="5.2" data-path="lab4.html"><a href="lab4.html#guided-exercise-2---styling-raster-data"><i class="fa fa-check"></i><b>5.2</b> Guided Exercise 2 - Styling raster data</a></li>
+<li class="chapter" data-level="5.3" data-path="lab4.html"><a href="lab4.html#guided-exercise-3---mathematical-and-boolean-operations-using-the-raster-calculator"><i class="fa fa-check"></i><b>5.3</b> Guided Exercise 3 - Mathematical and boolean operations using the Raster Calculator</a></li>
+<li class="chapter" data-level="5.4" data-path="lab4.html"><a href="lab4.html#guided-exercise-3---masking-and-reprojecting-raster-data."><i class="fa fa-check"></i><b>5.4</b> Guided Exercise 3 - Masking and reprojecting raster data.</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="lab4.html"><a href="lab4.html#formative-assessment"><i class="fa fa-check"></i><b>5.4.1</b> Formative Assessment</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab5.html"><a href="lab5.html"><i class="fa fa-check"></i><b>6</b> Lab 5 - Working with raster data - continued</a><ul>
+<li class="chapter" data-level="6.1" data-path="lab5.html"><a href="lab5.html#guided-exercise-1---converting-rasters-to-vectors"><i class="fa fa-check"></i><b>6.1</b> Guided Exercise 1 - Converting rasters to vectors</a></li>
+<li class="chapter" data-level="6.2" data-path="lab5.html"><a href="lab5.html#guided-exercise-2---zonal-statistics-redux"><i class="fa fa-check"></i><b>6.2</b> Guided Exercise 2 - Zonal statistics redux</a></li>
+<li class="chapter" data-level="6.3" data-path="lab5.html"><a href="lab5.html#guided-exercise-3---terrain-analysis"><i class="fa fa-check"></i><b>6.3</b> Guided exercise 3 - Terrain Analysis</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="lab5.html"><a href="lab5.html#formative-assessment-1"><i class="fa fa-check"></i><b>6.3.1</b> Formative Assessment</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ENMPG11 Geomatics - Module Workbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab5" class="section level1">
+<h1><span class="header-section-number">6</span> Lab 5 - Working with raster data - continued</h1>
+<p>During the last practical, we started to learn how to use rasters for our GIS analysis. Today, we will continue discovering new ways of work with rasters, and also start to integrate rasters and vectors into combined analyses.</p>
+<div id="guided-exercise-1---converting-rasters-to-vectors" class="section level2">
+<h2><span class="header-section-number">6.1</span> Guided Exercise 1 - Converting rasters to vectors</h2>
+<p>For the previous lab, you used (or tried to) a funtion to extract zonal statistics from rasters, using a second raster as a mask. The process was very computer intensive, however.</p>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Thinking back on what you know about rasters now, why would this processes be so computer intensive?
+</p>
+</div>
+<p>However, there is a second option, which is to use vector layers as the zones for extracting statistics.</p>
+<ol style="list-style-type: decimal">
+<li><p>Download the required data for the previous lab (lab 4) if you don’t have it ready to go anymore, and the data for lab 5 from the lab data link on Canvas.</p></li>
+<li><p>Recreate the raster layers <code>UK_Bioclim_temp_celsius</code> and <code>UKs_last_hope</code> if you don’t have them anymore.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Did you take time during the last practical to organize your project folder and back up your work data before leaving the classroom? Or did you have to re-do the analysis. Remember, project organization and backups might be the difference between doing very well vs not so well in this module!
+</p>
+</div>
+<ol start="3" style="list-style-type: decimal">
+<li>Now go to <code>Raster &gt; Conversion &gt; Polygonize (Raster to vector)...</code>. Select your “last hope” layer as the input, and leave everything else as default. <code>Run</code> and then <code>Close</code>.</li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> What did you get as a result? Are all of the resulting polygons needed?
+</p>
+</div>
+<ol start="4" style="list-style-type: decimal">
+<li>Open the attibute table of your newly created vector layer, and do an attibute selection to select all polygons where <code>DN = 0</code>. Close the selection window, confirm your selection is correct, and then click on <code>Delete selected features</code>. Then save your edits and turn off editing mode. Make your layer permanent as <code>UKs_last_hope_vectorized.shp</code>.</li>
+</ol>
+</div>
+<div id="guided-exercise-2---zonal-statistics-redux" class="section level2">
+<h2><span class="header-section-number">6.2</span> Guided Exercise 2 - Zonal statistics redux</h2>
+<ol style="list-style-type: decimal">
+<li><p>If it is not visible already, enable your <em>Processing Toolbox</em> panel by going to <code>Processing &gt; Toolbox...</code>.</p></li>
+<li><p>Search for the function <code>Zonal statistics</code> (<strong>Not</strong> <code>Raster layer zonal statistics</code>) and double click on it to open the tool window. Select the UK celsius layer as the <code>Raster layer</code> and you vectorized “last hope” layer as the <code>Vector layer containing zones</code>. Then click on the button to the side of <code>Statistics to calculate</code>, and check <code>Stdev</code>, <code>Min</code> and <code>Max</code> in addition to the three already checked. <code>Run</code> and <code>close</code>.</p></li>
+<li><p>Open the attribute table of the vectorized “last hope” layer. You will find the required statistics calculated for each polygon, as new attributes.</p></li>
+<li><p>Set the symbology of your new vector layer as a <code>Graduated</code> color ramp for <code>TdegC_max</code>. Where should a person live in the UK if they don’t like the cold?</p></li>
+</ol>
+</div>
+<div id="guided-exercise-3---terrain-analysis" class="section level2">
+<h2><span class="header-section-number">6.3</span> Guided exercise 3 - Terrain Analysis</h2>
+<p>One of the most often used <em>raster</em> datasets are terrain data. These are generally called <strong>Digital Elevation Models</strong> or <em>DEMs</em>. If you are certain that these elevations represent the bare surface of the Earth (i.e. no treesm buildings, etc.) then it is also a <strong>Digital Terrain Model (DTM)</strong>. If it represents the overall top of varied surfaces (tops of treees, tops of buildings, etc.) then it is a <strong>Digital Surface Model (DSM)</strong>:</p>
+<div class="figure">
+<img src="https://www.sungeomatics.com/images/services/uav/UAV-2nd-UAV-ORTHO-DTM-DSM.jpg" alt="DSM, DTM and Aerial Photo of the same site" />
+<p class="caption">DSM, DTM and Aerial Photo of the same site</p>
+</div>
+<ol style="list-style-type: decimal">
+<li>Open the <code>UK_SRTM.tif</code> layer from Lab 4. SRTM stands for <em>Shuttle Radar Topography Mission</em>. It was a mission flown by NASA in to acquire accurate topographical data for the entire globe. There are multiple versions of SRTM around, with two main being the High-Resolution (1 arc-sec, ~30m) data directly distributed by NASA, currenlty on version 3, and the coarser 3 arc-second (~90m) resolution data provided by the Consortium for Spatial Information (CSI), which has further corrections for data problems.</li>
+</ol>
+<ul>
+<li><p>SRTM (NASA): <a href="https://lpdaac.usgs.gov/products/srtmgl1v003/" class="uri">https://lpdaac.usgs.gov/products/srtmgl1v003/</a></p></li>
+<li><p>SRTM (CSI): <a href="https://cgiarcsi.community/data/srtm-90m-digital-elevation-database-v4-1/" class="uri">https://cgiarcsi.community/data/srtm-90m-digital-elevation-database-v4-1/</a></p></li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Apply a good <em>Symbology</em> to the layer to make changes in elevation more visible.</p></li>
+<li><p>Apply a <strong>mask</strong> to the elevation data, using the UK boundaries vector layer as explained on the previous lab. This time, type <code>-999</code> to the <code>Assign a specific nodata value to output bands</code>. This will help keep the ocean “transparent” when viewing the data. We can’t do that on the original data because the ocean is at 0m elevation, so if we make it trasparent, we also lose several coastal regions. Keep as a temporary layer for now.</p></li>
+<li><p>Now we need to reproject the raster to a projected system that has horizontal units in meters. Since slope is calculated based on vertical distance travelled vs. horizontal distance travelled, we need both to be in the same units or we’ll get very strange results. As done on the previous practical, reproject your temporary masked layer to BSG, and save it as <code>UK_SRTM_masked_BSG.tif</code>. The close your project and start a new one with this layer only.</p></li>
+<li><p>Go to <code>Raster &gt; Analysis &gt; Slope...</code>. Select the masked UK DEM as the input layer, and leave everything else as default. <code>Run</code> and <code>Close</code>. Style both the elevation layer and the slope lay using continuous color ramps, and compare your resulting layer with the UK elevation layer.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> What is the result of this tool? What are the units and what do they represent?
+</p>
+</div>
+<ol start="6" style="list-style-type: decimal">
+<li><p>Another terrain metric that is very useful is called <strong>aspect</strong>, and it indicated to which cardinal direction the slope is facing. Changes in slope orientation often imply in different amounts of total daily and annual insolation, and total annual precipitation. To calculate it, go to <code>Raster &gt; Analysis &gt; Aspect...</code>. Select the option <code>Return zero for flat instead of -9999</code>. Then <code>Run and Close</code>. Style it and compare to the other two layers. <strong>Remember to always use the elevation layer as the input for any terrain calculation</strong>.</p></li>
+<li><p>There are two other terrain metrics (or geomorphometric variables) easily acessible in QGIS: Terrain Position Index (TPI) and Terrain Ruggedness Index( TRI). Their description can be found in the QGIS User Manual:</p></li>
+</ol>
+<ul>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html#terrain-ruggedness-index-tri" class="uri">https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html#terrain-ruggedness-index-tri</a></p></li>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html#terrain-ruggedness-index-tri" class="uri">https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html#terrain-ruggedness-index-tri</a></p></li>
+</ul>
+<p>What they both try to capture is the general <em>“rugedness”</em> of the terrain, i.e. does it strecth for long, flat areas or does it have many abrupt variations in elevation?. Calculate both by acessing them on the <code>Raster &gt; Analsis...</code> menu.</p>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> What is the result of this tool? What are the units and what do they represent?
+</p>
+</div>
+<ol start="7" style="list-style-type: decimal">
+<li><p>Extract the data from the <code>Dumyat.zip</code>. This data has been dowloaded from DigiMap, from the “Lidar Scotland 1m Phase 1” dataset, and is a very high resolution DEM for the Dumyat hill, just behind the university campus.</p></li>
+<li><p>Load all five datasets (from the <code>nn</code> and <code>ns</code> folder) into your project. Notice they are a different format, called <code>XYZ Asc</code> or <code>.asc</code>. Description here: <a href="https://digimap.edina.ac.uk/webhelp/digimapsupport/common_help/data_download/data_formats.htm#XYZ" class="uri">https://digimap.edina.ac.uk/webhelp/digimapsupport/common_help/data_download/data_formats.htm#XYZ</a></p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Why do the loaded files have very apparent “seams” between each data file?
+</p>
+</div>
+<ol start="9" style="list-style-type: decimal">
+<li>Go to <code>Raster &gt; Miscellaneous &gt; Merge...</code>. Click on the <code>...</code> button to the left of <code>Input Layers</code>, and select the five new Lidar rasters you loaded. <code>Run</code> and <code>Close</code>.</li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> - What did we just do with our rasters?
+</p>
+<ul>
+<li>
+Why is that a big black area around the elevation data?
+</li>
+</ul>
+</div>
+<ol start="10" style="list-style-type: decimal">
+<li><p>Go to <code>Raster &gt; Extraction &gt; Clip Raster by Extent...</code>. Select your <strong>mosaic</strong> (that is the name we give to several rasters “stitched” together") as <code>Input Layer</code> and then click on the <code>...</code> button to the left of <code>Clipping Extent</code>. Select the option <code>Select extent on canvas...</code>. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the <em>Clip window</em>.</p></li>
+<li><p>Before clicking <code>Run</code>, set the actual file name to save this time, using <code>Dumyat_DTM_5m.tif</code> as the name. Then <code>Run</code> and <code>Close</code>. Then remove all of the previous separate LiDAR elevation layers and load only this final file.</p></li>
+<li><p>Set the style for Dumyat layer, and then copy it (<code>(Right click on layer name) &gt; Styles &gt; Copy Style</code>) and paste it on the <code>UK_SRTM_masked_BSG</code> data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the <em>Hillshade visual trick</em> learned on the previous practical to help emphasize the differences. JUst remeber to turn both the elevation and the hill shade on and off at the same time when comparing.</p></li>
+<li><p>Now turn off all layers except for the Dumyat DEM and its hillshade. Go to <code>View &gt; New 3D map view</code>. It will open a new window. Make the window larger by dragging its corners, and the click on the <code>Configure</code> (wrench) button. Change the <code>type</code> from <code>Flat terrain</code> to <code>DEM(Raster layer)</code>, and select the <code>Dumyat_DTM_5m</code> layer as the <code>Elevation</code>, then click <code>Ok</code>. Use the navigation controls to tilt, zoom and pan your 3D visualization. Then go back to the <code>Configure</code> menu and change <code>Vertical scale</code> to <code>5</code>.</p></li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> What is the problem of using hillshade on the SRTM data at this map scale? (Have you ever played the game called <code>Minecraft</code>?)
+</p>
+</div>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> what does the <code>Vertical scale</code> parameter do?
+</p>
+</div>
+<div id="formative-assessment-1" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Formative Assessment</h3>
+<p>Let us revisit the previous formative assignment, now empowered with our ability to mix vectors and rasters in the same analysis.</p>
+<ol style="list-style-type: decimal">
+<li><p>Is there any difference in mean values of average annual temperature between urban areas and forests in the UK? Make a map (including legend and scale) showing you results visually. <em>HINT</em>: there is an already vectorized land cover dataset on the folder for Lab 5 data. <em>But</em> it is for the whole of the EU. Luckily, you already know how to do spatial selections or attribute selections using vectors, so using your previous knowledge and/or previous lab data, you should be able to extract the UK from the CORINE dataset as a new vector.</p></li>
+<li><p>Does aspect affect annual average temperature and total annual precipitation in the UK? For reference, use the following categories:</p></li>
+</ol>
+<table>
+<caption><span id="tab:unnamed-chunk-34">Table 6.1: </span>Cardinal directions in angles</caption>
+<thead>
+<tr class="header">
+<th align="left">Direction</th>
+<th align="left">Aspect.range</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">North</td>
+<td align="left">337.5° - 360° and 0° - 22.5°</td>
+</tr>
+<tr class="even">
+<td align="left">Northeast</td>
+<td align="left">22.5° - 67.5°</td>
+</tr>
+<tr class="odd">
+<td align="left">East</td>
+<td align="left">67.5° - 112.5°</td>
+</tr>
+<tr class="even">
+<td align="left">Southeast</td>
+<td align="left">112.5° - 157.5°</td>
+</tr>
+<tr class="odd">
+<td align="left">South</td>
+<td align="left">157.5° - 202.5°</td>
+</tr>
+<tr class="even">
+<td align="left">Southwest</td>
+<td align="left">202.5° - 247.5°</td>
+</tr>
+<tr class="odd">
+<td align="left">West</td>
+<td align="left">247.5° - 292.5°</td>
+</tr>
+<tr class="even">
+<td align="left">Northwest</td>
+<td align="left">292.5° - 337.5°</td>
+</tr>
+</tbody>
+</table>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> Why do we need to separate “North” into two angle ranges?
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab4.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
