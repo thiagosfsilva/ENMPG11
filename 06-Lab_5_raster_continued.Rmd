@@ -26,6 +26,12 @@ However, there is a second option, which is to use vector layers as the zones fo
     
 3. Now go to `Raster > Conversion > Polygonize (Raster to vector)...`. Select your "last hope" layer as the input, and leave everything else as default. `Run` and then `Close`.
 
+```{block type='rmdwarning'}
+There is a bug on QGIS 3.10.1 where it can't find the polygonize script. Follow the instructions below to fix it.
+
+https://github.com/qgis/QGIS/issues/33386#issuecomment-569140502
+```
+
 ```{block type='rmdnote'}
 **Stop and think:** What did you get as a result? Are all of the resulting polygons needed?
 ```
