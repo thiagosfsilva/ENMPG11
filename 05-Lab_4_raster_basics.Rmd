@@ -124,11 +124,12 @@ For this exercise, we will learn to inspect and style raster data, and also how 
 **Stop and think:** did you actually change the contents of the raster layer when you set the transparent pixels?
 ```
 
-6. Now click on the menu `Processing > Toolbox...`. Welcome to the QGIS toolbox! You will find many addtional functions here to process vectors ans rasters, as well as functions from external software that can be accesses through QGIS. On the search bar at the top, search for `Raster layer zonal statistics`. Double click on the tool with that name that comes up from the search. As `Input layer`, select the degree Celsius temeprature layer you created, and as `Zones layer`, select the "last hope" layer (the one with the 0/1 values, not the masked temoerature layer). `Run` (it will take a while) and then `Close`.
+6. Vectors can also be used as masks. Go to `Raster > Extraction > CLip Raster by Mask Layer...`. Select your Celsius converted average temperature raster as input layer, the gadm36_GBR_0 as your mask layer, and check `keep the resolution of the input raster`. `Run` the algorithm (it will take a while) then `Close` the window when finished. Copy the layer style from the original UK_SRTM to the masked layer, zoom to the original UK_SRTM layer extent and compare the results before and after the masking.
 
-7. Vectors can also be used as masks. Go to `Raster > Extraction > CLip Raster by Mask Layer...`. Select your Celsius converted average temperature raster as input layer, the gadm36_GBR_0 as your mask layer, and check `keep the resolution of the input raster`. `Run` the algorithm (it will take a while) then `Close` the window when finished. Copy the layer style from the original UK_SRTM to the masked layer, zoom to the original UK_SRTM layer extent and compare the results before and after the masking.
+7. Now click on the menu `Processing > Toolbox...`. Welcome to the QGIS toolbox! You will find many addtional functions here to process vectors ans rasters, as well as functions from external software that can be accesses through QGIS. On the search bar at the top, search for `Raster layer zonal statistics`. Double click on the tool with that name that comes up from the search. As `Input layer`, select the degree Celsius temeprature layer you created, and as `Zones layer`, select the "last hope" layer (the one with the 0/1 values, not the masked temoerature layer). `Run` (it will take a while) and then `Close`.
 
-### Formative Assessment
+
+## Formative Assessment
 
 Is there any difference in mean values of average annual temperature between  urban areas and forests in the UK? Make a map (including legend and scale) showing you results visually.
 
