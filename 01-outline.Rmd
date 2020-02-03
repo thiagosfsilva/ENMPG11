@@ -9,13 +9,13 @@ output:
 | | | | | |
 |-|-|-|-|-|
 |**Module Coordinator:**| Thiago Silva | C.3B144E| thiago.sf.silva@stir.ac.uk
-| **Tutor/demonstrator:**| Jazz Rhoades |  | 
+|**Tutor/demonstrator:**| Jazz Rhoades |  | 
 
 Please follow the guidelines below for module-related communication: 
 
-- When trying to answer a question, follow this order: **Software help files > Internet Search > Ask your colleagues > Ask me**. One of the best things you can get out of this module is to learn how to become an independent Geomatics user.
+- When trying to answer a question, follow this order: **Software help files > Internet Search > Ask your colleagues > Ask me**. One of the best things you can get out of this module is learning how to become an independent Geomatics user. Once you graduate, you will be on your own and expected to be proficient in these tools!
 
-- Any questions or comments regarding module content and assessments should be posted on the **Discussion** tab on CANVAS, so that answers are visible to everyone. **Questions of this nature sent via e-mail will not be replied to**.
+- Any questions or comments regarding module content and assessments should be posted on the **Discussion** page on CANVAS, so that answers are visible to everyone. **Questions of this nature sent via e-mail will not be replied to**.
 
 - Requests for extension on assignments should be submitted directly through CANVAS without the need to send a prior e-mail to the module coordinator.
 
@@ -30,7 +30,7 @@ These technologies have become vitally important tools in ecological and environ
 You will be introduced to modern methods for manipulating and analysing geospatial data of various sources and formats. Hands-onpractical sessions will examine various real-world applications of GIS and EO in environmental management.
 
 ```{block, type='rmdimportant'}
-As the name implies, Geo-*matics* can be tought as "informatics for geographic data". This is a computer intensive module that will require you to be comfortable using complex computer software and knowlegeable in managing files and folders. Also, as with any complex piece software, **stuff will not work at some point**. This is regardless of software source, version, vendor of platform. **Learning how to independently troubleshoot when things don't work as expected is a MAJOR part of being proficient in Geomatics, so be prepared for it!**
+As the name implies, Geo-*matics* can be tought as "informatics for geographic data". This is a computer intensive module that will require you to be comfortable using complex computer software and knowlegeable in managing files and folders. Also, as with any complex piece software, **stuff will often not work at first**. This is regardless of software source, version, vendor of platform. **Learning how to independently troubleshoot when things don't work as they should is a MAJOR part of being proficient in Geomatics, so be prepared for it!**
 ```
 
 ## Intended Learning Outcomes (ILO's):
@@ -49,7 +49,6 @@ If you have any questions about how QGIS works, your first stop should be the QG
 
 (https://docs.qgis.org/3.4/en/docs/index.html)
 ```
-
 
 There are no prescribed textbooks, but some readings are suggested below. Students are expected to read widely from the peer-reviewed literature to consolidate their understanding of course materials.
 
@@ -115,7 +114,7 @@ Another very good video resource are the QGIS videos by Klas Karlsson on YouTube
 
 Student attendance and engagement will be recorded by monitoring attendance or participation at designated *Points of Contact*. Our *PoCs* for this module are:
 
-- **2019-02-20:** our first face to face meeting
+- **2019-01-20:** our first face to face meeting
 - **2020-03-05:** main practical for the remote sensing component of the module
 - **2020-03-30:** the third help session for the final project; by then you *must* have made some headway into your project if you have any expectations of completing it in time.
 
@@ -129,24 +128,27 @@ We will meet twice a week for practical sessions at the following times and loca
 Most practical sessions will be structured as follows:
 
 - **10:00-11:00:** Discussion of recorded material with follow-along hands-on demonstrations of the tools and concepts by main instructor; 
+
 - **11:00-12:00:** Hands-on exercises following guidance provided by the module workbook, with instructor/tutor support available;
+
 - **12:00-13:00:** Independent work on an invidiual problem assignment (formative or summative), with tutor support available.
 
 ## Assessment and Grading
  
 This module is assessed by coursework only. Coursework should be submitted in electronic format through CANVAS as responses to Quizzes or as a PDF. Assessment feedback will be given online via CANVAS, and standard penalties for late submission will apply. If you require an extension for any assessed work, please submit an extension request through CANVAS before the due date for the assignment.
-**_For the Extenuating Circumstances Form and the current BES Handbook can also
-be found here._**
 
-The final grade for this module will be based on a set of weekly summative hands-on problems, and on a final open-themed individual project:
+[Follow this link for information on Assessment and Award of Credit by Ubniversity of Stirling](https://www.stir.ac.uk/about/professional-services/student-academic-and-corporate-services/academic-registry/regulations/postgraduate-taught-regulations/assessment-and-award-of-credit/)
+
+[Use this link for the Extenuating Circumstances form](https://www.stir.ac.uk/about/professional-services/student-academic-and-corporate-services/academic-registry/student-information/exams/extenuating-circumstances/)
+
+The final grade for this module will be based on a set of near-weekly summative hands-on problems, and on a final open-themed individual project:
 
 ### 1) Hands-on problems (50% of final grade) {-}
 
-At the end of every practical session, you will be assigned either a *formative* or *summative* hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. These assignments will assess ILOs 1, 3, and 4. The average of all problem grades will compose 50% of your final grade.
+At the end of every practical session, you will be assigned either a *formative* or *summative* hands-on problem to be worked on individually. The last hour of each practical session will be dedicated to work on these problems under tutor support, but they can be at any time before the due date. These assignments will assess ILOs 1, 3, and 4. The average of all summative problem grades will compose 50% of your final grade.
 
 ```{block2, prob-due, type='rmdimportant'}
-**Each summative assignment must be completed before the release date of the next summative
-assignment**. Formative assignments can be completed at any time.
+**Each summative assignment must be completed before the release date of the next summative assignment**. Formative assignments can be completed at any time.
 ```
 
 ### 2) Final individual project (50% of the final grade) {-}
@@ -176,7 +178,6 @@ kable(tt, caption = "ENMPG Timetable - Spring2020")
 Please note that attendance at all practical classes is prescribed and support outside of timetabled hours cannot be guaranteed for students who fail to attend classes.
 Student attendance and engagement will be recorded by monitoring attendance or other participation at designated Academic Points of Contact detailed in the Module Outline. If a student fails to engage with one or more Academic Points of Contact, the module coordinator will contact the student to ascertain the reason for this and to encourage greater academic engagement. A list of acceptable and unacceptable reasons for absence can be found in the MSc Handbook. 
 
-You should familiarise yourself with the Handbook for other guidance and requirements including an outline of the Common Grading Scheme. The minimum grade to obtain a pass for a module is 50%. The overall mark for the module is calculated from the sum of weighted component marks rounded to the nearest whole number; a pass is not required in each component. This module mark represents a summary of performance on that module.
+You should familiarise yourself with the Handbook for other guidance and requirements including an outline of the Common Grading Scheme. **The minimum grade to obtain a pass for a module is 50%**. The overall mark for the module is calculated from the sum of weighted component marks rounded to the nearest whole number; a pass is not required in each component. This module mark represents a summary of performance on that module.
 
-All assignments are to be submitted electronically via CANVAS Quizzes or as PDFs. Work that is submitted late will be returned with no feedback and graded with an appropriate penalty (3% per day late). Work that is handed in more than 7 days late will achieve a zero grade. Under some circumstances as outlined in the Student Handbook, extensions to the deadline for submission may be granted. Requests for such extensions must be completed on the appropriate form in advance of the submission deadline and emailed to the Module Coordinator. Retrospective applications for
-extensions will not be granted. 
+All assignments are to be submitted electronically via CANVAS Quizzes or as PDFs. Work that is submitted late will be returned with no feedback and graded with an appropriate penalty (3% per day late). Work that is handed in more than 7 days late will achieve a zero grade. Under some circumstances as outlined in the Student Handbook, extensions to the deadline for submission may be granted. Requests for such extensions must be completed on the appropriate form in advance of the submission deadline and emailed to the Module Coordinator. Retrospective applications for extensions will not be granted. 

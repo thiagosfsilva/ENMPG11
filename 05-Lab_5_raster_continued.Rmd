@@ -1,0 +1,159 @@
+---
+output:
+  html_document: default
+---
+# Lab 5 - Working with raster data - continued {#lab5}
+
+During the last practical, we started to learn how to use rasters for our GIS analysis. Today, we will continue discovering new ways of working with rasters, and also start to integrate rasters and vectors into combined analyses.
+
+## Guided Exercise 1 - Converting rasters to vectors 
+
+For the previous lab, you used (or tried to use) a function to extract zonal statistics from rasters, using a second raster as a mask. The process was very computer intensive, however, making it not usable on older computers.
+
+```{block type='rmdnote'}
+**Stop and think:** Thinking back on what you know about rasters now, why would this processes be so computer intensive?
+```
+
+However, there is a second option, which is to use vector layers as the zones for extracting statistics.
+
+1. Download the required data for the previous lab (lab 4) if you don't have it ready to go anymore, and the data for lab 5 from the lab data link on Canvas. Don't forget to the dowload the UK boundaries again from the GADM website: https://gadm.org/
+
+2. Recreate the raster layers `UK_Bioclim_temp_celsius.tif` and `UKs_last_hope.tif` if you don't have them anymore.
+
+```{block type='rmdnote'}
+**Stop and think:** Did you take time during the last practical to organize your project folder and back up your work data before leaving the classroom? Or did you have to re-do the analysis? Remember, project organization and backups might be the difference between doing very well vs. not so well in this module! 
+```
+    
+3. Now go to `Raster > Conversion > Polygonize (Raster to vector)...`. Select your "last hope" layer as the input, and leave everything else as default. `Run` and then `Close`.
+
+```{block type='rmdnote'}
+**Stop and think:** What did you get as a result? Are all of the resulting polygons needed?
+```
+
+4. Open the attibute table of your newly created vector layer, and do an attibute selection to select all polygons where `DN = 0`. Close the selection window, confirm your selection is correct, and then click on `Delete selected features`. Then save your edits and turn off editing mode. Make your layer permanent as `UKs_last_hope_vectorized.shp`.   
+
+```{block type='rmdnote'}
+**Stop and think:** What does `DN` mean?
+```
+
+## Guided Exercise 2 - Zonal statistics redux
+
+1. If it's not visible already, enable your *Processing Toolbox* panel by going to `Processing > Toolbox...`. 
+
+2. Search for the function `Zonal statistics` (**Not** `Raster layer zonal statistics`) and double click on it to open the tool window. Select the UK celsius layer as the `Raster layer` and you vectorized "last hope" layer as the `Vector layer containing zones`. Then click on the button to the side of `Statistics to calculate`, and check `Stdev`, `Min` and `Max` in addition to the three already checked. Also, set the prefix as `LH_`. `Run` and `close`.
+
+3. Open the attribute table of the vectorized "last hope" layer. You will find the required statistics calculated for each polygon, as new attributes.
+
+4. Set the symbology of your new vector layer as a `Graduated` color ramp for `TdegC_max`. Where should a person live in the UK if they don't like the cold? 
+
+## Guided exercise 3 - Terrain Analysis
+
+One of the most often used *raster* datasets are terrain data. These are generally called **Digital Elevation Models** or *DEMs*. If you are certain that these elevations represent the bare surface of the Earth (i.e. no trees, buildings, etc.) then it is also a **Digital Terrain Model (DTM)**. If it represents the overall top of varied surfaces (tops of treees, tops of buildings, etc.) then it is a **Digital Surface Model (DSM)**:
+
+![DSM, DTM and Aerial Photo of the same site](https://www.sungeomatics.com/images/services/uav/UAV-2nd-UAV-ORTHO-DTM-DSM.jpg)
+
+1. Open the `UK_SRTM.tif` layer from Lab 4. SRTM stands for *Shuttle Radar Topography Mission*. It was a mission flown by NASA in Febryary 2000 to acquire accurate topographical data for the entire globe. There are multiple versions of SRTM around, with the two main ones being the High-Resolution (1 arc-sec, ~30m) data directly distributed by NASA, currenlty on version 3, and the coarser 3 arc-second (~90m) resolution data provided by the Consortium for Spatial Information (CSI), which has further processing to correct data problems.
+
+- SRTM (NASA): https://lpdaac.usgs.gov/products/srtmgl1v003/
+
+- SRTM (CSI): https://cgiarcsi.community/data/srtm-90m-digital-elevation-database-v4-1/
+
+2. Apply a good *Symbology* to the layer to make changes in elevation more visible. 
+
+3. Apply a **mask** to the elevation data, using the UK boundaries vector layer as explained on the previous lab. This time, type `-999` to the `Assign a specific nodata value to output bands`. This will help keep the ocean "transparent" when viewing the data. We can't do that on the original data because the ocean is at 0m elevation, so if we set the symbology of "0" values transparent, we also lose the edges of coastal regions, and any interior areas lower than 0m. Keep it as a temporary layer for now.
+
+4. Now we need to reproject the raster to a projected system that has horizontal units in meters. Since slope is calculated based on vertical distance travelled vs. horizontal distance travelled, we need both to be in the same units or we'll get very strange results. As done on the previous practical, reproject your temporary masked layer to BSG, and save it as `UK_SRTM_masked_BSG.tif`. The close your project and start a new one with this layer only.
+
+5. Go to `Raster > Analysis > Slope...`. Select the masked UK DEM as the input layer, and leave everything else as default. `Run` and `Close`. Style both the elevation layer and the slope lay using continuous color ramps, and compare your resulting layer with the UK elevation layer.
+
+```{block type='rmdnote'}
+**Stop and think:** What is the result of this tool? What are the units and what do they represent?
+```
+
+6. Another terrain metric that is very useful is called **aspect**, and it indicated to which cardinal direction the slope is facing. Changes in slope orientation often imply in different amounts of total daily and annual insolation, and total annual precipitation. To calculate it, go to `Raster > Analysis > Aspect...`. Select the option `Return zero for flat instead of -9999`. Then `Run and Close`. Style it and compare to the other two layers. **Remember to always use the elevation layer as the input for any terrain calculation**.
+
+7. There are two other terrain metrics (or geomorphometric variables) easily acessible in QGIS: Terrain Position Index (TPI) and Terrain Ruggedness Index( TRI). Their description can be found in the QGIS User Manual:
+
+- https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html#terrain-ruggedness-index-tri
+
+- https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasteranalysis.html#terrain-ruggedness-index-tri
+
+
+What they both try to capture is the general *"rugedness"* of the terrain, i.e. does it strecth for long, flat areas or does it have many abrupt variations in elevation?. Calculate both by acessing them on the `Raster > Analsis...` menu.
+
+
+```{block type='rmdnote'}
+**Stop and think:** What is the result of this tool? What are the units and what do they represent?
+```
+
+7. Extract the data from the `Dumyat.zip`. This data has been dowloaded from DigiMap, from the "Lidar Scotland 1m Phase 1" dataset, and is a very high resolution DEM for the Dumyat hill, just behind the university campus.
+
+8. Load all five datasets (from the `nn` and `ns` folder) into your project. Notice they are a different format, called `XYZ Asc` or `.asc`. Description here:  https://digimap.edina.ac.uk/webhelp/digimapsupport/common_help/data_download/data_formats.htm#XYZ
+
+
+```{block type='rmdnote'}
+**Stop and think:** Why do the loaded files have very apparent "seams" between each data file?
+```
+
+9. Go to `Raster > Miscellaneous > Merge...`. Click on the `...` button to the left of `Input Layers`, and select the five new Lidar rasters you loaded. `Run` and `Close`.
+
+```{block type='rmdnote'}
+**Stop and think:** 
+- What did we just do with our rasters?
+
+- Why is that a big black area around the elevation data?
+```
+
+10. Go to `Raster > Extraction > Clip Raster by Extent...`. Select your **mosaic** (that is the name we give to several rasters "stitched" together") as `Input Layer` and then click on the `...` button to the left of `Clipping Extent`. Select the option `Select extent on canvas...`. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the *Clip window*.
+
+11. Before clicking `Run`, set the actual file name to save this time, using `Dumyat_DTM_5m.tif` as the name. Then `Run` and `Close`. Then remove all of the previous separate LiDAR elevation layers and load only this final file. 
+
+12. Set the style for Dumyat layer, and then copy it (`(Right click on layer name) > Styles > Copy Style`) and paste it on the `UK_SRTM_masked_BSG` data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the *Hillshade visual trick* learned on the previous practical to help emphasize the differences. JUst remeber to turn both the elevation and the hill shade on and off at the same time when comparing. 
+
+13. Now turn off all layers except for the Dumyat DEM and its hillshade. Go to `View > New 3D map view`. It will open a new window. Make the window larger by dragging its corners, and the click on the `Configure` (wrench) button. Change the `type` from `Flat terrain` to `DEM(Raster layer)`, and select the `Dumyat_DTM_5m` layer as the `Elevation`, then click `Ok`. Use the navigation controls to tilt, zoom and pan your 3D visualization. Then go back to the `Configure` menu and change `Vertical scale` to `5`.
+
+```{block type='rmdnote'}
+**Stop and think:** What is the problem of using hillshade on the SRTM data at this map scale? (Have you ever played the game called `Minecraft`?)
+```
+
+```{block type='rmdnote'}
+**Stop and think:** what does the `Vertical scale` parameter do? 
+```
+
+### Formative Assessment
+
+Let us revisit the previous formative assignment, now empowered with our ability to mix vectors and rasters in the same analysis. 
+
+1) Is there any difference in mean values of average annual temperature between urban areas and forests in the UK? Make a map (including legend and scale) showing you results visually. *HINT*: there is an already vectorized land cover dataset on the folder for Lab 5 data. *But* it is for the whole of the EU. Luckily, you already know how to do spatial selections or attribute selections using vectors, so using your previous knowledge and/or previous lab data, you should be able to extract the UK from the CORINE dataset as a new vector.
+
+2) Does aspect affect annual average temperature and total annual precipitation in the UK? For reference, use the following categories:
+
+```{r, echo=F}
+tb <- data.frame("Direction" =  c(
+    'North',
+    'Northeast',
+    'East',
+    'Southeast',
+    'South',
+    'Southwest',
+    'West',
+    'Northwest'),
+  "Aspect range" = c(
+    '337.5&deg; - 360&deg; and 0&deg; - 22.5&deg;',
+    '22.5&deg; - 67.5&deg;',
+    '67.5&deg; - 112.5&deg;',
+    '112.5&deg; - 157.5&deg;',
+    '157.5&deg; - 202.5&deg;',
+    '202.5&deg; - 247.5&deg;',
+    '247.5&deg; - 292.5&deg;',
+    '292.5&deg; - 337.5&deg;'
+  ))
+knitr::kable(
+  tb, booktabs = TRUE,
+  caption = 'Cardinal directions in angles'
+)
+```
+
+```{block type='rmdnote'}
+**Stop and think:** Why do we need to separate "North" into two angle ranges?
+```
