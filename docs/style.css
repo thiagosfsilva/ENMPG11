@@ -4,14 +4,14 @@
   background: #f5f5f5 5px center/3em no-repeat;
 }
 .rmdimportant {
-  background-image: url("../images/yellow_warning.png");
+  background-image: url("images/yellow_warning.png");
 }
 .rmdnote {
-  background-image: url("../images/blue_warning.png");
+  background-image: url("images/blue_warning.png");
 }
 .rmdtip {
-  background-image: url("../images/green_warning.png");
+  background-image: url("images/green_warning.png");
 }
 .rmdwarning {
-  background-image: url("../images/red_warning.png");
+  background-image: url("images/red_warning.png");
 }
