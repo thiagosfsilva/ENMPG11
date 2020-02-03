@@ -108,16 +108,24 @@ What they both try to capture is the general *"rugedness"* of the terrain, i.e. 
 
 11. Before clicking `Run`, set the actual file name to save this time, using `Dumyat_DTM_5m.tif` as the name. Then `Run` and `Close`. Then remove all of the previous separate LiDAR elevation layers and load only this final file. 
 
-12. Set the style for Dumyat layer, and then copy it (`(Right click on layer name) > Styles > Copy Style`) and paste it on the `UK_SRTM_masked_BSG` data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the *Hillshade visual trick* learned on the previous practical to help emphasize the differences. JUst remeber to turn both the elevation and the hill shade on and off at the same time when comparing. 
-
-13. Now turn off all layers except for the Dumyat DEM and its hillshade. Go to `View > New 3D map view`. It will open a new window. Make the window larger by dragging its corners, and the click on the `Configure` (wrench) button. Change the `type` from `Flat terrain` to `DEM(Raster layer)`, and select the `Dumyat_DTM_5m` layer as the `Elevation`, then click `Ok`. Use the navigation controls to tilt, zoom and pan your 3D visualization. Then go back to the `Configure` menu and change `Vertical scale` to `5`.
+12. Set the style for Dumyat layer, and then copy it (`(Right click on layer name) > Styles > Copy Style`) and paste it on the `UK_SRTM_masked_BSG` data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the *Hillshade visual trick* learned on the previous practical to help emphasize the differences. Just remeber to turn both the elevation and the hill shade on and off at the same time when comparing. 
 
 ```{block type='rmdnote'}
 **Stop and think:** What is the problem of using hillshade on the SRTM data at this map scale? (Have you ever played the game called `Minecraft`?)
 ```
 
+13. Compute *aspect* and *slope* for the Dumyat DEM, and compare it with SRTM derived aspect and slope as well.
+
+14. Now turn off all layers except for the Dumyat DEM and its hillshade. Go to `View > New 3D map view`. It will open a new window. Make the window larger by dragging its corners, and the click on the `Configure` (wrench) button. Change the `type` from `Flat terrain` to `DEM(Raster layer)`, and select the `Dumyat_DTM_5m` layer as the `Elevation`, then click `Ok`. Use the navigation controls to tilt, zoom and pan your 3D visualization. Then go back to the `Configure` menu and change `Vertical scale` to `5`.
+
 ```{block type='rmdnote'}
 **Stop and think:** what does the `Vertical scale` parameter do? 
+```
+
+15. Sometimes countour lines can make terrain information more interpretable. Go to `Raster > Extraction > Contours...`. Select your DEM as the `Input Layer`, a contour spacing of 10 meters, and `Run`, then `Close`. 
+
+```{block type='rmdnote'}
+**Stop and think:** what data format are the countours stored? 
 ```
 
 ## Formative Assessment

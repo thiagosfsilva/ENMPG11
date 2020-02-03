@@ -255,17 +255,28 @@ Why is that a big black area around the elevation data?
 <ol start="10" style="list-style-type: decimal">
 <li><p>Go to <code>Raster &gt; Extraction &gt; Clip Raster by Extent...</code>. Select your <strong>mosaic</strong> (that is the name we give to several rasters “stitched” together") as <code>Input Layer</code> and then click on the <code>...</code> button to the left of <code>Clipping Extent</code>. Select the option <code>Select extent on canvas...</code>. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the <em>Clip window</em>.</p></li>
 <li><p>Before clicking <code>Run</code>, set the actual file name to save this time, using <code>Dumyat_DTM_5m.tif</code> as the name. Then <code>Run</code> and <code>Close</code>. Then remove all of the previous separate LiDAR elevation layers and load only this final file.</p></li>
-<li><p>Set the style for Dumyat layer, and then copy it (<code>(Right click on layer name) &gt; Styles &gt; Copy Style</code>) and paste it on the <code>UK_SRTM_masked_BSG</code> data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the <em>Hillshade visual trick</em> learned on the previous practical to help emphasize the differences. JUst remeber to turn both the elevation and the hill shade on and off at the same time when comparing.</p></li>
-<li><p>Now turn off all layers except for the Dumyat DEM and its hillshade. Go to <code>View &gt; New 3D map view</code>. It will open a new window. Make the window larger by dragging its corners, and the click on the <code>Configure</code> (wrench) button. Change the <code>type</code> from <code>Flat terrain</code> to <code>DEM(Raster layer)</code>, and select the <code>Dumyat_DTM_5m</code> layer as the <code>Elevation</code>, then click <code>Ok</code>. Use the navigation controls to tilt, zoom and pan your 3D visualization. Then go back to the <code>Configure</code> menu and change <code>Vertical scale</code> to <code>5</code>.</p></li>
+<li><p>Set the style for Dumyat layer, and then copy it (<code>(Right click on layer name) &gt; Styles &gt; Copy Style</code>) and paste it on the <code>UK_SRTM_masked_BSG</code> data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the <em>Hillshade visual trick</em> learned on the previous practical to help emphasize the differences. Just remeber to turn both the elevation and the hill shade on and off at the same time when comparing.</p></li>
 </ol>
 <div class="rmdnote">
 <p>
 <strong>Stop and think:</strong> What is the problem of using hillshade on the SRTM data at this map scale? (Have you ever played the game called <code>Minecraft</code>?)
 </p>
 </div>
+<ol start="13" style="list-style-type: decimal">
+<li><p>Compute <em>aspect</em> and <em>slope</em> for the Dumyat DEM, and compare it with SRTM derived aspect and slope as well.</p></li>
+<li><p>Now turn off all layers except for the Dumyat DEM and its hillshade. Go to <code>View &gt; New 3D map view</code>. It will open a new window. Make the window larger by dragging its corners, and the click on the <code>Configure</code> (wrench) button. Change the <code>type</code> from <code>Flat terrain</code> to <code>DEM(Raster layer)</code>, and select the <code>Dumyat_DTM_5m</code> layer as the <code>Elevation</code>, then click <code>Ok</code>. Use the navigation controls to tilt, zoom and pan your 3D visualization. Then go back to the <code>Configure</code> menu and change <code>Vertical scale</code> to <code>5</code>.</p></li>
+</ol>
 <div class="rmdnote">
 <p>
 <strong>Stop and think:</strong> what does the <code>Vertical scale</code> parameter do?
+</p>
+</div>
+<ol start="15" style="list-style-type: decimal">
+<li>Sometimes countour lines can make terrain information more interpretable. Go to <code>Raster &gt; Extraction &gt; Contours...</code>. Select your DEM as the <code>Input Layer</code>, a contour spacing of 10 meters, and <code>Run</code>, then <code>Close</code>.</li>
+</ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> what data format are the countours stored?
 </p>
 </div>
 </div>
@@ -277,7 +288,7 @@ Why is that a big black area around the elevation data?
 <li><p>Does aspect affect annual average temperature and total annual precipitation in the UK? For reference, use the following categories:</p></li>
 </ol>
 <table>
-<caption><span id="tab:unnamed-chunk-41">Table 6.1: </span>Cardinal directions in angles</caption>
+<caption><span id="tab:unnamed-chunk-42">Table 6.1: </span>Cardinal directions in angles</caption>
 <thead>
 <tr class="header">
 <th align="left">Direction</th>
