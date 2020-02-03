@@ -139,10 +139,10 @@
             <section class="normal" id="section-">
 <div id="lab5" class="section level1">
 <h1><span class="header-section-number">6</span> Lab 5 - Working with raster data - continued</h1>
-<p>During the last practical, we started to learn how to use rasters for our GIS analysis. Today, we will continue discovering new ways of work with rasters, and also start to integrate rasters and vectors into combined analyses.</p>
+<p>During the last practical, we started to learn how to use rasters for our GIS analysis. Today, we will continue discovering new ways of working with rasters, and also start to integrate rasters and vectors into combined analyses.</p>
 <div id="guided-exercise-1---converting-rasters-to-vectors" class="section level2">
 <h2><span class="header-section-number">6.1</span> Guided Exercise 1 - Converting rasters to vectors</h2>
-<p>For the previous lab, you used (or tried to) a funtion to extract zonal statistics from rasters, using a second raster as a mask. The process was very computer intensive, however.</p>
+<p>For the previous lab, you used (or tried to use) a function to extract zonal statistics from rasters, using a second raster as a mask. The process was very computer intensive, however, making it not usable on older computers.</p>
 <div class="rmdnote">
 <p>
 <strong>Stop and think:</strong> Thinking back on what you know about rasters now, why would this processes be so computer intensive?
@@ -150,12 +150,12 @@
 </div>
 <p>However, there is a second option, which is to use vector layers as the zones for extracting statistics.</p>
 <ol style="list-style-type: decimal">
-<li><p>Download the required data for the previous lab (lab 4) if you don’t have it ready to go anymore, and the data for lab 5 from the lab data link on Canvas.</p></li>
-<li><p>Recreate the raster layers <code>UK_Bioclim_temp_celsius</code> and <code>UKs_last_hope</code> if you don’t have them anymore.</p></li>
+<li><p>Download the required data for the previous lab (lab 4) if you don’t have it ready to go anymore, and the data for lab 5 from the lab data link on Canvas. Don’t forget to the dowload the UK boundaries again from the GADM website: <a href="https://gadm.org/" class="uri">https://gadm.org/</a></p></li>
+<li><p>Recreate the raster layers <code>UK_Bioclim_temp_celsius.tif</code> and <code>UKs_last_hope.tif</code> if you don’t have them anymore.</p></li>
 </ol>
 <div class="rmdnote">
 <p>
-<strong>Stop and think:</strong> Did you take time during the last practical to organize your project folder and back up your work data before leaving the classroom? Or did you have to re-do the analysis. Remember, project organization and backups might be the difference between doing very well vs not so well in this module!
+<strong>Stop and think:</strong> Did you take time during the last practical to organize your project folder and back up your work data before leaving the classroom? Or did you have to re-do the analysis? Remember, project organization and backups might be the difference between doing very well vs. not so well in this module!
 </p>
 </div>
 <ol start="3" style="list-style-type: decimal">
@@ -169,25 +169,30 @@
 <ol start="4" style="list-style-type: decimal">
 <li>Open the attibute table of your newly created vector layer, and do an attibute selection to select all polygons where <code>DN = 0</code>. Close the selection window, confirm your selection is correct, and then click on <code>Delete selected features</code>. Then save your edits and turn off editing mode. Make your layer permanent as <code>UKs_last_hope_vectorized.shp</code>.</li>
 </ol>
+<div class="rmdnote">
+<p>
+<strong>Stop and think:</strong> What does <code>DN</code> mean?
+</p>
+</div>
 </div>
 <div id="guided-exercise-2---zonal-statistics-redux" class="section level2">
 <h2><span class="header-section-number">6.2</span> Guided Exercise 2 - Zonal statistics redux</h2>
 <ol style="list-style-type: decimal">
-<li><p>If it is not visible already, enable your <em>Processing Toolbox</em> panel by going to <code>Processing &gt; Toolbox...</code>.</p></li>
-<li><p>Search for the function <code>Zonal statistics</code> (<strong>Not</strong> <code>Raster layer zonal statistics</code>) and double click on it to open the tool window. Select the UK celsius layer as the <code>Raster layer</code> and you vectorized “last hope” layer as the <code>Vector layer containing zones</code>. Then click on the button to the side of <code>Statistics to calculate</code>, and check <code>Stdev</code>, <code>Min</code> and <code>Max</code> in addition to the three already checked. <code>Run</code> and <code>close</code>.</p></li>
+<li><p>If it’s not visible already, enable your <em>Processing Toolbox</em> panel by going to <code>Processing &gt; Toolbox...</code>.</p></li>
+<li><p>Search for the function <code>Zonal statistics</code> (<strong>Not</strong> <code>Raster layer zonal statistics</code>) and double click on it to open the tool window. Select the UK celsius layer as the <code>Raster layer</code> and you vectorized “last hope” layer as the <code>Vector layer containing zones</code>. Then click on the button to the side of <code>Statistics to calculate</code>, and check <code>Stdev</code>, <code>Min</code> and <code>Max</code> in addition to the three already checked. Also, set the prefix as <code>LH_</code>. <code>Run</code> and <code>close</code>.</p></li>
 <li><p>Open the attribute table of the vectorized “last hope” layer. You will find the required statistics calculated for each polygon, as new attributes.</p></li>
 <li><p>Set the symbology of your new vector layer as a <code>Graduated</code> color ramp for <code>TdegC_max</code>. Where should a person live in the UK if they don’t like the cold?</p></li>
 </ol>
 </div>
 <div id="guided-exercise-3---terrain-analysis" class="section level2">
 <h2><span class="header-section-number">6.3</span> Guided exercise 3 - Terrain Analysis</h2>
-<p>One of the most often used <em>raster</em> datasets are terrain data. These are generally called <strong>Digital Elevation Models</strong> or <em>DEMs</em>. If you are certain that these elevations represent the bare surface of the Earth (i.e. no treesm buildings, etc.) then it is also a <strong>Digital Terrain Model (DTM)</strong>. If it represents the overall top of varied surfaces (tops of treees, tops of buildings, etc.) then it is a <strong>Digital Surface Model (DSM)</strong>:</p>
+<p>One of the most often used <em>raster</em> datasets are terrain data. These are generally called <strong>Digital Elevation Models</strong> or <em>DEMs</em>. If you are certain that these elevations represent the bare surface of the Earth (i.e. no trees, buildings, etc.) then it is also a <strong>Digital Terrain Model (DTM)</strong>. If it represents the overall top of varied surfaces (tops of treees, tops of buildings, etc.) then it is a <strong>Digital Surface Model (DSM)</strong>:</p>
 <div class="figure">
 <img src="https://www.sungeomatics.com/images/services/uav/UAV-2nd-UAV-ORTHO-DTM-DSM.jpg" alt="DSM, DTM and Aerial Photo of the same site" />
 <p class="caption">DSM, DTM and Aerial Photo of the same site</p>
 </div>
 <ol style="list-style-type: decimal">
-<li>Open the <code>UK_SRTM.tif</code> layer from Lab 4. SRTM stands for <em>Shuttle Radar Topography Mission</em>. It was a mission flown by NASA in to acquire accurate topographical data for the entire globe. There are multiple versions of SRTM around, with two main being the High-Resolution (1 arc-sec, ~30m) data directly distributed by NASA, currenlty on version 3, and the coarser 3 arc-second (~90m) resolution data provided by the Consortium for Spatial Information (CSI), which has further corrections for data problems.</li>
+<li>Open the <code>UK_SRTM.tif</code> layer from Lab 4. SRTM stands for <em>Shuttle Radar Topography Mission</em>. It was a mission flown by NASA in Febryary 2000 to acquire accurate topographical data for the entire globe. There are multiple versions of SRTM around, with the two main ones being the High-Resolution (1 arc-sec, ~30m) data directly distributed by NASA, currenlty on version 3, and the coarser 3 arc-second (~90m) resolution data provided by the Consortium for Spatial Information (CSI), which has further processing to correct data problems.</li>
 </ol>
 <ul>
 <li><p>SRTM (NASA): <a href="https://lpdaac.usgs.gov/products/srtmgl1v003/" class="uri">https://lpdaac.usgs.gov/products/srtmgl1v003/</a></p></li>
@@ -195,7 +200,7 @@
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li><p>Apply a good <em>Symbology</em> to the layer to make changes in elevation more visible.</p></li>
-<li><p>Apply a <strong>mask</strong> to the elevation data, using the UK boundaries vector layer as explained on the previous lab. This time, type <code>-999</code> to the <code>Assign a specific nodata value to output bands</code>. This will help keep the ocean “transparent” when viewing the data. We can’t do that on the original data because the ocean is at 0m elevation, so if we make it trasparent, we also lose several coastal regions. Keep as a temporary layer for now.</p></li>
+<li><p>Apply a <strong>mask</strong> to the elevation data, using the UK boundaries vector layer as explained on the previous lab. This time, type <code>-999</code> to the <code>Assign a specific nodata value to output bands</code>. This will help keep the ocean “transparent” when viewing the data. We can’t do that on the original data because the ocean is at 0m elevation, so if we set the symbology of “0” values transparent, we also lose the edges of coastal regions, and any interior areas lower than 0m. Keep it as a temporary layer for now.</p></li>
 <li><p>Now we need to reproject the raster to a projected system that has horizontal units in meters. Since slope is calculated based on vertical distance travelled vs. horizontal distance travelled, we need both to be in the same units or we’ll get very strange results. As done on the previous practical, reproject your temporary masked layer to BSG, and save it as <code>UK_SRTM_masked_BSG.tif</code>. The close your project and start a new one with this layer only.</p></li>
 <li><p>Go to <code>Raster &gt; Analysis &gt; Slope...</code>. Select the masked UK DEM as the input layer, and leave everything else as default. <code>Run</code> and <code>Close</code>. Style both the elevation layer and the slope lay using continuous color ramps, and compare your resulting layer with the UK elevation layer.</p></li>
 </ol>
@@ -264,7 +269,7 @@ Why is that a big black area around the elevation data?
 <li><p>Does aspect affect annual average temperature and total annual precipitation in the UK? For reference, use the following categories:</p></li>
 </ol>
 <table>
-<caption><span id="tab:unnamed-chunk-34">Table 6.1: </span>Cardinal directions in angles</caption>
+<caption><span id="tab:unnamed-chunk-35">Table 6.1: </span>Cardinal directions in angles</caption>
 <thead>
 <tr class="header">
 <th align="left">Direction</th>

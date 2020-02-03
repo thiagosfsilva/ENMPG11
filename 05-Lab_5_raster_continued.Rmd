@@ -4,11 +4,11 @@ output:
 ---
 # Lab 5 - Working with raster data - continued {#lab5}
 
-During the last practical, we started to learn how to use rasters for our GIS analysis. Today, we will continue discovering new ways of work with rasters, and also start to integrate rasters and vectors into combined analyses.
+During the last practical, we started to learn how to use rasters for our GIS analysis. Today, we will continue discovering new ways of working with rasters, and also start to integrate rasters and vectors into combined analyses.
 
 ## Guided Exercise 1 - Converting rasters to vectors 
 
-For the previous lab, you used (or tried to) a funtion to extract zonal statistics from rasters, using a second raster as a mask. The process was very computer intensive, however.
+For the previous lab, you used (or tried to use) a function to extract zonal statistics from rasters, using a second raster as a mask. The process was very computer intensive, however, making it not usable on older computers.
 
 ```{block type='rmdnote'}
 **Stop and think:** Thinking back on what you know about rasters now, why would this processes be so computer intensive?
@@ -16,12 +16,12 @@ For the previous lab, you used (or tried to) a funtion to extract zonal statisti
 
 However, there is a second option, which is to use vector layers as the zones for extracting statistics.
 
-1. Download the required data for the previous lab (lab 4) if you don't have it ready to go anymore, and the data for lab 5 from the lab data link on Canvas.
+1. Download the required data for the previous lab (lab 4) if you don't have it ready to go anymore, and the data for lab 5 from the lab data link on Canvas. Don't forget to the dowload the UK boundaries again from the GADM website: https://gadm.org/
 
-2. Recreate the raster layers `UK_Bioclim_temp_celsius` and `UKs_last_hope` if you don't have them anymore.
+2. Recreate the raster layers `UK_Bioclim_temp_celsius.tif` and `UKs_last_hope.tif` if you don't have them anymore.
 
 ```{block type='rmdnote'}
-**Stop and think:** Did you take time during the last practical to organize your project folder and back up your work data before leaving the classroom? Or did you have to re-do the analysis. Remember, project organization and backups might be the difference between doing very well vs not so well in this module! 
+**Stop and think:** Did you take time during the last practical to organize your project folder and back up your work data before leaving the classroom? Or did you have to re-do the analysis? Remember, project organization and backups might be the difference between doing very well vs. not so well in this module! 
 ```
     
 3. Now go to `Raster > Conversion > Polygonize (Raster to vector)...`. Select your "last hope" layer as the input, and leave everything else as default. `Run` and then `Close`.
@@ -32,12 +32,15 @@ However, there is a second option, which is to use vector layers as the zones fo
 
 4. Open the attibute table of your newly created vector layer, and do an attibute selection to select all polygons where `DN = 0`. Close the selection window, confirm your selection is correct, and then click on `Delete selected features`. Then save your edits and turn off editing mode. Make your layer permanent as `UKs_last_hope_vectorized.shp`.   
 
+```{block type='rmdnote'}
+**Stop and think:** What does `DN` mean?
+```
 
 ## Guided Exercise 2 - Zonal statistics redux
 
-1. If it is not visible already, enable your *Processing Toolbox* panel by going to `Processing > Toolbox...`. 
+1. If it's not visible already, enable your *Processing Toolbox* panel by going to `Processing > Toolbox...`. 
 
-2. Search for the function `Zonal statistics` (**Not** `Raster layer zonal statistics`) and double click on it to open the tool window. Select the UK celsius layer as the `Raster layer` and you vectorized "last hope" layer as the `Vector layer containing zones`. Then click on the button to the side of `Statistics to calculate`, and check `Stdev`, `Min` and `Max` in addition to the three already checked. `Run` and `close`.
+2. Search for the function `Zonal statistics` (**Not** `Raster layer zonal statistics`) and double click on it to open the tool window. Select the UK celsius layer as the `Raster layer` and you vectorized "last hope" layer as the `Vector layer containing zones`. Then click on the button to the side of `Statistics to calculate`, and check `Stdev`, `Min` and `Max` in addition to the three already checked. Also, set the prefix as `LH_`. `Run` and `close`.
 
 3. Open the attribute table of the vectorized "last hope" layer. You will find the required statistics calculated for each polygon, as new attributes.
 
@@ -45,11 +48,11 @@ However, there is a second option, which is to use vector layers as the zones fo
 
 ## Guided exercise 3 - Terrain Analysis
 
-One of the most often used *raster* datasets are terrain data. These are generally called **Digital Elevation Models** or *DEMs*. If you are certain that these elevations represent the bare surface of the Earth (i.e. no treesm buildings, etc.) then it is also a **Digital Terrain Model (DTM)**. If it represents the overall top of varied surfaces (tops of treees, tops of buildings, etc.) then it is a **Digital Surface Model (DSM)**:
+One of the most often used *raster* datasets are terrain data. These are generally called **Digital Elevation Models** or *DEMs*. If you are certain that these elevations represent the bare surface of the Earth (i.e. no trees, buildings, etc.) then it is also a **Digital Terrain Model (DTM)**. If it represents the overall top of varied surfaces (tops of treees, tops of buildings, etc.) then it is a **Digital Surface Model (DSM)**:
 
 ![DSM, DTM and Aerial Photo of the same site](https://www.sungeomatics.com/images/services/uav/UAV-2nd-UAV-ORTHO-DTM-DSM.jpg)
 
-1. Open the `UK_SRTM.tif` layer from Lab 4. SRTM stands for *Shuttle Radar Topography Mission*. It was a mission flown by NASA in to acquire accurate topographical data for the entire globe. There are multiple versions of SRTM around, with two main being the High-Resolution (1 arc-sec, ~30m) data directly distributed by NASA, currenlty on version 3, and the coarser 3 arc-second (~90m) resolution data provided by the Consortium for Spatial Information (CSI), which has further corrections for data problems.
+1. Open the `UK_SRTM.tif` layer from Lab 4. SRTM stands for *Shuttle Radar Topography Mission*. It was a mission flown by NASA in Febryary 2000 to acquire accurate topographical data for the entire globe. There are multiple versions of SRTM around, with the two main ones being the High-Resolution (1 arc-sec, ~30m) data directly distributed by NASA, currenlty on version 3, and the coarser 3 arc-second (~90m) resolution data provided by the Consortium for Spatial Information (CSI), which has further processing to correct data problems.
 
 - SRTM (NASA): https://lpdaac.usgs.gov/products/srtmgl1v003/
 
@@ -57,7 +60,7 @@ One of the most often used *raster* datasets are terrain data. These are general
 
 2. Apply a good *Symbology* to the layer to make changes in elevation more visible. 
 
-3. Apply a **mask** to the elevation data, using the UK boundaries vector layer as explained on the previous lab. This time, type `-999` to the `Assign a specific nodata value to output bands`. This will help keep the ocean "transparent" when viewing the data. We can't do that on the original data because the ocean is at 0m elevation, so if we make it trasparent, we also lose several coastal regions. Keep as a temporary layer for now.
+3. Apply a **mask** to the elevation data, using the UK boundaries vector layer as explained on the previous lab. This time, type `-999` to the `Assign a specific nodata value to output bands`. This will help keep the ocean "transparent" when viewing the data. We can't do that on the original data because the ocean is at 0m elevation, so if we set the symbology of "0" values transparent, we also lose the edges of coastal regions, and any interior areas lower than 0m. Keep it as a temporary layer for now.
 
 4. Now we need to reproject the raster to a projected system that has horizontal units in meters. Since slope is calculated based on vertical distance travelled vs. horizontal distance travelled, we need both to be in the same units or we'll get very strange results. As done on the previous practical, reproject your temporary masked layer to BSG, and save it as `UK_SRTM_masked_BSG.tif`. The close your project and start a new one with this layer only.
 
