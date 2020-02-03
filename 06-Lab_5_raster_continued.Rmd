@@ -120,7 +120,7 @@ What they both try to capture is the general *"rugedness"* of the terrain, i.e. 
 **Stop and think:** what does the `Vertical scale` parameter do? 
 ```
 
-### Formative Assessment
+## Formative Assessment
 
 Let us revisit the previous formative assignment, now empowered with our ability to mix vectors and rasters in the same analysis. 
 
