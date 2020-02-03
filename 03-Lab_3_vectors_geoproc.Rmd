@@ -27,26 +27,66 @@ For this exercise, we will learn how to do operations on the vector geometries i
 - What is the *Map Projection* of each data layer you have?
 ```
 
-3. Load the Scotland regions vector layer and the Scotland Roads vector layer.
+3. Use attribute search to select all the roads from the land cover/land use layer (`ITEM2012` field). Pay attention to all the possible classes that indicate a road. (
 
-4. Select only the polygon corresponding to Central Scotland. You can do it using either the selection tool (![]()) or by using the Attribute Table, using the skills you've learned on the previous practical.
+```{block type='rmdwarning'}
+**HINTS:** 
 
-5. Right click on the Scottish Regions layer name and select `Export > Save file as...`. Select the format as Geopackage, the `file name` as `central_scotland`, and the `layer name` as `central_scotland_limits`. **Check the box that says `selected features only`**.
+1. Use the button `Values` on the right. then the option `All unique values` to quickly see all possible values of a given attribute.
+
+2. Use `or` if you need features to fulfill **either** criteria. Use `and` if you need all features to fulfill **all criteria**.
+
+3. Computers are dumb so you need to be very explicit. If you are making a compound search, you need to name the attributes and the boolean operation everytime, even if it is the same:
+
+- **Correct:** ATT_NAME = 'X' or ATT_NAME = 'Y'
+
+- **Wrong:** ATT_NAME = 'X' or 'Y'
+```
+
+4. Visualize your layer to see if it look correct. Now, create a buffer of 1km around all roads in the dataset, using `Vector > Geoprocessing > Buffer...`. Select your new roads layer as the `Input layer`, define the distance as 1000 meters and leave everything else as default. Click on `Run` and then `Close` the window when it's done.
 
 ```{block type='rmdnote'}
-**Stop and think:** why did we have to specify both a file name d a layer name in this case?
+**Stop and think:** Where the results what you expected? What happened?
 ```
-6. Now remove the Scotland Regions layer, and open the Scotland Road Links layer from the initial Geopackage file. Visualize and inspect the layer, and how it overlaps with the Central Region polygon you have created.
 
-7. Go to `Vector > Geoprocessing > Clip...`. Select the roads layer as your input layer, and the Central Scotland region as your overlay layer. Leave everything else as default and `Run`. Once it is finished, `Close` the window. 
+5. Remove the temporary buffer layer you created, and return to `Vector > Geoprocessing > Buffer...`. Use the same parameters as before, but this time, check the `Dissolve result` box. `Run` and `Close`.
 
 ```{block type='rmdnote'}
-**Stop and think:** what would happen if you closed you QGIS session while having temporary layers on your project?
+**Stop and think:** What did the `Dissolve result` option do?
 ```
-8. Right click on the newly created temporary layer, then go to `Export > Save data as...`. Keep the geopackage format, and select the same central_scotland geopackage you created before. **Specifiy the layer name as `central_scotland_roadlinks`. Save.
 
-9. On your Browser side pane, click on the refresh button (), and then expand the layers inside your `central_scotland.gpkg` file. What are the layers inside?
+6. Now we want to compute the amount of forest areas that are within 1km of any road. For that, first we need to `Clip` our land cover dataset using our buffer. Go to `Vector > Geoprocessing > Clip` and select `UK004L1_GLASGOW_UA2012_roads` as the `Input layer`, and your newly created buffer as the `Overlay` layer. `Run` and `Close`.
 
-10. Repeat the clipping process done for the roads on the Scotland rivers layer on the initial Scotland geopackage. This time, instead of saving to a temporary file, click on `...` to the right of the file name box, and select `Save to Geopackage...`. Pick your Central Scotland geopackage and when the layer name window pops up, name it `central_scotland_rivers`. Once done, refresh the Browser and check the contents of your Central Scotland geopackage again.
+7. Inspect the new layer you have created. Use *Symbology* to make the land use classes visible. Then save your layer by right-clicking on the *Clipped* layer name and selecting `Make layer permanent`. Select the spahefile format and name it as you like. Then add the newly created layer to the project.
 
-11. Finally, open the 
+```{block type='rmdnote'}
+**Stop and think:** Why were the colors not saved with the file?
+```
+
+8. Right-clik on the `Clipped` layer you colred by class before, and then select `Styles > Copy Styles > All Style categories`. Then right click on your new saved layer, and select `Styles > Paste Styles > All Style Categories`. Now remove the `Clipped` layer from the project.
+
+9. Go to the *Symbology window* of the new clipped layer, and remove all classes except for `Forest`, by selecting them and using the `-` (minus) button at the bottom of the list.
+
+```{block type='rmdnote'}
+**Stop and think:** Did we alter the contents of our fule by doing this?
+```
+
+10. Open the attribute table for the clipped layer and click on the field calculator.Create a new field called `area_m2`, of type `Decimal number`, `length` = 20 and precision = `2`. On the middle pane, select `Geometry > $area`. Double click on it to add it to the Expression pane on the left.
+
+```{block type='rmdnote'}
+**Stop and think:** What is the difference of the `$area` vs `area` geometry calculations?
+```
+
+11. Click `OK` to calculate the new field. Now compare the values of the `AREA`, `Shape_Area` and `area_m2` in the attribute table. 
+
+```{block type='rmdnote'}
+**Stop and think:** Why is the new area different?
+```
+
+12. Load the `SSSI_Scotland.shp` layer. Then zoom to the entire project using the `Zoom full` tool (or Ctrl+Shift+F).
+
+```{block type='rmdnote'}
+**Stop and think:** Why are the data not overlapping?
+```
+
+
