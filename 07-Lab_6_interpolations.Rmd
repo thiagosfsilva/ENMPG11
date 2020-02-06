@@ -1,0 +1,118 @@
+---
+output:
+  html_document: default
+---
+# Lab 6 - Interpolating data {#lab6}
+
+A common task in spatial analysis is to use *interpolation* methods to "fill the gaps" between discrete objects, usually vector points. In this lab, we will learn a few of the most common methods for generating interpolated surfaces from points.
+
+## Guided Exercise 1 - Creating distance rasters 
+
+During vector analysis, we learned to use buffers to delimit areas of equal distance from individual vector features. However, sometimes what you need is a continuous estimate of distances from objects.
+
+Lets say, for example, that you are interested in knowing which areas of London are furthest away from a school, to aid in city planning.
+
+1. Get the files for Lab from the usual module data folder: https://stir-my.sharepoint.com/:f:/g/personal/ts35_stir_ac_uk/En54tCrr8_NNl9dCo9Wa2hEB_O_BaNWlqbZVbs4yQu6plQ?e=r0vDfx
+
+2. Load and inspect the vector files contained in the "London_schools" and "London-wards-2014" folders. This data came from the *London Data Store* website: https://data.london.gov.uk/.
+
+```{block type='rmdimportant'}
+**Important:** Notice that the ward data is provided on an usual vector format. This is the proprietary format of the MapInfo GIS software. It works similarly to a shapefile, and the main file to be loaded is the `.tab` file (the equivalent of the `.shp`).
+```
+3. Enable your "Processing Toolbox" if it is not enabled by going to `Processing > Toolbox` or typing `Ctrl+Alt+T`. Then search for the `Proximity (raster distance)` tool.
+
+4. Oh no, the tool only takes raster data. We need to convert our school data to raster then. But first, we need to create a simple value that just indicates *"Yes, there is a school here"*. So we go to the school layer *Attribute Table*, and use the `Field Calculator` to create a new field called "school", and as the formula, simply enter a value of `1`. Don't forget to set your data type to `Integer`. Once you created the attribute, save and exit *editing mode* to avoid unwanted edits.
+
+5. No we go to `Raster > Conversion > Rasterize (Vector to Raster)...`. We then select our school layer as the `Input Layer` and the `school` attribute as the `Burn-in Attribute`. That means pixels that contain a school will have a value of 1 on our new raster.
+
+6. Unlike when we are converting rasters ro vectors, going from a vector to a raster requires us to make a decision of what will the output pixel size (resolution) be, since vectors have no inherent resolution. Here we will use a pixel size of 10m. So we set the output raster unit to `Georeferenced units`, and the `Horizontal Resolution` and `Vertical Resolution` both to `10`. 
+
+7. We also need to define the extent that our raster will cover. As the schools layer already extends beyond the city bounds, we can just use the bounding box of this layer as our extent. So we click on the `...` button to the left of the `Output Extent` box, then select `Use layer extent...` and then select our school layer from the list.
+
+```{block type='rmdnote'}
+**Stop and Think:** what would you consider when deciding the pixel resolution and extent of your new raster? What are the implications of choosing a given pixel size and raster extent?
+```
+
+8. Finally, it is important to think about the resulting file data type. Under `Advanced Parameters`, you will notice the `Output Data Type` option, which is set to `Float32` by default. We can change it to `byte`. Then we can give our layer a proper name and save it on its relevant location within our project structure, and `Run` the algorithm.
+
+```{block type='rmdnote'}
+**Stop and Think:** what do `byte` and `Float32` mean in this context? What are the implications of choosing one versus the other?
+```
+
+9. **DO NOT DESPAIR**. It may seem like the result is blank, but it is just a matter of the 10m pixels being too small to be visible (if you are at the necessary map scale to see the whole extent of London). Pick any school point and zoom into it, and you will see that there is a tiny pixel overlapping it. All the non-school pixels are set as `no data`, so they are by default transparent. If you'd rather see the full extent of the raster, go to its "Properties", and then on the `Transparency` tab unckeck the option `No data value`, then manually add the `0` value to your scale using the `+` button on the `Symbology` tab.
+
+10. Now we can go back to our proximity tool, either from the *Processing* pane or from the menu on `Raster > Analysis > Proximity (raster distance)`. We pick our school raster layer as the input, set our target pixel value to `1` and our distance units to `Georeferenced Coordinates`. This time we need to keep the data type as `Float32`, since the distances in meters will be real (decimal) numbers. 
+
+11. Style and inspect your raster layer. By visual analysis only, can you spot any particular wards that seem to have better or worse than average access to schools?
+
+12. Let's use what we already to know to make this analysis more quantitative. Calculate, for each ward, what is the maximum distance to a school within each ward, and then style the ward polygon layer to show this information.
+
+## Guided exercise 2 - Density Estimation
+
+Another way to approach the problem above would be to consider where are the regions with the lowest school *density*, meaning how close or spread apart are the schools along the London territory. To know that, we can use a tool called `Kernel Density Estimation` (KDE). You can think of a *kernel* as a magnifying glass we use to look at each individual point and its neighborhood, and the `density estimation` as the point counts we get as we move from neighborhood to neighborhood. 
+
+1. Go to the "Processing Toolbox" and search for the `Heatmap (Kernel Density Estimation)` function. Choose the school points vector layer as the input, and you leave your `Radius` as `1000`. Set your `Pixel Size` as `10`, and notice that this particular tool already matches the raster size to the extent of your chosen layer. `Run` your algorithm and style the results using a sequential or diverging color ramp.
+
+3. Experiment with a few different kernel radii (but be aware that larger radius = longer processing time).
+
+4. Now choose your preferred radius and experiment with changing the kernel functions. This changes the relative weight of the neighbouring points according to their distance from the center point. The default is `Quartic`.
+
+2. A very cool new feature of QGIS 3 is that instead of generating heatmaps as new layers, you can use it as a layer style. Go to the `Symbology` of your school layer, and choose the  `heatmap` coloring option. You will notice there is a more limited choice of parameters, but it works well if all you need is a quick heatmap for visual purposes. However, using this option you will not be able to access the actual density values.
+
+```{block type='rmdimportant'}
+**Important:** Because the results of the KDE are completely dependent on the radius and kernel function, KDEs are considered more of a visual (or *semi-quantitative*) tool. Be careful with your use of this tool, since you can impose very different interpretations on the same data. For example:
+
+- Style the schools layer using a radius of 1000 and apply. You could use this image to build an argument that school coverage in London is fairly homogeneous but "spotty", with a couple of hotspots.
+
+- Change the radius to 10000. Now you could spin a story about the center of London having much better school access than the outer regions.
+
+- Now drag the slider all the way towards `fastest` and use a radius of 100,000. You could use this to say all of London has excellent school access.
+```
+
+## Guided exercise 3 - Interpolating values
+
+So far, our interpolations were based only on the *position* of the points, be it interms of distances or densities. However, it is common to want to interpolate the actual *attribute values*. For example, let us look at some water geochemistry data from an Amazon lake.
+
+1. Go to the `Amazon_water_data` folder from the Lab 6 data on Windows File Explorer (not the QGIS browser). You will see all data there is in `.csv` format (Comma-Separated Values). This is a very simple and universal text format for data tables, where commas are used to separate the data from each column. Right click on any of the files and select `Open with > Notepad`. You will see the structure of the CSV file.
+
+2. On QGIS, go to the `Open Data Source Manager` window (the "multiple squares" icon on the toolbar). The select the option `Delimited Text`. Click on the `...`button to find the `sample_locs_june.csv` file, and select it. See that QGIS is smart enough to guess which columns have the coordinates, but if it ever doesn't, you can just select them manually. The set the projection to `WGS-84/UTM Zone 21S` (search for `EPSG:32721`). Then click on `Add`.
+
+3. To help you locate yourself in the world, load the Open Layers base map as a background. The points correspond to locations where water samples where collected for posterior lab analysis.
+
+4. Inspect the attribute table of the points you have imnported. We have location data but not geochemistry data. The geochemnistry measurements are on a separate scv file, called `water_params_june.csv`. We will need to **join** these data to the location data. A *join* is a database operation where two tables are combined into one based on a common attribute.
+
+5. First, open the `water_params_june.csv` the same way you imported the locations CSV file, but this time pick the option `no geometry (attribute table only`). It will be brought in as a table. You can look at it by viweing it as an attribute table, but there are no spatial objects linked to this table (yet).
+
+6. Go to the *Properties window* of the sample locations point layer, and then select the `Joins` tab. Click on the `+` sign at the bottom to create a new join. Select the `Join Layer` as the `water_params_june.csv`, and both the `Join Attribute` and the `Target Attribute` as `location`. That means the tables will be matched based on the values of this attribute. Click on `Custom Field Name Prefix` and delete the default, leaving it blank, then click `Ok` and close the *Properties* window.
+
+7. Inspect the attribute table of the sample locations layer again. You will now see all the columns of the water parameter table were added to it. Save (Export) your layer as a **geopackage**, and add it to the project.
+
+
+```{block type='rmdnote'}
+**Stop and Think:** what happens to the variable names if you Export it as a shapefile? Why?
+```
+
+8. There is an attribute called `water_params_june.p.tot` (Total Phosphorus). It records the total concentration of phosphorus in the water sample from each location, which is usually related to the fertility of the site. Could we use these points to estimate the distribution of phosphorus in the entire lake?
+
+9. The first interpolation method we will use is called *Inverse Distance Weighting*, or IDW. This method calculates the value at each new location as a weighted average of the surrounding data points, weighted by their distance to the location. So near points contribute more to the interpolation than far points.
+
+10. Search for `IDW interpolation` on the *Processing pane*, and open it. Select your geopackage layer as the `Vector layer` and `p.tot` as the `Interpolation attribute`. Then click on the `+` sign to add it to the table. This is a handy feature that lets you interpolate several variables at once. Select the extent of the points layer itself as the extent for the raster, and pick a pixel size of 50m (this lake is a bit larger than London).
+
+11. Style and evaluate your result. You can use transparency to see it against the lake edges from Open Layers.
+
+12. The `Distance coefficient P` option of IDW interpolation controls the relative weighting of the point values per distance. Try a few different values to see how it affects your results. If processing time is too long, use larger raster cell sizes.
+
+Another type of interpolation is called a Triangulated Irregular Network. This method draws triangles connecting each point, and then estimate the values for each triangle based on the vertices.
+
+13. Search for `TIN interpolation` on the *Processing pane*, and open it. Select your geopackage layer as the `Vector layer` and `p.tot` as the `Interpolation attribute`. Then click on the `+` sign to add it to the table. Select the extent of the points layer itself as the extent for the raster, and pick a pixel size of 50m.
+
+```{block type='rmdimportant'}
+**Important:** TIN interpolation is normally used for interpolating terrain data, from datasets that have a very dense and regular distribution of point samples across the location. If there are not enough points, it can generate many artifatcs, like in the above example.
+```
+
+
+## Formative assessment
+
+1. Determine which areas of the Amazon lake above have the highest change in total phosphorus (`p.tot`) and total nitrogen (Nitrite + Nitrate + Ammonia) between April and June.
+
+2. Do phosphorus or nitrate concentrations seem to be correlated with the amount of suspended material in the water (`tss`)? A visual analysis is sufficient. 
