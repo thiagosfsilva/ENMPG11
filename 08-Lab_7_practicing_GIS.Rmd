@@ -1,0 +1,66 @@
+---
+output:
+  html_document: default
+---
+# Lab 8 - Practicing GIS{#lab8}
+
+For this exercise, we will progressively practice all we have learned so far. The scenario is:
+
+**Introducing wild Hippogrifs in Scotland**: A Hippogriff is a magical beast that has the front legs, wings, and head of a giant eagle and the body, hind legs and tail of a horse. It is similar to another magical creature, the Griffin, which has the rear body of a lion. Hipogriffs are well regarded as riding beats and have been introduced in the British Isles by the wizarding society many centuries ago. However, as with most magical and non-magical beasts, original habitats and populations of the Hipoggrif are dwindling. Moreover, as the UK has now left the European Union, the import of Hipoggrifs for breeding will become harder.
+
+![Rare sighting of a Hippogriff caught on a camera trap](https://acciowizardsunite.com/wp-content/uploads/2019/01/hippogriff-harry-potter.jpg)
+
+Therefore, the Ministry of Wizardry has requested a study to find the most suitable areas for introducing wild populations of Hippogrifs, taking into consideration several ecological and socieconomic factors. As an employee of the Division of Geowizardry, you are thus requires to conduct the work.
+
+## Part 1 - Organizing your database
+
+The data required for the analysis has been previously gathered by your colleagues at the DoGW. However, they have not been properly organized into a project.
+
+1) Inspect the data provided to you, and take note of the data formats and or types, the coverage, the resolution (when appplicable) and the map projections.
+
+2) Since the study is for now only focusing on Scotland, pre-process your data so that all layers are restricted to the Scottish borders and have the same map projection. The Ordnance Survey British Grid projection is suggested.
+
+```{block type='rmdimportant'}
+**Stop and think:** from the original data, how many and which GIS operations do I need to perform to create a layer that has the Scottish borders?
+```
+
+Suggested tools:
+
+- [Selection (by attributes or using ![](QGISicons/images/themes/default/mActionSelect.svg)](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select) 
+
+- [Dissolve](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/vectorgeoprocessing.html?highlight=dissolve#dissolve)
+
+3) Make sure all the pre-processed layers are organized in relevant folders/subfolders.
+
+## Part 2 - Applying the criteria
+
+According to renowned expert Dr. Newt Scamander, Hippogrifs require the following:
+
+1) A combination of woodlands for refuge and nesting and open areas for hunting. Woodlands must have a minimum area of 25 hectares, and they will forage for up to 5km away from their main nesting region.
+
+2) Hippogrifs are shy and proud beasts, so they must be away from human interaction. A distance of at least 10km from any anthropogenic surfaces (roads, constructed areas) must be maintained.
+
+- [Selection by attributes](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select)
+
+- [Buffer](https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html?highlight=buffer)
+
+- [Spatial Selection](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select%20location#extract-by-location)
+
+- [Clip](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip)
+
+- [Field Calculator](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectortable.html?highlight=field%20calculator#field-calculator)
+
+3) Hippogrifs are highland creatures, and they tend to prefer higher elevations. Ideally suitable areas would be at least 500 meters in elevation. Also, they appreaciate being able to bask in the morning sun, so open areas with gentle easterly slopes should be avaiable within 1km of the nesting area.
+
+- [Aspect tool](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=aspect)
+
+- [Raster Calculator](https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_analysis.html?highlight=raster%20calculator)
+
+- [Raster to Vector](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector)
+
+4) Existing protected areas should be prioritized if containing the required habitats. But new protected areas will also be considered, so both options should be presented.
+
+
+## Part 3 - Reporting the rsults
+
+As part of the reporting of results, each selected region should be labelled with its area in hectares. A final map showing the protected and/or unprotected areas selected, using the UK topography as background and showing major human infrastructure should be produced. 
