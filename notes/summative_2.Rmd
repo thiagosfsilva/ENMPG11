@@ -1,0 +1,25 @@
+---
+title: "Summative Assessment 2"
+author: "ÈNMPG11 2020"
+date: "10/02/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+For this assessment, you will determine which areas of stirling are under threat of flooding under climate change scenarios, and also determine damage to property and infrastructure. 
+
+Sea level projections in the UK are given at https://www.metoffice.gov.uk/research/news/2019/uk-sea-level-projections-to-2300. We can get some estimates for the Edinburgh area from Figure 1:
+
+![Figure 1. Time series of the time-mean relative sea level change for UK capital cities based on the nearest Class A tide gauge location (indicated in brackets). Notes: Solid lines indicate the central estimate and dashed lines indicate the 5th to 95th percentile range for each RCP scenario as indicated in the legend (top left panel). All projections are presented relative to a baseline period of 1981 to 2000.Source: UKCP18 Marine Report (Palmer et al. 2018b, Figure3.1.4), relinked from the above article.]
+
+Considering the RCP 4.6 scenario, which is a mid-ground climate change scenario, we would expect about 0.3m (0.2, 0.5) rise for 2100 and 0.8m (0.3, 2) for 2300. If we consider the most extreme RCP8.5, we jum to about 0.8m (0.5, 1.1) in 2100 and 1.7m (0.7 , 3.6). 
+
+In addition to that, river systems also have a natural fluctuation in water levels due to rainfall and drainage. According to https://riverlevels.uk/forth-craigforth, the highest recorded water height for the Forth River is 3.98m (14th December 2006), while the long term average high is 2.36m. 
+
+The Stirling council has provided you with infrastructure layers obatined from the consumer data research center (https://data.cdrc.ac.uk/dataset/cdrc-2015-os-geodata-pack-stirling-s12000030), and elevation data from the OS 5m DTM dataset obtained from Digimap.
+
+Your task is to 1) delineate areas under inundation risk for four scenarios: RCP 4.5 2100 and 2300, and RCP8.5 2100 and 2300, discriminating low, medium and high risk areas; 2) Produce a table such as the example below, estimating damage to property and infrastructure:
+

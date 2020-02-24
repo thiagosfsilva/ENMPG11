@@ -6,13 +6,13 @@ output:
 
 For this exercise, we will progressively practice all we have learned so far. The scenario is:
 
-**Introducing wild Hippogrifs in Scotland**: A Hippogriff is a magical beast that has the front legs, wings, and head of a giant eagle and the body, hind legs and tail of a horse. It is similar to another magical creature, the Griffin, which has the rear body of a lion. Hipogriffs are well regarded as riding beats and have been introduced in the British Isles by the wizarding society many centuries ago. However, as with most magical and non-magical beasts, original habitats and populations of the Hipoggrif are dwindling. Moreover, as the UK has now left the European Union, the import of Hipoggrifs for breeding will become harder.
+**Introducing wild hippogriffs in Scotland**: A Hippogriff is a magical beast that has the front legs, wings, and head of a giant eagle and the body, hind legs and tail of a horse. It is similar to another magical creature, the Griffin, which has the rear body of a lion. Hipogriffs are well regarded as riding beats and have been introduced in the British Isles by the wizarding society many centuries ago. However, as with most magical and non-magical beasts, original habitats and populations of the Hipoggrif are dwindling. Moreover, as the UK has now left the European Union, the import of Hipoggrifs for breeding will become harder.
 
 ![Rare sighting of a Hippogriff caught on a camera trap](https://acciowizardsunite.com/wp-content/uploads/2019/01/hippogriff-harry-potter.jpg)
 
-Therefore, the Ministry of Wizardry has requested a study to find the most suitable areas for introducing wild populations of Hippogrifs, taking into consideration several ecological and socieconomic factors. As an employee of the Division of Geowizardry, you are thus requires to conduct the work.
+Therefore, the Ministry of Wizardry has requested a study to find the most suitable areas for introducing wild populations of hippogriffs, taking into consideration several ecological and socieconomic factors. As an employee of the Division of Geowizardry, you are thus requires to conduct the work.
 
-## Part 1 - Organizing your database
+## Organizing your database
 
 The data required for the analysis has been previously gathered by your colleagues at the DoGW. However, they have not been properly organized into a project.
 
@@ -26,19 +26,27 @@ The data required for the analysis has been previously gathered by your colleagu
 
 Suggested tools:
 
-- [Selection (by attributes or using ![](QGISicons/images/themes/default/mActionSelect.svg)](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select) 
+- [Selection (by attributes or using ![](QGISicons/images/themes/default/mActionSelectRectangle.svg))](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select) 
 
 - [Dissolve](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/vectorgeoprocessing.html?highlight=dissolve#dissolve)
 
-3) Make sure all the pre-processed layers are organized in relevant folders/subfolders.
+- [Reprojecting vectors](https://docs.qgis.org/3.4/en/docs/training_manual/vector_analysis/reproject_transform.html?highlight=reproject%20vector)
 
-## Part 2 - Applying the criteria
+- [Reproject Raster](https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterprojections.html?highlight=warp#warp-reproject)
 
-According to renowned expert Dr. Newt Scamander, Hippogrifs require the following:
+- [Clip](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip)
+
+- [Raster Extraction and masking](https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterextraction.html)
+
+3) Make sure all the pre-processed layers are organized in relevant folders/subfolders, and well organized as a project.
+
+## Applying the criteria
+
+According to renowned expert Dr. Newt Scamander, hippogriffs require the following:
 
 1) A combination of woodlands for refuge and nesting and open areas for hunting. Woodlands must have a minimum area of 25 hectares, and they will forage for up to 5km away from their main nesting region.
 
-2) Hippogrifs are shy and proud beasts, so they must be away from human interaction. A distance of at least 10km from any anthropogenic surfaces (roads, constructed areas) must be maintained.
+2) Hippogriffs are shy and proud beasts, so they must be away from human interaction. A distance of at least 10km from any anthropogenic surfaces (roads, constructed areas) must be maintained.
 
 - [Selection by attributes](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select)
 
@@ -50,17 +58,28 @@ According to renowned expert Dr. Newt Scamander, Hippogrifs require the followin
 
 - [Field Calculator](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectortable.html?highlight=field%20calculator#field-calculator)
 
-3) Hippogrifs are highland creatures, and they tend to prefer higher elevations. Ideally suitable areas would be at least 500 meters in elevation. Also, they appreaciate being able to bask in the morning sun, so open areas with gentle easterly slopes should be avaiable within 1km of the nesting area.
+- [Raster Calculator](https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_analysis.html?highlight=raster%20calculator)
+
+- [Raster to Vector](https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector)
+
+3) Hippogriffs are highland creatures, and they tend to prefer higher elevations. Ideally suitable areas would be at least 500 meters in elevation. Also, they appreaciate being able to bask in the morning sun, so open areas with gentle easterly slopes should be avaiable within 1km of the nesting area.
 
 - [Aspect tool](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=aspect)
 
 - [Raster Calculator](https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_analysis.html?highlight=raster%20calculator)
 
-- [Raster to Vector](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector)
+- [Raster to Vector](https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector)
 
-4) Existing protected areas should be prioritized if containing the required habitats. But new protected areas will also be considered, so both options should be presented.
+4) Hippogriffs need to eat! Deer are they maion prey, so areas with a higher density of deer should be prioritised.
 
+- [Inverse Distance Weighting](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/interpolation.html?highlight=interpolation)
 
-## Part 3 - Reporting the rsults
+4) Existing protected areas should be prioritised if containing the required habitats. But new protected areas will also be considered, so both options should be presented.
+
+- [Spatial Selection](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select%20location#extract-by-location)
+
+- [Clip](https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip)
+
+## Reporting the results
 
 As part of the reporting of results, each selected region should be labelled with its area in hectares. A final map showing the protected and/or unprotected areas selected, using the UK topography as background and showing major human infrastructure should be produced. 

@@ -122,7 +122,9 @@
 <li class="chapter" data-level="7.4" data-path="lab6.html"><a href="lab6.html#formative-assessment-2"><i class="fa fa-check"></i><b>7.4</b> Formative assessment</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="lab8.html"><a href="lab8.html"><i class="fa fa-check"></i><b>8</b> Lab 8 - Practicing GIS</a><ul>
-<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#part-1---organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Part 1 - Organizing your database</a></li>
+<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Organizing your database</a></li>
+<li class="chapter" data-level="8.2" data-path="lab8.html"><a href="lab8.html#applying-the-criteria"><i class="fa fa-check"></i><b>8.2</b> Applying the criteria</a></li>
+<li class="chapter" data-level="8.3" data-path="lab8.html"><a href="lab8.html#reporting-the-results"><i class="fa fa-check"></i><b>8.3</b> Reporting the results</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
@@ -147,10 +149,14 @@
 <div id="lab8" class="section level1">
 <h1><span class="header-section-number">8</span> Lab 8 - Practicing GIS</h1>
 <p>For this exercise, we will progressively practice all we have learned so far. The scenario is:</p>
-<p><strong>Introducing wild Hippogrifs in Scotland</strong>: A Hippogriff is a magical beast that has the front legs, wings, and head of a giant eagle and the body, hind legs and tail of a horse. It is similar to another magical creature, the Griffin, which has the rear body of a lion. Hipogriffs are well regarded as riding beats and have been introduced in the British Isles by the wizarding society many centuries ago. However, as with most magical and non-magical beasts, original habitats and populations of the Hipoggrif are dwindling. Moreover, as the UK has now left the European Union, the import of Hipoggrifs for breeding will become harder.</p>
-<p>Therefore, the Ministry of Wizardry has requested a study to find the most suitable areas for introducing wild populations of Hippogrifs, taking into consideration several ecological and socieconomic factors. As an employee of the Division of Geowizardry, you are thus requires to conduct the work.</p>
-<div id="part-1---organizing-your-database" class="section level2">
-<h2><span class="header-section-number">8.1</span> Part 1 - Organizing your database</h2>
+<p><strong>Introducing wild hippogriffs in Scotland</strong>: A Hippogriff is a magical beast that has the front legs, wings, and head of a giant eagle and the body, hind legs and tail of a horse. It is similar to another magical creature, the Griffin, which has the rear body of a lion. Hipogriffs are well regarded as riding beats and have been introduced in the British Isles by the wizarding society many centuries ago. However, as with most magical and non-magical beasts, original habitats and populations of the Hipoggrif are dwindling. Moreover, as the UK has now left the European Union, the import of Hipoggrifs for breeding will become harder.</p>
+<div class="figure">
+<img src="https://acciowizardsunite.com/wp-content/uploads/2019/01/hippogriff-harry-potter.jpg" alt="Rare sighting of a Hippogriff caught on a camera trap" />
+<p class="caption">Rare sighting of a Hippogriff caught on a camera trap</p>
+</div>
+<p>Therefore, the Ministry of Wizardry has requested a study to find the most suitable areas for introducing wild populations of hippogriffs, taking into consideration several ecological and socieconomic factors. As an employee of the Division of Geowizardry, you are thus requires to conduct the work.</p>
+<div id="organizing-your-database" class="section level2">
+<h2><span class="header-section-number">8.1</span> Organizing your database</h2>
 <p>The data required for the analysis has been previously gathered by your colleagues at the DoGW. However, they have not been properly organized into a project.</p>
 <ol style="list-style-type: decimal">
 <li><p>Inspect the data provided to you, and take note of the data formats and or types, the coverage, the resolution (when appplicable) and the map projections.</p></li>
@@ -163,13 +169,58 @@
 </div>
 <p>Suggested tools:</p>
 <ul>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select">Selection (by attributes or using <img src="QGISicons/images/themes/default/mActionSelect.svg" /></a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select">Selection (by attributes or using <img src="QGISicons/images/themes/default/mActionSelectRectangle.svg" />)</a></p></li>
 <li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/vectorgeoprocessing.html?highlight=dissolve#dissolve">Dissolve</a></p></li>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/training_manual/vector_analysis/reproject_transform.html?highlight=reproject%20vector">Reprojecting vectors</a></p></li>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterprojections.html?highlight=warp#warp-reproject">Reproject Raster</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip">Clip</a></p></li>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterextraction.html">Raster Extraction and masking</a></p></li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>Make sure all the pre-processed layers are organized in relevant folders/subfolders.</li>
+<li>Make sure all the pre-processed layers are organized in relevant folders/subfolders, and well organized as a project.</li>
 </ol>
-<p>```</p>
+</div>
+<div id="applying-the-criteria" class="section level2">
+<h2><span class="header-section-number">8.2</span> Applying the criteria</h2>
+<p>According to renowned expert Dr. Newt Scamander, hippogriffs require the following:</p>
+<ol style="list-style-type: decimal">
+<li><p>A combination of woodlands for refuge and nesting and open areas for hunting. Woodlands must have a minimum area of 25 hectares, and they will forage for up to 5km away from their main nesting region.</p></li>
+<li><p>Hippogriffs are shy and proud beasts, so they must be away from human interaction. A distance of at least 10km from any anthropogenic surfaces (roads, constructed areas) must be maintained.</p></li>
+</ol>
+<ul>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select">Selection by attributes</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html?highlight=buffer">Buffer</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select%20location#extract-by-location">Spatial Selection</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip">Clip</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectortable.html?highlight=field%20calculator#field-calculator">Field Calculator</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_analysis.html?highlight=raster%20calculator">Raster Calculator</a></p></li>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector">Raster to Vector</a></p></li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li>Hippogriffs are highland creatures, and they tend to prefer higher elevations. Ideally suitable areas would be at least 500 meters in elevation. Also, they appreaciate being able to bask in the morning sun, so open areas with gentle easterly slopes should be avaiable within 1km of the nesting area.</li>
+</ol>
+<ul>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=aspect">Aspect tool</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_analysis.html?highlight=raster%20calculator">Raster Calculator</a></p></li>
+<li><p><a href="https://docs.qgis.org/3.4/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector">Raster to Vector</a></p></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Hippogriffs need to eat! Deer are they maion prey, so areas with a higher density of deer should be prioritised.</li>
+</ol>
+<ul>
+<li><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/interpolation.html?highlight=interpolation">Inverse Distance Weighting</a></li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li>Existing protected areas should be prioritised if containing the required habitats. But new protected areas will also be considered, so both options should be presented.</li>
+</ol>
+<ul>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select%20location#extract-by-location">Spatial Selection</a></p></li>
+<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip">Clip</a></p></li>
+</ul>
+</div>
+<div id="reporting-the-results" class="section level2">
+<h2><span class="header-section-number">8.3</span> Reporting the results</h2>
+<p>As part of the reporting of results, each selected region should be labelled with its area in hectares. A final map showing the protected and/or unprotected areas selected, using the UK topography as background and showing major human infrastructure should be produced.</p>
 
 </div>
 </div>
