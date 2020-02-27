@@ -122,19 +122,13 @@
 <li class="chapter" data-level="7.4" data-path="lab6.html"><a href="lab6.html#formative-assessment-2"><i class="fa fa-check"></i><b>7.4</b> Formative assessment</a></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="lab8.html"><a href="lab8.html"><i class="fa fa-check"></i><b>8</b> Lab 8 - Practicing GIS</a><ul>
-<<<<<<< HEAD
-<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#part-1---organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Part 1 - Organizing your database</a></li>
-<li class="chapter" data-level="8.2" data-path="lab8.html"><a href="lab8.html#part-2---applying-the-criteria"><i class="fa fa-check"></i><b>8.2</b> Part 2 - Applying the criteria</a></li>
-<li class="chapter" data-level="8.3" data-path="lab8.html"><a href="lab8.html#part-3---reporting-the-rsults"><i class="fa fa-check"></i><b>8.3</b> Part 3 - Reporting the rsults</a></li>
+<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Organizing your database</a></li>
+<li class="chapter" data-level="8.2" data-path="lab8.html"><a href="lab8.html#applying-the-criteria"><i class="fa fa-check"></i><b>8.2</b> Applying the criteria</a></li>
+<li class="chapter" data-level="8.3" data-path="lab8.html"><a href="lab8.html#reporting-the-results"><i class="fa fa-check"></i><b>8.3</b> Reporting the results</a></li>
 </ul></li>
 <li class="chapter" data-level="9" data-path="lab9.html"><a href="lab9.html"><i class="fa fa-check"></i><b>9</b> Lab 9 - Cartography and map making</a><ul>
 <li class="chapter" data-level="9.1" data-path="lab9.html"><a href="lab9.html#testing-some-cartogrtaphic-principles"><i class="fa fa-check"></i><b>9.1</b> Testing some cartogrtaphic principles</a></li>
 <li class="chapter" data-level="9.2" data-path="lab9.html"><a href="lab9.html#formative-assessment---revisiting-the-flood-mapping"><i class="fa fa-check"></i><b>9.2</b> Formative assessment - revisiting the flood mapping</a></li>
-=======
-<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Organizing your database</a></li>
-<li class="chapter" data-level="8.2" data-path="lab8.html"><a href="lab8.html#applying-the-criteria"><i class="fa fa-check"></i><b>8.2</b> Applying the criteria</a></li>
-<li class="chapter" data-level="8.3" data-path="lab8.html"><a href="lab8.html#reporting-the-results"><i class="fa fa-check"></i><b>8.3</b> Reporting the results</a></li>
->>>>>>> 43234fc31058d05bd1228b478832b2738c7a3b54
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
@@ -273,7 +267,7 @@ Why is that a big black area around the elevation data?
 </ul>
 </div>
 <ol start="10" style="list-style-type: decimal">
-<li><p>Go to <code>Raster &gt; Extraction &gt; Clip Raster by Extent...</code>. Select your <strong>mosaic</strong> (that is the name we give to several rasters “stitched” together&quot;) as <code>Input Layer</code> and then click on the <code>...</code> button to the left of <code>Clipping Extent</code>. Select the option <code>Select extent on canvas...</code>. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the <em>Clip window</em>.</p></li>
+<li><p>Go to <code>Raster &gt; Extraction &gt; Clip Raster by Extent...</code>. Select your <strong>mosaic</strong> (that is the name we give to several rasters “stitched” together") as <code>Input Layer</code> and then click on the <code>...</code> button to the left of <code>Clipping Extent</code>. Select the option <code>Select extent on canvas...</code>. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the <em>Clip window</em>.</p></li>
 <li><p>Before clicking <code>Run</code>, set the actual file name to save this time, using <code>Dumyat_DTM_5m.tif</code> as the name. Then <code>Run</code> and <code>Close</code>. Then remove all of the previous separate LiDAR elevation layers and load only this final file.</p></li>
 <li><p>Set the style for Dumyat layer, and then copy it (<code>(Right click on layer name) &gt; Styles &gt; Copy Style</code>) and paste it on the <code>UK_SRTM_masked_BSG</code> data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the <em>Hillshade visual trick</em> learned on the previous practical to help emphasize the differences. Just remeber to turn both the elevation and the hill shade on and off at the same time when comparing.</p></li>
 </ol>
