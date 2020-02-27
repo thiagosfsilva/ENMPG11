@@ -1,0 +1,42 @@
+---
+output:
+  html_document: default
+---
+# Lab 9 - Cartography and map making {#lab9}
+
+
+## Testing some cartogrtaphic principles
+
+1 - Open QGIS and go to `Plugins > Manage and Install Plugins`. The search for and install the `Data Plotly` plugin.
+
+2 - Create a new project and set its projection to simple Lat / Long) using the WGS 84 datum (EPSG:4326, a.k.a "unprojected" or Plate Carree projection). Also set the distance and area units as km and km$^ 2$. Then open the layers `UK_wgs84`, `tissot_wgs84` and `graticule_wgs84` from the Lab 9 data bundle.
+
+```{block type='rmdimportant'}
+`**Stop and think:** What do the circles represent, and why are they distorted?
+``` 
+3 - Using the graticule (grid) layer as reference, calculate the length of a degree of longitude and a degree of latitude at the north of Scotland and the south of England, using the measurmeent tool, in km$^2$.
+
+```{block type='rmdimportant'}
+`**Stop and think:** Why do distances change in only one dimension?
+```
+
+4 - Using the field calculator, calculate a new field called `area_wgs84` for the UK regions, uisng the `$area` variable. Make sure you have the project units set as km and km$^2$, and that your new field is a decimal number type (float). Don' t forget to save the edits and exit edit mode afterwards.
+
+5 - Save your project and then start a new project. Set it to the Ordnance Survey British Standard Grid (EPSG:27700), and again set the measurement units to km and km$^2$. Open the  `UK_bsg`, `tissot_bsg` and `graticule_bsg` files.
+
+6 - Repeat steps 3 and 4 above, using the new layers. Call the new field `area_bsg`
+
+7 - Load the `UK_wgs84` layer, and do a table join with `UK_bsg`, using `fid` as the joining key. Enable the option `Joined fields` and select only `area_wgs84` from the `uk_wgs84` layer, and also select `Custom Prefix` and set it to empty.
+
+8 - Go to `Plugins > Data Plotly > Data Plotly`. A new side tab will appear. Select `UK_bsg` as the input layer, `area_wgs84` and `area_bsg` as `X` and `Y`, and the click on `Create plot`
+
+```{block type='rmdimportant'}
+`**Stop and think:** What is your interpretation of the plot?
+```
+
+## Formative assessment - revisiting the flood mapping
+
+Using your newly acquired map design skills, revisit the data from your latest formative assessment (flooding hazards in Stirling) and prepare a "professional quality" map of your results. Make sure you are thinking of choices of symbols, line widths, line and fill colors, and choices of color palettes. Also make good use of transparency, hillshading, and labelling, and add the proper cartographic elements (grid, scale, north arrow, legend, etc.)
+
+
+

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>8 Lab 8 - Practicing GIS | ENMPG11 Geomatics - Module Workbook</title>
+  <title>9 Lab 9 - Cartography and map making | ENMPG11 Geomatics - Module Workbook</title>
   <meta name="description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="8 Lab 8 - Practicing GIS | ENMPG11 Geomatics - Module Workbook" />
+  <meta property="og:title" content="9 Lab 9 - Cartography and map making | ENMPG11 Geomatics - Module Workbook" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="thiagosfsilva/ENMPG11" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="8 Lab 8 - Practicing GIS | ENMPG11 Geomatics - Module Workbook" />
+  <meta name="twitter:title" content="9 Lab 9 - Cartography and map making | ENMPG11 Geomatics - Module Workbook" />
   
   <meta name="twitter:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="lab6.html"/>
-<link rel="next" href="lab9.html"/>
+<link rel="prev" href="lab8.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -150,65 +150,37 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="lab8" class="section level1">
-<h1><span class="header-section-number">8</span> Lab 8 - Practicing GIS</h1>
-<p>For this exercise, we will progressively practice all we have learned so far. The scenario is:</p>
-<p><strong>Introducing wild Hippogrifs in Scotland</strong>: A Hippogriff is a magical beast that has the front legs, wings, and head of a giant eagle and the body, hind legs and tail of a horse. It is similar to another magical creature, the Griffin, which has the rear body of a lion. Hipogriffs are well regarded as riding beats and have been introduced in the British Isles by the wizarding society many centuries ago. However, as with most magical and non-magical beasts, original habitats and populations of the Hipoggrif are dwindling. Moreover, as the UK has now left the European Union, the import of Hipoggrifs for breeding will become harder.</p>
-<div class="figure">
-<img src="https://acciowizardsunite.com/wp-content/uploads/2019/01/hippogriff-harry-potter.jpg" alt="Rare sighting of a Hippogriff caught on a camera trap" />
-<p class="caption">Rare sighting of a Hippogriff caught on a camera trap</p>
-</div>
-<p>Therefore, the Ministry of Wizardry has requested a study to find the most suitable areas for introducing wild populations of Hippogrifs, taking into consideration several ecological and socieconomic factors. As an employee of the Division of Geowizardry, you are thus requires to conduct the work.</p>
-<div id="part-1---organizing-your-database" class="section level2">
-<h2><span class="header-section-number">8.1</span> Part 1 - Organizing your database</h2>
-<p>The data required for the analysis has been previously gathered by your colleagues at the DoGW. However, they have not been properly organized into a project.</p>
-<ol style="list-style-type: decimal">
-<li><p>Inspect the data provided to you, and take note of the data formats and or types, the coverage, the resolution (when appplicable) and the map projections.</p></li>
-<li><p>Since the study is for now only focusing on Scotland, pre-process your data so that all layers are restricted to the Scottish borders and have the same map projection. The Ordnance Survey British Grid projection is suggested.</p></li>
-</ol>
+<div id="lab9" class="section level1">
+<h1><span class="header-section-number">9</span> Lab 9 - Cartography and map making</h1>
+<div id="testing-some-cartogrtaphic-principles" class="section level2">
+<h2><span class="header-section-number">9.1</span> Testing some cartogrtaphic principles</h2>
+<p>1 - Open QGIS and go to <code>Plugins &gt; Manage and Install Plugins</code>. The search for and install the <code>Data Plotly</code> plugin.</p>
+<p>2 - Create a new project and set its projection to simple Lat / Long) using the WGS 84 datum (EPSG:4326, a.k.a “unprojected” or Plate Carree projection). Also set the distance and area units as km and km<span class="math inline">\(^ 2\)</span>. Then open the layers <code>UK_wgs84</code>, <code>tissot_wgs84</code> and <code>graticule_wgs84</code> from the Lab 9 data bundle.</p>
 <div class="rmdimportant">
 <p>
-<strong>Stop and think:</strong> from the original data, how many and which GIS operations do I need to perform to create a layer that has the Scottish borders?
+`<strong>Stop and think:</strong> What do the circles represent, and why are they distorted?
 </p>
 </div>
-<p>Suggested tools:</p>
-<ul>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select">Selection (by attributes or using <img src="QGISicons/images/themes/default/mActionSelect.svg" /></a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/vectorgeoprocessing.html?highlight=dissolve#dissolve">Dissolve</a></p></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Make sure all the pre-processed layers are organized in relevant folders/subfolders.</li>
-</ol>
+<p>3 - Using the graticule (grid) layer as reference, calculate the length of a degree of longitude and a degree of latitude at the north of Scotland and the south of England, using the measurmeent tool, in km<span class="math inline">\(^2\)</span>.</p>
+<div class="rmdimportant">
+<p>
+`<strong>Stop and think:</strong> Why do distances change in only one dimension?
+</p>
 </div>
-<div id="part-2---applying-the-criteria" class="section level2">
-<h2><span class="header-section-number">8.2</span> Part 2 - Applying the criteria</h2>
-<p>According to renowned expert Dr. Newt Scamander, Hippogrifs require the following:</p>
-<ol style="list-style-type: decimal">
-<li><p>A combination of woodlands for refuge and nesting and open areas for hunting. Woodlands must have a minimum area of 25 hectares, and they will forage for up to 5km away from their main nesting region.</p></li>
-<li><p>Hippogrifs are shy and proud beasts, so they must be away from human interaction. A distance of at least 10km from any anthropogenic surfaces (roads, constructed areas) must be maintained.</p></li>
-</ol>
-<ul>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select">Selection by attributes</a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/gentle_gis_introduction/vector_spatial_analysis_buffers.html?highlight=buffer">Buffer</a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectorselection.html?highlight=select%20location#extract-by-location">Spatial Selection</a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectoroverlay.html?highlight=clip#clip">Clip</a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/vectortable.html?highlight=field%20calculator#field-calculator">Field Calculator</a></p></li>
-</ul>
-<ol start="3" style="list-style-type: decimal">
-<li>Hippogrifs are highland creatures, and they tend to prefer higher elevations. Ideally suitable areas would be at least 500 meters in elevation. Also, they appreaciate being able to bask in the morning sun, so open areas with gentle easterly slopes should be avaiable within 1km of the nesting area.</li>
-</ol>
-<ul>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/qgis/rasterterrainanalysis.html?highlight=aspect">Aspect tool</a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/working_with_raster/raster_analysis.html?highlight=raster%20calculator">Raster Calculator</a></p></li>
-<li><p><a href="https://docs.qgis.org/testing/en/docs/user_manual/processing_algs/gdal/rasterconversion.html?highlight=polygonize#polygonize-raster-to-vector">Raster to Vector</a></p></li>
-</ul>
-<ol start="4" style="list-style-type: decimal">
-<li>Existing protected areas should be prioritized if containing the required habitats. But new protected areas will also be considered, so both options should be presented.</li>
-</ol>
+<p>4 - Using the field calculator, calculate a new field called <code>area_wgs84</code> for the UK regions, uisng the <code>$area</code> variable. Make sure you have the project units set as km and km<span class="math inline">\(^2\)</span>, and that your new field is a decimal number type (float). Don’ t forget to save the edits and exit edit mode afterwards.</p>
+<p>5 - Save your project and then start a new project. Set it to the Ordnance Survey British Standard Grid (EPSG:27700), and again set the measurement units to km and km<span class="math inline">\(^2\)</span>. Open the <code>UK_bsg</code>, <code>tissot_bsg</code> and <code>graticule_bsg</code> files.</p>
+<p>6 - Repeat steps 3 and 4 above, using the new layers. Call the new field <code>area_bsg</code></p>
+<p>7 - Load the <code>UK_wgs84</code> layer, and do a table join with <code>UK_bsg</code>, using <code>fid</code> as the joining key. Enable the option <code>Joined fields</code> and select only <code>area_wgs84</code> from the <code>uk_wgs84</code> layer, and also select <code>Custom Prefix</code> and set it to empty.</p>
+<p>8 - Go to <code>Plugins &gt; Data Plotly &gt; Data Plotly</code>. A new side tab will appear. Select <code>UK_bsg</code> as the input layer, <code>area_wgs84</code> and <code>area_bsg</code> as <code>X</code> and <code>Y</code>, and the click on <code>Create plot</code></p>
+<div class="rmdimportant">
+<p>
+`<strong>Stop and think:</strong> What is your interpretation of the plot?
+</p>
 </div>
-<div id="part-3---reporting-the-rsults" class="section level2">
-<h2><span class="header-section-number">8.3</span> Part 3 - Reporting the rsults</h2>
-<p>As part of the reporting of results, each selected region should be labelled with its area in hectares. A final map showing the protected and/or unprotected areas selected, using the UK topography as background and showing major human infrastructure should be produced.</p>
+</div>
+<div id="formative-assessment---revisiting-the-flood-mapping" class="section level2">
+<h2><span class="header-section-number">9.2</span> Formative assessment - revisiting the flood mapping</h2>
+<p>Using your newly acquired map design skills, revisit the data from your latest formative assessment (flooding hazards in Stirling) and prepare a “professional quality” map of your results. Make sure you are thinking of choices of symbols, line widths, line and fill colors, and choices of color palettes. Also make good use of transparency, hillshading, and labelling, and add the proper cartographic elements (grid, scale, north arrow, legend, etc.)</p>
 
 </div>
 </div>
@@ -217,8 +189,8 @@
           </div>
         </div>
       </div>
-<a href="lab6.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="lab9.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="lab8.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
