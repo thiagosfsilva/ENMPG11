@@ -24,7 +24,7 @@
 <meta name="author" content="Thiago Silva" />
 
 
-<meta name="date" content="2020-02-27" />
+<meta name="date" content="2020-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,6 +129,12 @@
 <li class="chapter" data-level="9" data-path="lab9.html"><a href="lab9.html"><i class="fa fa-check"></i><b>9</b> Lab 9 - Cartography and map making</a><ul>
 <li class="chapter" data-level="9.1" data-path="lab9.html"><a href="lab9.html#testing-some-cartogrtaphic-principles"><i class="fa fa-check"></i><b>9.1</b> Testing some cartogrtaphic principles</a></li>
 <li class="chapter" data-level="9.2" data-path="lab9.html"><a href="lab9.html#formative-assessment---revisiting-the-flood-mapping"><i class="fa fa-check"></i><b>9.2</b> Formative assessment - revisiting the flood mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lab11.html"><a href="lab11.html"><i class="fa fa-check"></i><b>10</b> Lab 11 - Satellite Image Manipulation and Classification</a><ul>
+<li class="chapter" data-level="10.1" data-path="lab11.html"><a href="lab11.html#image-band-stacking-and-clipping"><i class="fa fa-check"></i><b>10.1</b> Image band stacking and clipping</a></li>
+<li class="chapter" data-level="10.2" data-path="lab11.html"><a href="lab11.html#color-composition"><i class="fa fa-check"></i><b>10.2</b> Color composition</a></li>
+<li class="chapter" data-level="10.3" data-path="lab11.html"><a href="lab11.html#manual-digitazion"><i class="fa fa-check"></i><b>10.3</b> Manual digitazion</a></li>
+<li class="chapter" data-level="10.4" data-path="lab11.html"><a href="lab11.html#automatic-classification"><i class="fa fa-check"></i><b>10.4</b> Automatic classification</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
@@ -267,7 +273,7 @@ Why is that a big black area around the elevation data?
 </ul>
 </div>
 <ol start="10" style="list-style-type: decimal">
-<li><p>Go to <code>Raster &gt; Extraction &gt; Clip Raster by Extent...</code>. Select your <strong>mosaic</strong> (that is the name we give to several rasters “stitched” together") as <code>Input Layer</code> and then click on the <code>...</code> button to the left of <code>Clipping Extent</code>. Select the option <code>Select extent on canvas...</code>. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the <em>Clip window</em>.</p></li>
+<li><p>Go to <code>Raster &gt; Extraction &gt; Clip Raster by Extent...</code>. Select your <strong>mosaic</strong> (that is the name we give to several rasters “stitched” together&quot;) as <code>Input Layer</code> and then click on the <code>...</code> button to the left of <code>Clipping Extent</code>. Select the option <code>Select extent on canvas...</code>. The window will disappear for a moment. Click on the top left corner of the main terrain data area and draw a tight rectangle around it, excluding most of the black areas and the little bit of extra data on the bottom left. Once you finish drawing, will be taken back to the <em>Clip window</em>.</p></li>
 <li><p>Before clicking <code>Run</code>, set the actual file name to save this time, using <code>Dumyat_DTM_5m.tif</code> as the name. Then <code>Run</code> and <code>Close</code>. Then remove all of the previous separate LiDAR elevation layers and load only this final file.</p></li>
 <li><p>Set the style for Dumyat layer, and then copy it (<code>(Right click on layer name) &gt; Styles &gt; Copy Style</code>) and paste it on the <code>UK_SRTM_masked_BSG</code> data set. Drag it to just under the Dumyat layer, and turn it on and off to compare the difference between looking at elevation data at 5 meters instead of 90 meters. You may want to use the <em>Hillshade visual trick</em> learned on the previous practical to help emphasize the differences. Just remeber to turn both the elevation and the hill shade on and off at the same time when comparing.</p></li>
 </ol>

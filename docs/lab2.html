@@ -24,7 +24,7 @@
 <meta name="author" content="Thiago Silva" />
 
 
-<meta name="date" content="2020-02-27" />
+<meta name="date" content="2020-03-05" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,6 +129,12 @@
 <li class="chapter" data-level="9" data-path="lab9.html"><a href="lab9.html"><i class="fa fa-check"></i><b>9</b> Lab 9 - Cartography and map making</a><ul>
 <li class="chapter" data-level="9.1" data-path="lab9.html"><a href="lab9.html#testing-some-cartogrtaphic-principles"><i class="fa fa-check"></i><b>9.1</b> Testing some cartogrtaphic principles</a></li>
 <li class="chapter" data-level="9.2" data-path="lab9.html"><a href="lab9.html#formative-assessment---revisiting-the-flood-mapping"><i class="fa fa-check"></i><b>9.2</b> Formative assessment - revisiting the flood mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lab11.html"><a href="lab11.html"><i class="fa fa-check"></i><b>10</b> Lab 11 - Satellite Image Manipulation and Classification</a><ul>
+<li class="chapter" data-level="10.1" data-path="lab11.html"><a href="lab11.html#image-band-stacking-and-clipping"><i class="fa fa-check"></i><b>10.1</b> Image band stacking and clipping</a></li>
+<li class="chapter" data-level="10.2" data-path="lab11.html"><a href="lab11.html#color-composition"><i class="fa fa-check"></i><b>10.2</b> Color composition</a></li>
+<li class="chapter" data-level="10.3" data-path="lab11.html"><a href="lab11.html#manual-digitazion"><i class="fa fa-check"></i><b>10.3</b> Manual digitazion</a></li>
+<li class="chapter" data-level="10.4" data-path="lab11.html"><a href="lab11.html#automatic-classification"><i class="fa fa-check"></i><b>10.4</b> Automatic classification</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
@@ -244,7 +250,7 @@ What are the different <em>data types</em> among all attributes?
 </div>
 <ol start="4" style="list-style-type: decimal">
 <li><p>Turn on the Rivers layer, and open its attribute table. Click on the <code>Select features using expression</code> button: <img src="QGISicons/images/themes/default/mIconExpressionSelect.svg" /></p></li>
-<li><p>On the middle column, go to <code>Fields and Values</code> and then double click on <code>KILOMETERS</code>. It will be added to the left column. Complete the expression so it reads <code>"KILOMETERS" &gt; 5000</code>. Check the results of your selection on both the Attribute Table and the plotted layer geometry.</p></li>
+<li><p>On the middle column, go to <code>Fields and Values</code> and then double click on <code>KILOMETERS</code>. It will be added to the left column. Complete the expression so it reads <code>&quot;KILOMETERS&quot; &gt; 5000</code>. Check the results of your selection on both the Attribute Table and the plotted layer geometry.</p></li>
 </ol>
 <div class="rmdnote">
 <p>
@@ -252,7 +258,7 @@ What are the different <em>data types</em> among all attributes?
 </p>
 </div>
 <ol start="6" style="list-style-type: decimal">
-<li><p>Change your expression to <code>"SYSTEM" = 'Amazon'</code> and run a new selection. On the bottom left of the Attibute Table, select <code>Show Selected Features</code>. How many rivers are there in the Amazon system, according to this dataset?</p></li>
+<li><p>Change your expression to <code>&quot;SYSTEM&quot; = 'Amazon'</code> and run a new selection. On the bottom left of the Attibute Table, select <code>Show Selected Features</code>. How many rivers are there in the Amazon system, according to this dataset?</p></li>
 <li><p>Back on the main QGIS window, click on the <code>Show Statistical Summary</code> tool. A new pane will open. Select the Rivers layer as input, then click on the bottom on <code>Selected Features Only</code>. Then select <code>Kilometers</code> on the drop-down menu under the layer name. What is the length, in kilometers, of all rivers of the Amazon system combined?</p></li>
 </ol>
 <div class="rmdnote">
@@ -261,7 +267,7 @@ What are the different <em>data types</em> among all attributes?
 </p>
 </div>
 <ol start="8" style="list-style-type: decimal">
-<li>Go back to the <em>Attibute Table</em> window for the Rivers layer. Click on the <code>Field Calculator</code> tool (<img src="QGISicons/images/themes/default/mActionCalculateField.svg" />). On the new window, <strong>uncheck</strong> the <code>Only update selected features</code> options if it is checked. Then name the new field <code>Miles_Km</code>, and change the output type to <code>Decimal Number</code>. On the expression window, write <code>"MILES"  /  "KILOMETERS"</code>. Note the warning at the bottom. Once you click <code>OK</code>, turn off editing mode by clicking on the icon. Save you layer when asked to.</li>
+<li>Go back to the <em>Attibute Table</em> window for the Rivers layer. Click on the <code>Field Calculator</code> tool (<img src="QGISicons/images/themes/default/mActionCalculateField.svg" />). On the new window, <strong>uncheck</strong> the <code>Only update selected features</code> options if it is checked. Then name the new field <code>Miles_Km</code>, and change the output type to <code>Decimal Number</code>. On the expression window, write <code>&quot;MILES&quot;  /  &quot;KILOMETERS&quot;</code>. Note the warning at the bottom. Once you click <code>OK</code>, turn off editing mode by clicking on the icon. Save you layer when asked to.</li>
 </ol>
 <div class="rmdnote">
 <p>
