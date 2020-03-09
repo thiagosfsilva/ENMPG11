@@ -5,7 +5,7 @@ output:
 # Lab 9 - Cartography and map making {#lab9}
 
 
-## Testing some cartogrtaphic principles
+## Testing some cartographic principles
 
 1 - Open QGIS and go to `Plugins > Manage and Install Plugins`. The search for and install the `Data Plotly` plugin.
 

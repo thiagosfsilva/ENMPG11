@@ -1,0 +1,206 @@
+---
+output:
+  html_document: default
+---
+# Lab 12 - Using Python to automate QGIS {#lab12}
+
+Python is one of the most popular programming languages in the world, due its versatility and ease of learning. It is also free and open source, meaning you will not lose access to it. Most GIS platforms havee converged for using Python as their automating language, including ArcGIS (ArcPy) and QGIS (PyQGIS). Also, several Geomatics toolboxes can be commanded through Python, such as [Orfeo Toolbox](https://www.orfeo-toolbox.org/)], [RSGISlib](https://www.rsgislib.org/) and [White Box Tools](https://jblindsay.github.io/ghrg/WhiteboxTools/index.html). 
+
+Although Python has packages to deal directly with Geeospatial data within Python itself (e.g. Shapely, Rasterio, Geopandas), here we will focus on using Python as a scripting language to use QGIS functions.
+
+The main documentation for PyQGIS is at https://docs.qgis.org/3.4/en/docs/pyqgis_developer_cookbook/index.html. 
+
+## The Python console
+
+The easiest way to use PyQGIS is by using the Python Console built in QGIS. It already loads all PyQGIS libraries and dependencies when you launch it, so you don't need to do it manually. You can access it from `Plugins > Python Console....
+
+- Once you open it, click on the small wrench icon to set the options below, on both the `Console` and `Editor` side tabs:
+
+  - Under `Autocompletion`, select `from docs and APIs`
+  
+  - Under `Typing`, enable `Automatic parentheses insertion`
+  
+Once you're done, then click on the Notepad icon. This will open an editor window. This is usually the best wat to work, as you can then save all the commands you have typed as a script, and run them all at once every time it is needed.
+
+More info about the console here: https://docs.qgis.org/3.4/en/docs/user_manual/plugins/python_console.html?highlight=console
+  
+## Opening data
+
+Although you can read layers using PyQGIS without adding them to the project, it is easy to use the QGIS interface commands. These commands all come from the `iface` class, which gives access to elements of QGIS' interface.
+
+- Grab the 'Folow along' data from Lab 9. 
+
+To open a vector layer, we use the following commands:
+
+```{python, eval = F}
+
+# 1) Define the layer path. CHANGE TO REFLECT YOUR PATH!#
+#    Also, notice the direction of the slashes!
+sssi_path = "C:/Projects/ENMPG11/data/LAB_9/follow_along/SSSI_data/SSSI_ns.shp"
+
+# 2) Use the ifce.addVectorLayer to add it to QGIS. 
+sssi = vlayer = iface.addVectorLayer(sssi_path, "SSSI", "ogr")
+```
+
+```{block type='rmdimportant'}
+**IMPORTANT:** as you add lines to your script, every time you run it it will re-do the previous actions. You can prevent that by "commenting out" the lines you don't need to execute again, by adding a comment symbol(`#`) at the start of the line. 
+```
+
+The process is similar for a raster layer:
+
+```{python, eval=F}
+# For rasters, we don't need to specify the 'ogr' driver
+dtm_path = "C:/Projects/ENMPG11/data/LAB_9/follow_along/OS_dtm50/OS_dtm_50.tif"
+dtm = iface.addRasterLayer(dtm_path, "OS DTM 50")
+```
+
+
+More details on adding layers on https://docs.qgis.org/3.4/en/docs/pyqgis_developer_cookbook/loadlayer.html
+
+## Styling layers
+
+We can also control layer symbology directly from the script, so the layer is pre-loaded with our wanted symbology. In PyQGIS terminology, this means specifying a "renderer". For example, this is the default renderedr for our DTM layer:
+
+
+```{python, eval=F}
+# For rasters, we don't need to specify the 'ogr' driver
+dtm.renderer()
+```
+
+As we can see, the default renderer is the `QgsSingleBandGrayRenderer`. It is also good to notice that the renderer is a property of the raster object, and thus can be acessed using the dot (`.`) notation. These are the programmatic names of the QGIS raster renderers:
+
+- `QgsMultiBandColorRenderer`
+- `QgsPalettedRasterRenderer`
+- `QgsSingleBandColorDataRenderer`
+- `QgsSingleBandGrayRenderer`
+- `QgsSingleBandPseudoColorRenderer`
+
+Let us use the `QgsSingleBandPseudoColorRenderer` to set a color ramp for our DTM raster:
+
+```{python, eval=F}
+# 1) First, we set an empty color ramp object. A object with coloring 
+# instruction in PyQGIS is called a 'shader':
+color_ramp = QgsColorRampShader()
+
+# Then, we set how we will distribute the colors. Options are
+# 'Interpolated', 'Discrete' and ' Exact'.
+# Notice the dot notation, so the type of ramp is a property of
+# the color ramp.
+color_ramp.setColorRampType(QgsColorRampShader.Interpolated)
+
+# Then we generate a list of initial and final color values
+# for the ramp. We need to use the proper PyQGIS objects here
+# ('ColorRampItem' and 'QColor'). Color order is always (Red,Green,Blue)
+# so (0,255,0) is pure green, and (255,255,0) is yellow (red + green)  
+color_list = [QgsColorRampShader.ColorRampItem(0, QColor(0,255,0)),
+      QgsColorRampShader.ColorRampItem(255, QColor(255,255,0)) ]
+
+# Now we set the property 'list of colors' for the color ramp
+coor_ramp.setColorRampItemList(color_list)
+
+# Now we creat a new empty raster shader, and set it to our color ramp
+dtm_symb = QgsRasterShader()
+dtm_symb.setRasterShaderFunction(color_ramp)
+
+# Finally, we attach this raster shader to our raster object,
+# and redraw it with the new colors
+
+# 1) create a renderer from the shader. '1'  refers to band 1.
+color_ramp_renderer = QgsSingleBandPseudoColorRenderer(dtm.dataProvider(), 1, dtm_symb)
+
+# 2) Set this new renderer as the renderer for our DTM layer and redraw
+dtm.setRenderer(color_ramp_renderer)
+dtm.triggerRepaint()
+``` 
+
+Whew! It seems like  lot of work versus doing it directly on QGIS, but remember than only you do this once, you will work forever, no matter how many times you run your script (and you can copy and paste it to other scripts). 
+
+Let us now do it for vectors. A vector layer appearance is given by the *renderer* and by *symbols* associated with the layer. *Symbols* take care of drawing the visual representation of features, while *renderers* determine what symbol will be used for a particular feature.
+
+For our SSSI layer:
+
+```{python, eval=F}
+# What is the current symbology?
+sssi.renderer()
+sssi.renderer().type()
+```
+
+As with rasters, the QGIS symbology types for vectors have corresponding renderers:
+
+ - `QgsSingleSymbolRenderer`
+ - `QgsCategorizedSymbolRenderer`
+ - `QgsGraduatedSymbolRenderer`
+ 
+ Let us change the outline and fill color of our SSSI raster:
+ 
+```{python, eval = FALSE}
+
+# First, let us see what symbol properties we can set.
+# This information is nested way down in the object, and we 
+# need to dig it out. The command below goes into the renderer for
+# the SSSI layer, then grabs its symbol, then looks at the first set of symbols (symbol layer, usualy only one), and then gets the properties
+print(sssi.renderer().symbol().symbolLayer(0).properties())
+
+# If we want to change fill colour, fill outline colour and 
+#outline width, we then:
+
+# 1) Make a copy of the properties dictionary
+new_properties = sssi.renderer().symbol().symbolLayer(0).properties()
+
+# 2) Change the properties we want
+new_properties['color'] = '255,0,0,130' # the fourth number is transparency
+new_properties['outline_color'] = '0,0,255,255'
+new_properties['outline_width'] = '0.5'
+
+# 3) Replace the old properties dictionary with the new
+sssi.renderer().setSymbol(QgsFillSymbol.createSimple(new_properties))
+
+# 4) Redraw
+sssi.triggerRepaint()
+```
+
+To be sure, go to `Properties > Symbology` and see if it looks ok.
+
+To dig deeper, check https://docs.qgis.org/3.4/en/docs/pyqgis_developer_cookbook/vector.html#appearance-symbology-of-vector-layers
+
+## Accessing and manipulating vector Attributes
+
+We can also script our data analysis. For example, we can access and manipulate vector attributes:
+
+```{python, eval=F}
+# If you are typing at the comand line, type on extra 'enter' to finish
+for field in sssi.fields():
+  print(field.name(), field.typeName())
+  
+# We can then select features programatically. You may want to open
+# the attribute table for the layer to see the effect. Make sure you select "Show selected features" on the bottom.
+
+# Select all:
+sssi.selectAll()
+
+# Clear selection
+sssi.removeSelection()
+
+# Select using an expression
+sssi.selectByExpression('")
+
+# Multiple criteria. Note that QGIS wants field names in double quotes
+# and strings(text) in single quotes, but the whole expression has to
+# be a string as well, so we need to escape (i.e. ignore) the single
+# quotes around the text '0BIOLOGICAL' using a backslash.
+sssi.selectByExpression('"SITE_HA" > 1000 and "TYPE" = \'0BIOLOGICAL\'')
+
+# Get attribute contents, store and print .
+# Each polygon is a feature, so we need to go over all of them.
+for feature in sssi.getFeatures():
+    names = feature["NAME"]
+    print(names)
+    
+    
+# Create a new attribute:
+
+    
+```
+
+
+ 
