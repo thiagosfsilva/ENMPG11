@@ -1,0 +1,96 @@
+---
+output:
+  html_document: default
+---
+# Assignment - Final Project
+
+For this assignment, you will be required to develop your own project, to "show off" your newly acquired GIS skills. The theme of the project is open, so feel free to align it with your own dissertation topic or area of interest. The more familiar you are with the theory and science of your chosen topic, the easier it will be to make into a spatial problem.
+
+## Project Thinking
+
+The first step in making sure you get a feasible project is to think carefully about your problem. First of all, is it a **spatial problem**? This means "is it a problem whose solution directly depends on understanding how things are organized in space?". For example, calculating carbon stocks for one forest patch is not really a spatial problem; calculating carbon stocks for various vegetation types and extrapolating total stocks based on their mapped spatial extent is a simple, but spatially explicit problem; improving these estimates by taking into account the spatial variation in local climate, soil types, forest ages and/or topography makes it a fully spatial problem. 
+
+Once you have a first notion of the problem you would like to solve, then it is time to think about **feasibility**. The first and foremost questions are then "what are the spatial datasets I would need to solve this problem?" and "are these data available?". Think about the kinds of layers that you will need, in what formats (vectors, rasters) and which agencies would be likely to provide them. Don't be afraid to start your search with "xxxxx shapefile" or "xxxxx geotiff" on Google, where xxxx is a keyword for the dataset you are seeking. Just don't expect it to pop up on the first result. You may have to dig through a few pages of results, or modify your search, until you find something.
+
+After this first search, you then need to decide the location and extent of your study, based on the available data (maybe it doesn't exist for Scotland, but it exists for Alabama), and also revisit/rethink your problem if some of the data you expected to find were not available. Could you maybe use *proxies*, i.e. variables that are correlated with the one you were looking for, and could then work as surrogates? Some very creative spatial work has been done this way, such as looking at the intensity of urban lights on nighttime satellite imagery to estimate population density, or counting the density of swimming pools and green spaces on high resolution imagery to estimate sociioeconomic indicators (really, [see this paper](https://www.tandfonline.com/doi/abs/10.1080/01431161.2010.512928) if you're curious). 
+
+Once you've gone through these iterations, then think about your **method**. How will you go from raw layers to your final problem solution? How will you determine if a solution has been reached or not, and how satisfactorily it was in solving the problem? How will you present the steps taken and results obtained? For this part, I highly recommend sketching a **flowchart**. This flowchart will be comprised of successive Input > Operation > Output Links, going from the initial data to the final products. This is a good example:
+
+![A simple GIS flowchart](https://lh3.googleusercontent.com/proxy/beEVoomM6mn1RMD3hfujLrwBSEGC43rFoeIX8WoiAJYD-DGS6-VPM_fY3aQH8donRTearf-AHOA78SE06M3a8UicvrZfKJOsqMuljpbpm55MSsujOb9Df5LrMvozF9Jibnql4Ta2oeys4aM-__NQm0bbfnk8o1TwV44)
+
+Don't worry about making the flowchart on your PC yet, just use a piece of paper, and keep modifying it as your work progresses. It is common to find out that approaches initially consider don't work as you expected, and change things as you go, so keep your flowchart as a "live" document until your are done. Once you finish your project, you can use Powerpoint or free online tools such as [draw.io](https://app.diagrams.net/) to make your final flowchart.
+
+Once you're done with all the processing and think you have all the data you will need, it is then a good time to sit down and write the methods section while it is still fresh in your mind. Then you can go back to your results and start interpreting and evaluating them (results and discussion). At some point you will reach (and write) a conclusion. Now the only thing left to write is the Introduction, which should have the necessary background information to understand the why and how of what you did (within reason, assume your audience is a peer at your own level of GIS and Environmental Science knowledge). There, project done!
+
+## Project Rerquirements:
+
+To reach a pass grade, a project will have to:
+
+- Have a clearly stated spatial problem that could be reasonably addressed within and MSc. module level of experience and time constraints;
+
+- Make use of at least four different GIS operations (by operation, assume any procedure that changes the input data into new data - buffers, clips, raster calculations, etc). Loading data and changing the symbology do NOT change the input data and thus will not count for this purpose. Filtering vectors based on spatial criteria or attributes does count as a GIS operation;
+
+- Make use of at least three spatial data sources, with at least one raster and at least one line or polygon vector dataset;
+
+- Produce at least one high quality map layout (with appropriateluy chosen extent and scale, and including scale bar, coordinate grid, comprehensive map legend, and stating the reference datum and projection);
+
+- Be properly delivered in a technical report form, including:
+
+  - Executive Summary;
+
+  - Introduction;
+
+  - Data and Methods;
+
+  - Results and Discussion;
+
+  - Conclusion;
+
+  - References;
+  
+- The report should have between 1500 and 4000 words (from intro to conclusion, i.e.
+excluding executive summary and references), and not exceed 10 pages of TEXT (12pt font, single line
+spacing, usual 1 inch margins). Figures will not count towards the page limit (so make them BIG and LEGIBLE!).
+
+Starting from these basic requirements, *total marks* will be based on:
+
+- Demonstrated breadth and competence in applying the GIS and remote sensing skills covered throughout the module Competence includes knowing **when** and **why** to use certain tools, so don't carelessly use operations without purpose, just to increase the number of procedures taken. This would not help here.
+
+- Good balance between depth and complexity of the problem chosen and feasibility. A problem that is to simple and "easy" is worth less marks, but so is an overambitious problem that does not fully deliver at the end because it was too complex, required data that was not really avaiable, or had an extent that was too large to be processed within the available computational capability and time.
+
+- Ample and/or creative use of several data types (vector types, topography rasters, etc.) and GIS/Remote Sensing operations. 
+
+- Explicit use of remote sensing images (even if just for visualization - as long as a proper choice of band combination and good contrast are applied).
+
+- Quality and clarity of the writing:
+
+  - Introduction: by the end of the introduction, it should be clear for the reader what is the problem being studied and why it is relevant;
+  
+  - Methods: a perfect methods section is one that is not overly detailed (like a manual or tutorial) but still gives enough information for another GIS user of the same skill level to reproduce the entire work and achieve the same results. This includes citing and linking to data sources. A final version of the flowchart will go to great lenghts in this regard.
+  
+  - Results: here you DESCRIBE/NARRATE what you got from your analysis.
+  
+  - Discussion: here you INTERPRET and JUDGE the results you got, often COMPARING with the results of similar studies. Feel free to write results and dicussion as a single section if you prefer.
+  
+  - Conclusion: here you clearly and succintlyu state the achieved solution to your original problem, highlight limitations, and make recommendations for future studies and/or implementation of the solution when applicable.
+  
+## Project support and deadlines
+
+Given the current global situation, support for project execution will have to be provided using distance communication. For that purpose, the main instructor (Thiago Silva, myself) and demonstrator (Jazz Rhoades) will be available online at pre-specified days and times, reachable on Canvas using the **Conferences** function, also known as "Big Blue Button". To make sure we can support everyone, we will divide the online time in slots of 15 minutes maximum for each person. Anyone is free to join the calls at any time and learn from other people's issues, but we will use this time limit to make sure everyone gets a fair amount of support. 
+
+I will also alternate with Jazz so we can double the amount of time we are available online. Considering the disruptions that impacted the lectures for this week and the previous, we will hold sessions starting Monday (March 29th, 2020) and going until Friday, April 17th 2020. However, due the time constraints and other work activities to which both Jazz and myself are subject to, we cannot guarantee timely support outside theseonline sessions. Still, please make ample use of the **Discussion** section outside of support hours, and we will do our best to answer them. It is also fine for questions to be answered by peers, so help each other out!
+
+The first deadline for the project is **formative**, and it is due on Tuesday, March 31st. It comprises a single page stating the problem to be studied, the required datasets, and the location and extent of the study area. This will enable us to give feedback in terms of breadth, depth and feasibility of the projects.
+
+**The final report is due on Friday, May 8th, at midnight. It should be submitted as a single PDF on Canvas.**
+
+If you have any questions about the project, please use the Discussion forum on Canvas instead of direct e-mails as much as possible.
+
+
+  
+  
+
+
+
+
+ 

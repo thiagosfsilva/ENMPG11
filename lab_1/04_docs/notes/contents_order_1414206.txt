@@ -1,0 +1,61 @@
+********************************************************************
+
+EDINA DIGIMAP:
+
+DIGITAL DATA SUPPLY
+
+********************************************************************
+
+
+This data is distributed under licence by:
+
+    EDINA
+    University of Edinburgh
+    https://edina.ac.uk
+
+    Tel:    0131 650 3302
+    Fax:    0131 650 3308
+    Email:  digimap@ed.ac.uk
+		
+
+
+---------------------------------------------------------
+
+CONTENTS
+
+You will have received the data files listed below, each product and area has
+its own folder. Note that each data folder contains a conditions.txt file
+which states the conditions for use of the data within. These conditions can
+vary between different data products.
+
+
+
+-------------------------------------------------------------------------------
+Folder:           terrain-50-dtm_3339469
+Extent:           280344.5293049373, 690297.1983853095 - 289669.5293049373, 699647.1983853095
+Date Ordered:     20 January 2020 at 06:04:48
+Product:          OS Terrain 50
+Version:          July 2019
+Format:           ASC
+Theme:            N/A
+Area:             1 tiles
+Tiles:
+ 
+Tile Name:        ns89
+Extent:           280000.0, 690000.0 - 290000.0, 700000.0
+Last Amended:     29 May 2019
+    -------------------------------------------------------------------------------
+Folder:           open-roads_3339468
+Extent:           280344.5293049373, 690297.1983853095 - 289669.5293049373, 699647.1983853095
+Date Ordered:     20 January 2020 at 06:04:48
+Product:          OS Open Roads
+Version:          October 2019
+Format:           SHAPE
+Theme:            N/A
+Area:             1 tiles
+Tiles:
+ 
+Tile Name:        ns
+Extent:           200000.0, 600000.0 - 300000.0, 700000.0
+Last Amended:     9 October 2019
+     

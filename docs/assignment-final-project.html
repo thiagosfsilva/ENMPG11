@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>12 Assignment - Final Project | ENMPG11 Geomatics - Module Workbook</title>
+  <meta name="description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="generator" content="bookdown 0.18 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="12 Assignment - Final Project | ENMPG11 Geomatics - Module Workbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="github-repo" content="thiagosfsilva/ENMPG11" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="12 Assignment - Final Project | ENMPG11 Geomatics - Module Workbook" />
+  
+  <meta name="twitter:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  
+
+<meta name="author" content="Thiago Silva" />
+
+
+<meta name="date" content="2020-03-26" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab12.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ENMPG11 Workbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="1" data-path="outline.html"><a href="outline.html"><i class="fa fa-check"></i><b>1</b> Module Outline and General Info</a><ul>
+<li class="chapter" data-level="1.1" data-path="outline.html"><a href="outline.html#staff-and-communication"><i class="fa fa-check"></i><b>1.1</b> Staff and Communication:</a></li>
+<li class="chapter" data-level="1.2" data-path="outline.html"><a href="outline.html#about-the-module"><i class="fa fa-check"></i><b>1.2</b> About the Module</a></li>
+<li class="chapter" data-level="1.3" data-path="outline.html"><a href="outline.html#intended-learning-outcomes-ilos"><i class="fa fa-check"></i><b>1.3</b> Intended Learning Outcomes (ILO’s):</a></li>
+<li class="chapter" data-level="1.4" data-path="outline.html"><a href="outline.html#readings-and-resources"><i class="fa fa-check"></i><b>1.4</b> Readings and Resources</a></li>
+<li class="chapter" data-level="1.5" data-path="outline.html"><a href="outline.html#attendance-and-points-of-contact"><i class="fa fa-check"></i><b>1.5</b> Attendance and Points of Contact</a></li>
+<li class="chapter" data-level="1.6" data-path="outline.html"><a href="outline.html#class-schedule-and-structure"><i class="fa fa-check"></i><b>1.6</b> Class Schedule and Structure</a></li>
+<li class="chapter" data-level="1.7" data-path="outline.html"><a href="outline.html#assessment-and-grading"><i class="fa fa-check"></i><b>1.7</b> Assessment and Grading</a><ul>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#hands-on-problems-50-of-final-grade"><i class="fa fa-check"></i>1) Hands-on problems (50% of final grade)</a></li>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#final-individual-project-50-of-the-final-grade"><i class="fa fa-check"></i>2) Final individual project (50% of the final grade)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="outline.html"><a href="outline.html#module-timetable-and-dates"><i class="fa fa-check"></i><b>1.8</b> Module Timetable and Dates</a></li>
+<li class="chapter" data-level="1.9" data-path="outline.html"><a href="outline.html#other-relevant-information"><i class="fa fa-check"></i><b>1.9</b> Other Relevant Information</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>2</b> Lab 1 - QGIS overview and file management</a><ul>
+<li class="chapter" data-level="2.1" data-path="lab1.html"><a href="lab1.html#GE1"><i class="fa fa-check"></i><b>2.1</b> Guided Exercise 1 - A simple GIS workflow</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="lab1.html"><a href="lab1.html#creating-a-project-structure"><i class="fa fa-check"></i><b>2.1.1</b> Creating a project structure</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab1.html"><a href="lab1.html#creating-a-qgis-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a QGIS project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lab1.html"><a href="lab1.html#styling-your-layers-and-producing-a-simple-map"><i class="fa fa-check"></i><b>2.1.3</b> Styling your layers and producing a simple map</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab1.html"><a href="lab1.html#self-guided-exercise"><i class="fa fa-check"></i><b>2.2</b> Self-guided exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>3</b> Lab 2 - Working with vector data - Attributes</a><ul>
+<li class="chapter" data-level="3.1" data-path="lab2.html"><a href="lab2.html#guided-exercise-1---basic-work-with-vector-data"><i class="fa fa-check"></i><b>3.1</b> Guided Exercise 1 - Basic work with Vector Data</a></li>
+<li class="chapter" data-level="3.2" data-path="lab2.html"><a href="lab2.html#guided-exercise-2-operations-using-layer-attributes"><i class="fa fa-check"></i><b>3.2</b> Guided Exercise 2: Operations using layer attributes</a></li>
+<li class="chapter" data-level="3.3" data-path="lab2.html"><a href="lab2.html#guided-exercise-3---spatial-queries"><i class="fa fa-check"></i><b>3.3</b> Guided Exercise 3 - Spatial Queries</a></li>
+<li class="chapter" data-level="3.4" data-path="lab2.html"><a href="lab2.html#self-guided-summative-assessment."><i class="fa fa-check"></i><b>3.4</b> Self-guided summative assessment.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab3.html"><a href="lab3.html"><i class="fa fa-check"></i><b>4</b> Lab 3 - Working with vector data - Geoprocessing Tools</a><ul>
+<li class="chapter" data-level="4.1" data-path="lab3.html"><a href="lab3.html#guided-exercise-1---clipping-data"><i class="fa fa-check"></i><b>4.1</b> Guided Exercise 1 - Clipping data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab4.html"><a href="lab4.html"><i class="fa fa-check"></i><b>5</b> Lab 4 - Working with raster data - the basics</a><ul>
+<li class="chapter" data-level="5.1" data-path="lab4.html"><a href="lab4.html#guided-exercise-1---opening-and-inspecting-raster-data"><i class="fa fa-check"></i><b>5.1</b> Guided Exercise 1 - Opening and inspecting raster data</a></li>
+<li class="chapter" data-level="5.2" data-path="lab4.html"><a href="lab4.html#guided-exercise-2---styling-raster-data"><i class="fa fa-check"></i><b>5.2</b> Guided Exercise 2 - Styling raster data</a></li>
+<li class="chapter" data-level="5.3" data-path="lab4.html"><a href="lab4.html#guided-exercise-3---mathematical-and-boolean-operations-using-the-raster-calculator"><i class="fa fa-check"></i><b>5.3</b> Guided Exercise 3 - Mathematical and boolean operations using the Raster Calculator</a></li>
+<li class="chapter" data-level="5.4" data-path="lab4.html"><a href="lab4.html#guided-exercise-3---masking-and-reprojecting-raster-data."><i class="fa fa-check"></i><b>5.4</b> Guided Exercise 3 - Masking and reprojecting raster data.</a></li>
+<li class="chapter" data-level="5.5" data-path="lab4.html"><a href="lab4.html#formative-assessment"><i class="fa fa-check"></i><b>5.5</b> Formative Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab5.html"><a href="lab5.html"><i class="fa fa-check"></i><b>6</b> Lab 5 - Working with raster data - continued</a><ul>
+<li class="chapter" data-level="6.1" data-path="lab5.html"><a href="lab5.html#guided-exercise-1---converting-rasters-to-vectors"><i class="fa fa-check"></i><b>6.1</b> Guided Exercise 1 - Converting rasters to vectors</a></li>
+<li class="chapter" data-level="6.2" data-path="lab5.html"><a href="lab5.html#guided-exercise-2---zonal-statistics-redux"><i class="fa fa-check"></i><b>6.2</b> Guided Exercise 2 - Zonal statistics redux</a></li>
+<li class="chapter" data-level="6.3" data-path="lab5.html"><a href="lab5.html#guided-exercise-3---terrain-analysis"><i class="fa fa-check"></i><b>6.3</b> Guided exercise 3 - Terrain Analysis</a></li>
+<li class="chapter" data-level="6.4" data-path="lab5.html"><a href="lab5.html#formative-assessment-1"><i class="fa fa-check"></i><b>6.4</b> Formative Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab6.html"><a href="lab6.html"><i class="fa fa-check"></i><b>7</b> Lab 6 - Interpolating data</a><ul>
+<li class="chapter" data-level="7.1" data-path="lab6.html"><a href="lab6.html#guided-exercise-1---creating-distance-rasters"><i class="fa fa-check"></i><b>7.1</b> Guided Exercise 1 - Creating distance rasters</a></li>
+<li class="chapter" data-level="7.2" data-path="lab6.html"><a href="lab6.html#guided-exercise-2---density-estimation"><i class="fa fa-check"></i><b>7.2</b> Guided exercise 2 - Density Estimation</a></li>
+<li class="chapter" data-level="7.3" data-path="lab6.html"><a href="lab6.html#guided-exercise-3---interpolating-values"><i class="fa fa-check"></i><b>7.3</b> Guided exercise 3 - Interpolating values</a></li>
+<li class="chapter" data-level="7.4" data-path="lab6.html"><a href="lab6.html#formative-assessment-2"><i class="fa fa-check"></i><b>7.4</b> Formative assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lab8.html"><a href="lab8.html"><i class="fa fa-check"></i><b>8</b> Lab 8 - Practicing GIS</a><ul>
+<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Organizing your database</a></li>
+<li class="chapter" data-level="8.2" data-path="lab8.html"><a href="lab8.html#applying-the-criteria"><i class="fa fa-check"></i><b>8.2</b> Applying the criteria</a></li>
+<li class="chapter" data-level="8.3" data-path="lab8.html"><a href="lab8.html#reporting-the-results"><i class="fa fa-check"></i><b>8.3</b> Reporting the results</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lab9.html"><a href="lab9.html"><i class="fa fa-check"></i><b>9</b> Lab 9 - Cartography and map making</a><ul>
+<li class="chapter" data-level="9.1" data-path="lab9.html"><a href="lab9.html#testing-some-cartographic-principles"><i class="fa fa-check"></i><b>9.1</b> Testing some cartographic principles</a></li>
+<li class="chapter" data-level="9.2" data-path="lab9.html"><a href="lab9.html#formative-assessment---revisiting-the-flood-mapping"><i class="fa fa-check"></i><b>9.2</b> Formative assessment - revisiting the flood mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lab11.html"><a href="lab11.html"><i class="fa fa-check"></i><b>10</b> Lab 11 - Satellite Image Manipulation and Classification</a><ul>
+<li class="chapter" data-level="10.1" data-path="lab11.html"><a href="lab11.html#image-band-stacking-and-clipping"><i class="fa fa-check"></i><b>10.1</b> Image band stacking and clipping</a></li>
+<li class="chapter" data-level="10.2" data-path="lab11.html"><a href="lab11.html#color-composition"><i class="fa fa-check"></i><b>10.2</b> Color composition</a></li>
+<li class="chapter" data-level="10.3" data-path="lab11.html"><a href="lab11.html#manual-digitazion"><i class="fa fa-check"></i><b>10.3</b> Manual digitazion</a></li>
+<li class="chapter" data-level="10.4" data-path="lab11.html"><a href="lab11.html#automatic-classification"><i class="fa fa-check"></i><b>10.4</b> Automatic classification</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lab12.html"><a href="lab12.html"><i class="fa fa-check"></i><b>11</b> Lab 12 - Using Python to automate QGIS</a><ul>
+<li class="chapter" data-level="11.1" data-path="lab12.html"><a href="lab12.html#the-python-console"><i class="fa fa-check"></i><b>11.1</b> The Python console</a></li>
+<li class="chapter" data-level="11.2" data-path="lab12.html"><a href="lab12.html#opening-data"><i class="fa fa-check"></i><b>11.2</b> Opening data</a></li>
+<li class="chapter" data-level="11.3" data-path="lab12.html"><a href="lab12.html#styling-layers"><i class="fa fa-check"></i><b>11.3</b> Styling layers</a></li>
+<li class="chapter" data-level="11.4" data-path="lab12.html"><a href="lab12.html#accessing-and-manipulating-vector-attributes"><i class="fa fa-check"></i><b>11.4</b> Accessing and manipulating vector Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="assignment-final-project.html"><a href="assignment-final-project.html"><i class="fa fa-check"></i><b>12</b> Assignment - Final Project</a><ul>
+<li class="chapter" data-level="12.1" data-path="assignment-final-project.html"><a href="assignment-final-project.html#project-thinking"><i class="fa fa-check"></i><b>12.1</b> Project Thinking</a></li>
+<li class="chapter" data-level="12.2" data-path="assignment-final-project.html"><a href="assignment-final-project.html#project-rerquirements"><i class="fa fa-check"></i><b>12.2</b> Project Rerquirements:</a></li>
+<li class="chapter" data-level="12.3" data-path="assignment-final-project.html"><a href="assignment-final-project.html#project-support-and-deadlines"><i class="fa fa-check"></i><b>12.3</b> Project support and deadlines</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ENMPG11 Geomatics - Module Workbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="assignment---final-project" class="section level1">
+<h1><span class="header-section-number">12</span> Assignment - Final Project</h1>
+<p>For this assignment, you will be required to develop your own project, to “show off” your newly acquired GIS skills. The theme of the project is open, so feel free to align it with your own dissertation topic or area of interest. The more familiar you are with the theory and science of your chosen topic, the easier it will be to make into a spatial problem.</p>
+<div id="project-thinking" class="section level2">
+<h2><span class="header-section-number">12.1</span> Project Thinking</h2>
+<p>The first step in making sure you get a feasible project is to think carefully about your problem. First of all, is it a <strong>spatial problem</strong>? This means “is it a problem whose solution directly depends on understanding how things are organized in space?”. For example, calculating carbon stocks for one forest patch is not really a spatial problem; calculating carbon stocks for various vegetation types and extrapolating total stocks based on their mapped spatial extent is a simple, but spatially explicit problem; improving these estimates by taking into account the spatial variation in local climate, soil types, forest ages and/or topography makes it a fully spatial problem.</p>
+<p>Once you have a first notion of the problem you would like to solve, then it is time to think about <strong>feasibility</strong>. The first and foremost questions are then “what are the spatial datasets I would need to solve this problem?” and “are these data available?”. Think about the kinds of layers that you will need, in what formats (vectors, rasters) and which agencies would be likely to provide them. Don’t be afraid to start your search with “xxxxx shapefile” or “xxxxx geotiff” on Google, where xxxx is a keyword for the dataset you are seeking. Just don’t expect it to pop up on the first result. You may have to dig through a few pages of results, or modify your search, until you find something.</p>
+<p>After this first search, you then need to decide the location and extent of your study, based on the available data (maybe it doesn’t exist for Scotland, but it exists for Alabama), and also revisit/rethink your problem if some of the data you expected to find were not available. Could you maybe use <em>proxies</em>, i.e. variables that are correlated with the one you were looking for, and could then work as surrogates? Some very creative spatial work has been done this way, such as looking at the intensity of urban lights on nighttime satellite imagery to estimate population density, or counting the density of swimming pools and green spaces on high resolution imagery to estimate sociioeconomic indicators (really, <a href="https://www.tandfonline.com/doi/abs/10.1080/01431161.2010.512928">see this paper</a> if you’re curious).</p>
+<p>Once you’ve gone through these iterations, then think about your <strong>method</strong>. How will you go from raw layers to your final problem solution? How will you determine if a solution has been reached or not, and how satisfactorily it was in solving the problem? How will you present the steps taken and results obtained? For this part, I highly recommend sketching a <strong>flowchart</strong>. This flowchart will be comprised of successive Input &gt; Operation &gt; Output Links, going from the initial data to the final products. This is a good example:</p>
+<div class="figure">
+<img src="https://lh3.googleusercontent.com/proxy/beEVoomM6mn1RMD3hfujLrwBSEGC43rFoeIX8WoiAJYD-DGS6-VPM_fY3aQH8donRTearf-AHOA78SE06M3a8UicvrZfKJOsqMuljpbpm55MSsujOb9Df5LrMvozF9Jibnql4Ta2oeys4aM-__NQm0bbfnk8o1TwV44" alt="A simple GIS flowchart" />
+<p class="caption">A simple GIS flowchart</p>
+</div>
+<p>Don’t worry about making the flowchart on your PC yet, just use a piece of paper, and keep modifying it as your work progresses. It is common to find out that approaches initially consider don’t work as you expected, and change things as you go, so keep your flowchart as a “live” document until your are done. Once you finish your project, you can use Powerpoint or free online tools such as <a href="https://app.diagrams.net/">draw.io</a> to make your final flowchart.</p>
+<p>Once you’re done with all the processing and think you have all the data you will need, it is then a good time to sit down and write the methods section while it is still fresh in your mind. Then you can go back to your results and start interpreting and evaluating them (results and discussion). At some point you will reach (and write) a conclusion. Now the only thing left to write is the Introduction, which should have the necessary background information to understand the why and how of what you did (within reason, assume your audience is a peer at your own level of GIS and Environmental Science knowledge). There, project done!</p>
+</div>
+<div id="project-rerquirements" class="section level2">
+<h2><span class="header-section-number">12.2</span> Project Rerquirements:</h2>
+<p>To reach a pass grade, a project will have to:</p>
+<ul>
+<li><p>Have a clearly stated spatial problem that could be reasonably addressed within and MSc. module level of experience and time constraints;</p></li>
+<li><p>Make use of at least four different GIS operations (by operation, assume any procedure that changes the input data into new data - buffers, clips, raster calculations, etc). Loading data and changing the symbology do NOT change the input data and thus will not count for this purpose. Filtering vectors based on spatial criteria or attributes does count as a GIS operation;</p></li>
+<li><p>Make use of at least three spatial data sources, with at least one raster and at least one line or polygon vector dataset;</p></li>
+<li><p>Produce at least one high quality map layout (with appropriateluy chosen extent and scale, and including scale bar, coordinate grid, comprehensive map legend, and stating the reference datum and projection);</p></li>
+<li><p>Be properly delivered in a technical report form, including:</p>
+<ul>
+<li><p>Executive Summary;</p></li>
+<li><p>Introduction;</p></li>
+<li><p>Data and Methods;</p></li>
+<li><p>Results and Discussion;</p></li>
+<li><p>Conclusion;</p></li>
+<li><p>References;</p></li>
+</ul></li>
+<li><p>The report should have between 1500 and 4000 words (from intro to conclusion, i.e.
+excluding executive summary and references), and not exceed 10 pages of TEXT (12pt font, single line
+spacing, usual 1 inch margins). Figures will not count towards the page limit (so make them BIG and LEGIBLE!).</p></li>
+</ul>
+<p>Starting from these basic requirements, <em>total marks</em> will be based on:</p>
+<ul>
+<li><p>Demonstrated breadth and competence in applying the GIS and remote sensing skills covered throughout the module Competence includes knowing <strong>when</strong> and <strong>why</strong> to use certain tools, so don’t carelessly use operations without purpose, just to increase the number of procedures taken. This would not help here.</p></li>
+<li><p>Good balance between depth and complexity of the problem chosen and feasibility. A problem that is to simple and “easy” is worth less marks, but so is an overambitious problem that does not fully deliver at the end because it was too complex, required data that was not really avaiable, or had an extent that was too large to be processed within the available computational capability and time.</p></li>
+<li><p>Ample and/or creative use of several data types (vector types, topography rasters, etc.) and GIS/Remote Sensing operations.</p></li>
+<li><p>Explicit use of remote sensing images (even if just for visualization - as long as a proper choice of band combination and good contrast are applied).</p></li>
+<li><p>Quality and clarity of the writing:</p>
+<ul>
+<li><p>Introduction: by the end of the introduction, it should be clear for the reader what is the problem being studied and why it is relevant;</p></li>
+<li><p>Methods: a perfect methods section is one that is not overly detailed (like a manual or tutorial) but still gives enough information for another GIS user of the same skill level to reproduce the entire work and achieve the same results. This includes citing and linking to data sources. A final version of the flowchart will go to great lenghts in this regard.</p></li>
+<li><p>Results: here you DESCRIBE/NARRATE what you got from your analysis.</p></li>
+<li><p>Discussion: here you INTERPRET and JUDGE the results you got, often COMPARING with the results of similar studies. Feel free to write results and dicussion as a single section if you prefer.</p></li>
+<li><p>Conclusion: here you clearly and succintlyu state the achieved solution to your original problem, highlight limitations, and make recommendations for future studies and/or implementation of the solution when applicable.</p></li>
+</ul></li>
+</ul>
+</div>
+<div id="project-support-and-deadlines" class="section level2">
+<h2><span class="header-section-number">12.3</span> Project support and deadlines</h2>
+<p>Given the current global situation, support for project execution will have to be provided using distance communication. For that purpose, the main instructor (Thiago Silva, myself) and demonstrator (Jazz Rhoades) will be available online at pre-specified days and times, reachable on Canvas using the <strong>Conferences</strong> function, also known as “Big Blue Button”. To make sure we can support everyone, we will divide the online time in slots of 15 minutes maximum for each person. Anyone is free to join the calls at any time and learn from other people’s issues, but we will use this time limit to make sure everyone gets a fair amount of support.</p>
+<p>I will also alternate with Jazz so we can double the amount of time we are available online. Considering the disruptions that impacted the lectures for this week and the previous, we will hold sessions starting Monday (March 29th, 2020) and going until Friday, April 17th 2020. However, due the time constraints and other work activities to which both Jazz and myself are subject to, we cannot guarantee timely support outside theseonline sessions. Still, please make ample use of the <strong>Discussion</strong> section outside of support hours, and we will do our best to answer them. It is also fine for questions to be answered by peers, so help each other out!</p>
+<p>The first deadline for the project is <strong>formative</strong>, and it is due on Tuesday, March 31st. It comprises a single page stating the problem to be studied, the required datasets, and the location and extent of the study area. This will enable us to give feedback in terms of breadth, depth and feasibility of the projects.</p>
+<p><strong>The final report is due on Friday, May 8th, at midnight. It should be submitted as a single PDF on Canvas.</strong></p>
+<p>If you have any questions about the project, please use the Discussion forum on Canvas instead of direct e-mails as much as possible.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab12.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
