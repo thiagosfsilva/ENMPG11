@@ -1,0 +1,52 @@
+= ENMPG11 Module Plan 2021
+
+[cols="1,1"]
+|===
+| Topics	
+| Tools
+
+| Pre*Module Skills:
+
+* Computer Architecture
+
+* Operating Systems
+
+* File storage and management
+
+* Data types
+
+| * Where to find system specs
+
+ * How to monitor system activity
+
+ * Mac vs PC folder structure
+
+ * Settings to help manage files
+
+| What is GIS?
+
+*	What makes data spatial?
+
+*	Coordinate Reference Systems
+
+*	Coordinate notation	
+|
+
+| Understanding Vector Data:
+
+*	Vector geometries
+*	Vector attributes
+o	Data types
+*	Vector features
+*	Vector file formats	
+|
+
+|Understanding Raster Data
+*	Raster image 
+*	Raster bands 
+o	Raster bands = vector attributes
+*	Raster properties
+*	Spatial Resolution
+*	Pixel values
+o	Data types
+|	

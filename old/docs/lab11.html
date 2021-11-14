@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>10 Lab 11 - Satellite Image Manipulation and Classification | ENMPG11 Geomatics - Module Workbook</title>
+  <meta name="description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="10 Lab 11 - Satellite Image Manipulation and Classification | ENMPG11 Geomatics - Module Workbook" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  <meta name="github-repo" content="thiagosfsilva/ENMPG11" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="10 Lab 11 - Satellite Image Manipulation and Classification | ENMPG11 Geomatics - Module Workbook" />
+  
+  <meta name="twitter:description" content="Workbook for the ENMPG11 Geomatics Graduate Module at University of Stirling." />
+  
+
+<meta name="author" content="Thiago Silva" />
+
+
+<meta name="date" content="2021-08-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="lab9.html"/>
+<link rel="next" href="lab12.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    background-color: #2a211c;
+    color: #bdae9d;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #bdae9d;  padding-left: 4px; }
+div.sourceCode
+  { color: #bdae9d; background-color: #2a211c; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ffff00; } /* Alert */
+code span.an { color: #0066ff; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { } /* Attribute */
+code span.bn { color: #44aa43; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #43a8ed; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #049b0a; } /* Char */
+code span.cn { } /* Constant */
+code span.co { color: #0066ff; font-weight: bold; font-style: italic; } /* Comment */
+code span.do { color: #0066ff; font-style: italic; } /* Documentation */
+code span.dt { text-decoration: underline; } /* DataType */
+code span.dv { color: #44aa43; } /* DecVal */
+code span.er { color: #ffff00; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #44aa43; } /* Float */
+code span.fu { color: #ff9358; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #0066ff; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #43a8ed; font-weight: bold; } /* Keyword */
+code span.op { } /* Operator */
+code span.pp { font-weight: bold; } /* Preprocessor */
+code span.sc { color: #049b0a; } /* SpecialChar */
+code span.ss { color: #049b0a; } /* SpecialString */
+code span.st { color: #049b0a; } /* String */
+code span.va { } /* Variable */
+code span.vs { color: #049b0a; } /* VerbatimString */
+code span.wa { color: #ffff00; font-weight: bold; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="toc.css" type="text/css" />
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">ENMPG11 Workbook</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Welcome!</a></li>
+<li class="chapter" data-level="1" data-path="outline.html"><a href="outline.html"><i class="fa fa-check"></i><b>1</b> Module Outline and General Info</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="outline.html"><a href="outline.html#staff-and-communication"><i class="fa fa-check"></i><b>1.1</b> Staff and Communication:</a></li>
+<li class="chapter" data-level="1.2" data-path="outline.html"><a href="outline.html#about-the-module"><i class="fa fa-check"></i><b>1.2</b> About the Module</a></li>
+<li class="chapter" data-level="1.3" data-path="outline.html"><a href="outline.html#intended-learning-outcomes-ilos"><i class="fa fa-check"></i><b>1.3</b> Intended Learning Outcomes (ILO’s):</a></li>
+<li class="chapter" data-level="1.4" data-path="outline.html"><a href="outline.html#readings-and-resources"><i class="fa fa-check"></i><b>1.4</b> Readings and Resources</a></li>
+<li class="chapter" data-level="1.5" data-path="outline.html"><a href="outline.html#attendance-and-points-of-contact"><i class="fa fa-check"></i><b>1.5</b> Attendance and Points of Contact</a></li>
+<li class="chapter" data-level="1.6" data-path="outline.html"><a href="outline.html#class-schedule-and-structure"><i class="fa fa-check"></i><b>1.6</b> Class Schedule and Structure</a></li>
+<li class="chapter" data-level="1.7" data-path="outline.html"><a href="outline.html#assessment-and-grading"><i class="fa fa-check"></i><b>1.7</b> Assessment and Grading</a>
+<ul>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#hands-on-problems-50-of-final-grade"><i class="fa fa-check"></i>1) Hands-on problems (50% of final grade)</a></li>
+<li class="chapter" data-level="" data-path="outline.html"><a href="outline.html#final-individual-project-50-of-the-final-grade"><i class="fa fa-check"></i>2) Final individual project (50% of the final grade)</a></li>
+</ul></li>
+<li class="chapter" data-level="1.8" data-path="outline.html"><a href="outline.html#module-timetable-and-dates"><i class="fa fa-check"></i><b>1.8</b> Module Timetable and Dates</a></li>
+<li class="chapter" data-level="1.9" data-path="outline.html"><a href="outline.html#other-relevant-information"><i class="fa fa-check"></i><b>1.9</b> Other Relevant Information</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="lab1.html"><a href="lab1.html"><i class="fa fa-check"></i><b>2</b> Lab 1 - QGIS overview and file management</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="lab1.html"><a href="lab1.html#GE1"><i class="fa fa-check"></i><b>2.1</b> Guided Exercise 1 - A simple GIS workflow</a>
+<ul>
+<li class="chapter" data-level="2.1.1" data-path="lab1.html"><a href="lab1.html#creating-a-project-structure"><i class="fa fa-check"></i><b>2.1.1</b> Creating a project structure</a></li>
+<li class="chapter" data-level="2.1.2" data-path="lab1.html"><a href="lab1.html#creating-a-qgis-project"><i class="fa fa-check"></i><b>2.1.2</b> Creating a QGIS project</a></li>
+<li class="chapter" data-level="2.1.3" data-path="lab1.html"><a href="lab1.html#styling-your-layers-and-producing-a-simple-map"><i class="fa fa-check"></i><b>2.1.3</b> Styling your layers and producing a simple map</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="lab1.html"><a href="lab1.html#self-guided-exercise"><i class="fa fa-check"></i><b>2.2</b> Self-guided exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="lab2.html"><a href="lab2.html"><i class="fa fa-check"></i><b>3</b> Lab 2 - Working with vector data - Attributes</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="lab2.html"><a href="lab2.html#guided-exercise-1---basic-work-with-vector-data"><i class="fa fa-check"></i><b>3.1</b> Guided Exercise 1 - Basic work with Vector Data</a></li>
+<li class="chapter" data-level="3.2" data-path="lab2.html"><a href="lab2.html#guided-exercise-2-operations-using-layer-attributes"><i class="fa fa-check"></i><b>3.2</b> Guided Exercise 2: Operations using layer attributes</a></li>
+<li class="chapter" data-level="3.3" data-path="lab2.html"><a href="lab2.html#guided-exercise-3---spatial-queries"><i class="fa fa-check"></i><b>3.3</b> Guided Exercise 3 - Spatial Queries</a></li>
+<li class="chapter" data-level="3.4" data-path="lab2.html"><a href="lab2.html#self-guided-summative-assessment."><i class="fa fa-check"></i><b>3.4</b> Self-guided summative assessment.</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="lab3.html"><a href="lab3.html"><i class="fa fa-check"></i><b>4</b> Lab 3 - Working with vector data - Geoprocessing Tools</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="lab3.html"><a href="lab3.html#guided-exercise-1---clipping-data"><i class="fa fa-check"></i><b>4.1</b> Guided Exercise 1 - Clipping data</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="lab4.html"><a href="lab4.html"><i class="fa fa-check"></i><b>5</b> Lab 4 - Working with raster data - the basics</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="lab4.html"><a href="lab4.html#guided-exercise-1---opening-and-inspecting-raster-data"><i class="fa fa-check"></i><b>5.1</b> Guided Exercise 1 - Opening and inspecting raster data</a></li>
+<li class="chapter" data-level="5.2" data-path="lab4.html"><a href="lab4.html#guided-exercise-2---styling-raster-data"><i class="fa fa-check"></i><b>5.2</b> Guided Exercise 2 - Styling raster data</a></li>
+<li class="chapter" data-level="5.3" data-path="lab4.html"><a href="lab4.html#guided-exercise-3---mathematical-and-boolean-operations-using-the-raster-calculator"><i class="fa fa-check"></i><b>5.3</b> Guided Exercise 3 - Mathematical and boolean operations using the Raster Calculator</a></li>
+<li class="chapter" data-level="5.4" data-path="lab4.html"><a href="lab4.html#guided-exercise-3---masking-and-reprojecting-raster-data."><i class="fa fa-check"></i><b>5.4</b> Guided Exercise 3 - Masking and reprojecting raster data.</a></li>
+<li class="chapter" data-level="5.5" data-path="lab4.html"><a href="lab4.html#formative-assessment"><i class="fa fa-check"></i><b>5.5</b> Formative Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="lab5.html"><a href="lab5.html"><i class="fa fa-check"></i><b>6</b> Lab 5 - Working with raster data - continued</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="lab5.html"><a href="lab5.html#guided-exercise-1---converting-rasters-to-vectors"><i class="fa fa-check"></i><b>6.1</b> Guided Exercise 1 - Converting rasters to vectors</a></li>
+<li class="chapter" data-level="6.2" data-path="lab5.html"><a href="lab5.html#guided-exercise-2---zonal-statistics-redux"><i class="fa fa-check"></i><b>6.2</b> Guided Exercise 2 - Zonal statistics redux</a></li>
+<li class="chapter" data-level="6.3" data-path="lab5.html"><a href="lab5.html#guided-exercise-3---terrain-analysis"><i class="fa fa-check"></i><b>6.3</b> Guided exercise 3 - Terrain Analysis</a></li>
+<li class="chapter" data-level="6.4" data-path="lab5.html"><a href="lab5.html#formative-assessment-1"><i class="fa fa-check"></i><b>6.4</b> Formative Assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="lab6.html"><a href="lab6.html"><i class="fa fa-check"></i><b>7</b> Lab 6 - Interpolating data</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="lab6.html"><a href="lab6.html#guided-exercise-1---creating-distance-rasters"><i class="fa fa-check"></i><b>7.1</b> Guided Exercise 1 - Creating distance rasters</a></li>
+<li class="chapter" data-level="7.2" data-path="lab6.html"><a href="lab6.html#guided-exercise-2---density-estimation"><i class="fa fa-check"></i><b>7.2</b> Guided exercise 2 - Density Estimation</a></li>
+<li class="chapter" data-level="7.3" data-path="lab6.html"><a href="lab6.html#guided-exercise-3---interpolating-values"><i class="fa fa-check"></i><b>7.3</b> Guided exercise 3 - Interpolating values</a></li>
+<li class="chapter" data-level="7.4" data-path="lab6.html"><a href="lab6.html#formative-assessment-2"><i class="fa fa-check"></i><b>7.4</b> Formative assessment</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="lab8.html"><a href="lab8.html"><i class="fa fa-check"></i><b>8</b> Lab 8 - Practicing GIS</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="lab8.html"><a href="lab8.html#organizing-your-database"><i class="fa fa-check"></i><b>8.1</b> Organizing your database</a></li>
+<li class="chapter" data-level="8.2" data-path="lab8.html"><a href="lab8.html#applying-the-criteria"><i class="fa fa-check"></i><b>8.2</b> Applying the criteria</a></li>
+<li class="chapter" data-level="8.3" data-path="lab8.html"><a href="lab8.html#reporting-the-results"><i class="fa fa-check"></i><b>8.3</b> Reporting the results</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="lab9.html"><a href="lab9.html"><i class="fa fa-check"></i><b>9</b> Lab 9 - Cartography and map making</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="lab9.html"><a href="lab9.html#testing-some-cartographic-principles"><i class="fa fa-check"></i><b>9.1</b> Testing some cartographic principles</a></li>
+<li class="chapter" data-level="9.2" data-path="lab9.html"><a href="lab9.html#formative-assessment---revisiting-the-flood-mapping"><i class="fa fa-check"></i><b>9.2</b> Formative assessment - revisiting the flood mapping</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="lab11.html"><a href="lab11.html"><i class="fa fa-check"></i><b>10</b> Lab 11 - Satellite Image Manipulation and Classification</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="lab11.html"><a href="lab11.html#image-band-stacking-and-clipping"><i class="fa fa-check"></i><b>10.1</b> Image band stacking and clipping</a></li>
+<li class="chapter" data-level="10.2" data-path="lab11.html"><a href="lab11.html#color-composition"><i class="fa fa-check"></i><b>10.2</b> Color composition</a></li>
+<li class="chapter" data-level="10.3" data-path="lab11.html"><a href="lab11.html#manual-digitazion"><i class="fa fa-check"></i><b>10.3</b> Manual digitazion</a></li>
+<li class="chapter" data-level="10.4" data-path="lab11.html"><a href="lab11.html#automatic-classification"><i class="fa fa-check"></i><b>10.4</b> Automatic classification</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="lab12.html"><a href="lab12.html"><i class="fa fa-check"></i><b>11</b> Lab 12 - Using Python to automate QGIS</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="lab12.html"><a href="lab12.html#the-python-console"><i class="fa fa-check"></i><b>11.1</b> The Python console</a></li>
+<li class="chapter" data-level="11.2" data-path="lab12.html"><a href="lab12.html#opening-data"><i class="fa fa-check"></i><b>11.2</b> Opening data</a></li>
+<li class="chapter" data-level="11.3" data-path="lab12.html"><a href="lab12.html#styling-layers"><i class="fa fa-check"></i><b>11.3</b> Styling layers</a></li>
+<li class="chapter" data-level="11.4" data-path="lab12.html"><a href="lab12.html#accessing-and-manipulating-vector-attributes"><i class="fa fa-check"></i><b>11.4</b> Accessing and manipulating vector Attributes</a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="assignment---final-project.html"><a href="assignment---final-project.html"><i class="fa fa-check"></i><b>12</b> Assignment - Final Project</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="assignment---final-project.html"><a href="assignment---final-project.html#project-thinking"><i class="fa fa-check"></i><b>12.1</b> Project Thinking</a></li>
+<li class="chapter" data-level="12.2" data-path="assignment---final-project.html"><a href="assignment---final-project.html#project-rerquirements"><i class="fa fa-check"></i><b>12.2</b> Project Rerquirements:</a></li>
+<li class="chapter" data-level="12.3" data-path="assignment---final-project.html"><a href="assignment---final-project.html#project-support-and-deadlines"><i class="fa fa-check"></i><b>12.3</b> Project support and deadlines</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown"target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ENMPG11 Geomatics - Module Workbook</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="lab11" class="section level1" number="10">
+<h1><span class="header-section-number">10</span> Lab 11 - Satellite Image Manipulation and Classification</h1>
+<p>This exercise is about extracting inmformation from satellite images using both manual and automated methods. We will use the same Sentinel-2B MSI level 2A image that was used in the previous lab, so go ahead and redownload it if you need to.</p>
+<div class="rmdimportant">
+<p>
+<strong>Stop and think:</strong>
+</p>
+<ul>
+<li>
+<p>
+What is the meaning of a) Sentinel-2B, b)MSI, c) level 2A?
+</p>
+</li>
+<li>
+<p>
+What was the acquisition (i.e. actual imaging) date of the image?
+</p>
+</li>
+</ul>
+</div>
+<div id="image-band-stacking-and-clipping" class="section level2" number="10.1">
+<h2><span class="header-section-number">10.1</span> Image band stacking and clipping</h2>
+<p>The European Space Agency distributes Sentinel images as individual band files, which prevents us from doing much with them. So the first step is to stack all the bands in a single file. For that, we will use the “virtual raster” function provided by the GDAL library. This creates a small text file that points to the individual bands and “tricks” QGIS and other software into seeing the individual files as a single file. The advantage is that no data needs to be copied/duplicated, as it would be the case if we were to create a new multiband-GeoTIFF.</p>
+<ul>
+<li><p>Remember that the actual images will be on <code>S2B_MSIL2A_20200118T113319_N0213_R080_T30VVH_20200118T123429.SAFE\\GRANULE\\L2A_T30VVH_A014978_20200118T113437\\IMG_DATA\\</code>, and this root folder will be on the location that you extracted your zip file. Inside this folder,there will be three folders called <code>R10m</code>, <code>R20m</code> and <code>R60m</code>.</p></li>
+<li><p>From <code>R10m</code>, load bands <code>2</code>,<code>3</code>,<code>4</code>, and <code>8</code>; from <code>R20m</code>, load bands <code>5</code>, <code>6</code> , <code>7</code>, <code>8A</code>, <code>11</code> and <code>12</code>.</p></li>
+<li><p>Order the bands in increasing order on your layer panel, and then go to <code>Raster &gt; Miscellaneous &gt; Build Virtual Raster...</code>. On <code>Input Layers</code>, click on the <code>...</code> bot to the right and select all layers for inclusion. Set resolution to <code>highest</code>, and <code>Run</code> it to produce a temporary file. It weill be called <code>virtual</code>. Remove the original layers from the project to keep it tidy.</p></li>
+<li><p>Load the <code>ROI.shp</code> file (ROI stands for Region of Interest) and use it as a <strong>Mask Layer</strong> to clip the virtual raster, as you have already learned. This time, do save the file as a named <strong>Geotiff</strong> file, using the name <code>S2B_MSIL2A_2020_01_18_T30VVH.tif</code>.</p></li>
+</ul>
+<div class="rmdimportant">
+<p>
+<strong>Stop and think:</strong>
+</p>
+<ul>
+<li>
+What metadata are we encoding in this file name?
+</li>
+</ul>
+</div>
+<ul>
+<li><p>Remember the ordering of the bands in your new file:</p></li>
+<li><p>Band 1: B2_Blue_492nm</p></li>
+<li><p>Band 2: B3_Green_560nm</p></li>
+<li><p>Band 3: B4_Red_665nm</p></li>
+<li><p>Band 4: B5_Rededge_704nm</p></li>
+<li><p>Band 5: B6_Rededge_740nm</p></li>
+<li><p>Band 6: B7_Rededge_780nm</p></li>
+<li><p>Band 7: B8_NIR_833nm</p></li>
+<li><p>Band 8: B8A_NIR_864nm</p></li>
+<li><p>Band 9: B11_SWIR_1610nm</p></li>
+<li><p>Band 10:B12_SWIR_2186nm</p></li>
+</ul>
+</div>
+<div id="color-composition" class="section level2" number="10.2">
+<h2><span class="header-section-number">10.2</span> Color composition</h2>
+<ul>
+<li><p>Now, try a few color compositions. Remember that water will reflect mostly in the visible bands, vegetation on the NIR bands, and soils and man made features on the SWIR bands. To do that, go to <code>Properties &gt; Symbology...</code>, and select the option <code>Multiband color</code>.</p></li>
+<li><p>To change the contrast of your image, expand the <code>Min / Max Value Settings</code> box, and try different methods. <code>Cumulative count cut</code> will ignore the bottom and top <span class="math inline">\(x\)</span>% pixels of the pixel value distribution (i.e. quantiles), while <code>Mean +/- stabdard deviation x</code> will assume a normal distribution and cut based on the standard deviation. On the figure below, the plot to the left shows the cutoffs for 2% and 98% percentiles , and the left plot shows the cutoffs for mean (dashed) plus or minus 2x the standard deviation.</p></li>
+</ul>
+<p><img src="ENMPG11_files/figure-html/stretch-1.png" width="960" /></p>
+</div>
+<div id="manual-digitazion" class="section level2" number="10.3">
+<h2><span class="header-section-number">10.3</span> Manual digitazion</h2>
+<p>The most reliable way to delimit surface objects on images is still the human brain (the ultimate neural network). However, it can be time consuming and/or costly to have it done manually. Still, it is an important skill to know, especially if you need highly accurate information for small areas.</p>
+<ul>
+<li><p>The first and most important thing to set is the mapping scale. If you keep zooming in and out during manual digitization, the level of detail of the resulting polygons will also vary. SO you need to decide on a mapping scale. Usually, it is the best “zoom” achievable for the image in question without it looking pixelated. For our sentinel image, it is around 1:15000. Type that scale on the bottom bar. You should not zoom in or out while digitizing, until you are done.</p></li>
+<li><p>The second very important thing to set is the <code>snap</code> setting. This controls how close polygon lines can get beforfe they snap together. Remember that we need vector files with proper topology, so we should not duplicate polygon boundaries and create slivers. Right click an empty space on the top toolbar and enable the <code>Snapping toolbar</code>. Then, on the toolbar, click on the magnet icon to enable snapping, and then set the following options: <code>All layers</code> (second button), <code>Vertex and segment</code> (third button) and 15 meters for snapping (boxes).</p></li>
+<li><p>Now create a new empty vector layer by clicking on the <img src="QGISicons/images/themes/default/mActionNewVectorLayer.svg" /> button. Name it “land_cover.shp,” select <code>Polygon</code> as the <code>Geometry type</code>, and on the <code>New Field</code> section, create a new field named <code>land_cover</code>, of the <code>text data</code> format and add it to the list. Click <code>Ok</code>.</p></li>
+</ul>
+<div class="rmdimportant">
+<p>
+<strong>Stop and think:</strong>
+</p>
+<ul>
+<li>
+Look at your image and decide on which land cover classes (i.e. the classification legend) are present. Write them down for reference.
+</li>
+</ul>
+</div>
+<ul>
+<li><p>Pick a first land cover class., for example, urban. Turn layer editing on for the land_cover layer (and make sure it is on top on the layer panel), and select the <code>Add polygon feature</code> tool (<img src="QGISicons/images/themes/default/mActionCapturePolygon.svg" />).</p></li>
+<li><p>Pan the map, without changing the scale, until you see a patch of urban area. Click on the edge of the area and trace its outline as best as you can, by consecutively clicking around the edges. It should look like the figure below when you are about to finish.</p></li>
+</ul>
+<p><img src="images/digitized_urban.png" /></p>
+<ul>
+<li><p>When you are done, right click, and then fill the attributes <code>id</code> = <code>1</code> and <code>land_cover</code> = <code>Urban</code>. Your first digitized polygin should now be done. If you feel the need to fix a few segment sof the polygon edge, use the <code>Vertex tool</code> (<img src="QGISicons/images/themes/default/mActionVertexToolActiveLayer.svg" />). Click on the polygon to select it, and then click once on the vertex you want to edit, then drag it to new position and click again.</p></li>
+<li><p>Now pick another patch of any class, immediately adjacent to the one you just digitized. Start digitizing it, and notice how, when you approach the edge of the previous polygon, the mouse pointer just snaps to it, showing a pink indicator. That ensures you are not creating double edges.</p></li>
+<li><p>Keep mapping until you have full coverage of the ROI. Repeat the same <code>id</code> for all urban areas, and use different ids for different classes.</p></li>
+</ul>
+</div>
+<div id="automatic-classification" class="section level2" number="10.4">
+<h2><span class="header-section-number">10.4</span> Automatic classification</h2>
+<p>To perform automatic classification, we need dedicated remote sensing sofware. In this case, we will use Orfeo Toolbox, a toolset developed by the National Centre for Space Studies (CNES) in France. Head to <a href="https://www.orfeo-toolbox.org/" class="uri">https://www.orfeo-toolbox.org/</a> and download the latest version. It comes as a zip file, that can be extracted and used anywhere.</p>
+<p>Please follow along the guided demo during the lab. The demo will be recorded for future access.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="lab9.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="lab12.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "lunr",
+"options": null
+},
+"toc": {
+"collapse": "section"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+---
+output:
+  html_document: default
+---
+
+# Lab X - Working with vectors {#labXX}
+
+**Step 1)**Download the starting layers for this exercise here. Organise them into a proper folder structure and load them to a new QGIS project.
+
+**Stop and Think:**
+
+- What are these layers? What information are they giving you?
+
+**Step 2)** Move the "Buildings" layer to the top of the "Airphoto" layer. Open  `Properties > Symbology` for the photo layer. On the `Contrast enhancement` drop down menu select `Stretch to MinMax` and then click on `Min / Max Value Settings` to expand it. Select the option `Cumulative count cut` with the default values of 2 and 98. Then click `OK`.
+
+**Stop and Think:**
+
+- What happened to the image?
+- Based on the results, can you understand what the steps above meant?
+
+If it felt too confusing to you, what we did was to ask QGIS to stretch the color brightness of the image from the 2nd percentile to the 98th percentile of color values. That means we throw away the 2% darkest and 2% lightest color values in the image, and therefore get better contrast by "stretching" the full color palette over only 98% of the color values. We will revisit this in the following weeks. 
+
+**Step 3)** Look around the university campus area. Can you see in the airphoto a few buildings that are missing from the "Buildings" layer? 
+
+**Step 4)** We will now add the missing buildings using the **Vector Digitizing Tools**. First right-click on an empty area of your top toolbars and enable (if not already) the `Digitizing Toolbar`. Before we start editing, we will create a copy of the data, to make sure we don't change the original layer. Right-click on the "Buildings" layer name and select `Export > Save features as`. Then find the proper folder to save by clicking on the `...` box, and name the new layer `UoS_buildings_updated.shp`. 
+
+Fig
+
+Now select the "Buildings Updated" layer on the Layers panel, and then click on the `Toggle Editing` ( PENCILIMG) button to put into editing mode. You will see a pencil symbol ius also shown by the Layer Name , as a reminder that the layer is open for editing. **Always be careful when in editing mode, as you can accidentaly delete or move features if you misclick**. Then **zoom in to a scale of 1:1000**, by typing 1000 on the scale box in the status bar. It is **very important** to always define a fixed scale when digitizing, to avoid a variable level of detail between features. 
+
+**Step 5)** Select the `Add Polygon Feature` tool (icon) in the `Digitizing toolbar, and digitise the missing student accommodation building (the bright, C-shaped buidling north of the loch). Left-click at a corner, and then keep left-clicking to create straight segments, tracing the contour of the buldiong as best as you can. When you reach the initial vertex, then right-click to finish editing. You don't need to worry about filling in the attributes, so just dismiss the window that pops up. It should look something like this:
+
+fig
+
+
+**Step 6)** Let's pretend you made a mistake (or maybe you actually did). How do we fix it? Select the `Vertex tool` to the side of the `Add Polygon Feature` tool, and hover the mouse over a feature. You will see it lights up with a red outline, and you can see the actual vertices. You can then click on any vertex and drag to reposition it. You can also click on the middle portion of any line segment (a `+` sign will appear) to add a new vertex, and you can click on a vertex and then hit the "Delete" key to remove the vertex. Once you are happy with your new building, **click the `Save Layer Edits` button** to the right of the `Toggle Editing` tool. **Once you save an edit, it cannot be reverted, so make sure you are happy with it before saving!** If you toggle editing off without saving, it will ask you if you want to, and if you nay no, then it will discard your edits. Normally, it is a 
+
+Play around with these tools for a while, while digitizing new missing buildings or fixing poorly digitized existing ones.
+
+**Step 7)** Now let's suppose you were tasked with also creating a new layer for Airthrey Loch. To do it, click on the `New shapefile layer` button on the toolbar (ICON). On the new window, cliclo on the `...` button to select the folder where this new layer will be created, and then name it `Airthrey_loch.shp`. **Select the `Geometry type` to be `Polygon`, and the CRS to be `EPSG:27700`. Then click `OK`.
+
+**Stop and Think**
+
+- How many features are there in the new "Airthrey Loch" layer?
+
+**Step 8)** Select the "Airthrey Loch" layer and put it into editing mode. Tehn zoom to a 1:4000 scale so you can see the entire loch. Activate the `Add Polygon Feature` tool and start tracing the loch. Use the `Vertex tool` to adjust your shape if necessary, after you are done. **Don't forget to save your edits and turn off editing mode when you are done!**. 
+
+**Stop and Think**
+
+- How many features are there in the new "Airthrey Loch" layer now? 
+
+**Step 9)** You have also been asked to calculate the area of Airthrey Loch. First, open your project properties and make sure the unit for area measurements is "square meters" , on the `General` tab. Now right-click on the "Airthrey Loch" layer and select  `Open Attribute Table`. First, toggle edit mode back on, then click on the `New Field` (ICON) button and create an attribute field named `Name`, of the `text(string)` type, with a length of `20`. Click OK. Save the edits. 
+
+**Step 10)** Remove the `id` field by clicking on the `Delete field` button (ICON) and selecting `id`, then `OK`. Now type  `Airthrey Loch` directly under the `Name`field, where it says `NULL`. Then click on the `Open field calculator` button (ICON) and make sure `Create a new field` is checked. Name the field `Area_m2`, with field type `decimal number`, `length = 10` and precision = `2`. On the list of functions in the middle of the window, expand the `Geometry` option and double click on `$area`, so it is added to the `Expression`.
+
+**Stop and Think**
+
+- Before clicking ok, select the `$area` function and read its description on the right, then select the `area` function (without the `$`) and read it. Do you understand the difference?
+
+Notice that on the bottom of the `Expression` box there is a `Preview` field. It is a way to make sure the expression you are using to calculate the field value is correct. If it is not, it will return `Expression is invalid` (try typing some gibberish in the box). Save and disable edit mode. 
+
+**Step 11)** It is always a good idea to double checkif field mcalculations are correct. Use the `Measure area` tool (ICON) to trace the contour of the loch, and see if it roughly matches the area calculated as an attribute. 
+
+**Stop and Think**
+
+- Why use the field calculator instead of the `Measure area` tool? In whioh cases would you prefer one over the other, and why? 
+
+

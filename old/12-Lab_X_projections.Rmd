@@ -1,0 +1,96 @@
+---
+output:
+  html_document: default
+---
+
+# Lab X - Understanding Coordinate Reference Systems {#labX}
+
+**Step 1)** Download the 2020 country boundary data **in *GeoJSON* format, at the 1:10 million scale**, from this link:
+
+<https://ec.europa.eu/eurostat/web/gisco/geodata/reference-data/administrative-units-statistical-units/countries>
+
+**Stop and think:** who is the data provider? Does it seem reliable? **Stop and think:** what are the conditions (provisions) of use for the data?
+
+**Step 2)** Create a `lab_2` folder in your `GEOU9SP` main folder. Create a simple folder structure to organise the data, and then extract the downloaded data in its proper location.
+
+**Step 3)** Open QGIS and start a new project. Save it as `lab_2`on its proper folder. Then look at the folder holding the country data, using the QGIS browser. It should look like this:
+
+The GeoJSON format is a more recent GIS file format, commonly used for web-based mapping. It is derived from the JavaScript Object Notation (JSON) data file format, widely used to exchange data among websites and web servers.
+
+**Step 4)** Load on QGIS the files that have `4326` in their file names and have the `.geojson` extension. Turn visibility off for all files, and then turn back on and look at each dataset one at a time.
+
+**Stop and think:\*** what do you think the `BN`, `LB` and `RG` designations mean (on the file names)?
+
+Remove all layers, except for the one `BN` layer that has both the **inland** and **coastal** boundaries of the countries. Then right-click on this layer's name and go to `Properties > Information`.
+
+**Stop and think:** what is the Coordinate Reference System (CRS) for this dataset? **Stop and think:** what does the number 4326 on the file name mean?
+
+**Step 5)** Note, on the bottom QGIS status bar, that as you move your mouse pointer around, the coordinates for the mouse position are updated in real time. Also note what the map scale is.
+
+**Stop and Think:** Why doesn't the scale shown on the bar match the "advertised" scale for the dataset (1:10 million)?
+
+**Stop and Think:** The box on the very right of the QGIS status bar tells you what is the current **project** CRS. Is it the same as the **layer** CRS?
+
+Zoom to the UK in the shown layer Note how the scale at the bottom status bar changes with your zoom.
+
+**Stop and Think:** Does the shape of the UK look "right" to you? If not, what is the issue and what is the cause?
+
+**Step 6)** Click on the project projection box at the bottom right of the status bar. It is also a shortcut to open the Project options directly in the `CRS` tab. On the `Filter` text box, search for** EPSG:3035\*\*. Select this projection for the project and click `OK`.
+
+**Stop and think:** what was the message given by warning window that QGIS showed you when you applied the new CRS to the project? How did you respond to it?
+
+It is important to not "freak out" when an unexpected warning or error appear. **Take a breath, and read through the window or error message**, most often the explanation is right there. You just have to dare to look. If you clicked through it without looking, here is a screen capture of it:
+
+Look at the shape of the UK after the change in Project CRS. Then right click on the layer name and select "Zoom to Layer(s)".
+
+**Stop and Think:** How does the rest of the world look now? Why?
+**Stop and Think:** When you move your mouse, what unit are the coordinates in?
+
+Now right click on the layer name and go to `Properties > Information`. What does the projection information of the layer say?
+
+**Stop and Think:** Why did the map appearance changed if the layer CRS still the same?
+
+Now add to the project the file called `CNTR_BN_10M_2020_3035.geojson`.
+
+**Stop and Think:** What is the CRS of this layer? How well does it overlap with the previous file?
+
+Change the **project** CRS back to EPSG:4326 (also commonly referred to as just "lat, long").
+
+**Stop and Think:** How good is the overlap now?
+
+Finally, go back to the project CRS properties and click the box `No CRS` at the top of the window. Click `OK` and go back to your map. Right click on the **4326** layer and select `Zoom to Layer`. Then select the `zoom out tool` (
+ ![](https://docs.qgis.org/3.16/en/_images/mActionZoomOut.png) ) at the top row, and start clicking at the center of the map. Keep clicking as it gets really smalll - you should click about 15 times until the second dataset is fully visible. Check the properties of each layer to make sure they still have the same CRS of when you loaded them.
+
+**Stop and think:** what is happening now? Why don't the maps line up anymore, and why is the 4326 map so tiny compared to the 3050 map?
+
+**Step 7)** Download [this file](https://stir-my.sharepoint.com/:u:/g/personal/ts35_stir_ac_uk/EbzTUQC9k6FGmxWHSQifx2wBfo5Rq7CYZ4fd67WU79BD8A?e=aQUExq), extract it and add the contained shapefile to your QGIS project. **Reset the Project CRS to EPSG:3035**. Then go to the top menu bar and select `Vector > Geoprocessing > Clip`. Select the world layer in the EPSG:3035 projection as your `Input Layer`, and the new "clip_bounds" layer as your `Overlay Layer`. You can just leave the output as a temporary file, and click `Ok`. Turn off the visibility of the full world layers and the "clip_bounds" layer to see the result of the `Clip` operation, which will be named "Clipped".
+
+**Stop and think:** what does the `Clip` operation do?
+
+Rename the "Clipped" layer to "Clipped_3035" by **right clicking on it and selecting** `Rename layer`. Then repeat the `Clip` operation, this time selecting **the 4326 World layer as input**, and "clip_bounds" as overlay again. Rename the result to "Clipped_4326".
+
+Using what you learned on the previous lab activities, pick two contrasting colours for each "Clipped_..." layer, and make the lines thicker. Look at the edges of each clipped layer and check if they overlap perfectly.
+
+**Stop and think:** why are the clipping results  different even though the initial 3035 and 4236 layers looked perfectly aligned?
+
+**Step 8**) Go to `Vector > Data Management Tools > Reproject Data`. Select the 4326 world layer as your `Input Layer`, and EPSG:3035 as your `Target CRS`. Let the result be a temporary file and click `OK`. The new layer will be called "Reprojected". What is the CRS of this new layer (check on the layer properties window)?
+
+Now repeat the use of the `Clip` tool using "Reprojected" as the `Input Layer` and `clip_bounds` as the `Overlay Layer`. 
+
+**Stop and Think** Which of the originally clipped layers better matches this new clipped layer, "Clipped_3035" or "Clipped_4236"?
+
+**Stop and think:** what does the "Reproject" function do?
+
+**Congratulations!** You have finished Week 1! If you want to keep your temporary layers, make sure to right click on them and select `Make Permanent`. Then on the new window, click on the `...` box to choose the right folder, and give the file a name. After saving all temporary layers, remember to also save your project.
+
+ **The key learning goals for this lab are given below. If any of them is not entirely clear to you, go back to the start and try to see where each goal is being achieved.**
+
+1 - Teaching you to always be aware of CRS differences between datasets
+
+2 - Understand the difference between data CRS and project CRS
+
+3 - Understand the 'on the fly' reprojection that QGIS does to make all layers in the project to **visually** match the project CRS.
+
+4 - Be aware of the errors introduced by doing actual GIS operations (i.e. not just visualising) between data that have different CRSs.
+
+5 - Learn that data in a given CRS can be permanently transformed to a new CRS. One of the most important things for your projects is to always ensure all data is projected using the same CRS. Just changing the *project* CRS is not enough to guarantee correct operations between layers!
